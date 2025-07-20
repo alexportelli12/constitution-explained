@@ -2,7 +2,7 @@
 
 /* Maltese Constitution red - override for primary colors */
 .bg-primary-500 {
-  background-color: #CF142B;
+  background-color: #cf142b;
 }
 
 .bg-primary-600 {
@@ -18,7 +18,7 @@
 }
 
 .text-primary-500 {
-  color: #CF142B;
+  color: #cf142b;
 }
 
 .text-primary-600 {
@@ -34,7 +34,7 @@
 }
 
 .border-primary-500 {
-  border-color: #CF142B;
+  border-color: #cf142b;
 }
 
 .border-b-2 {
@@ -42,7 +42,7 @@
 }
 
 .focus\:ring-primary-500:focus {
-  --tw-ring-color: #CF142B;
+  --tw-ring-color: #cf142b;
 }
 
 .hover\:bg-primary-600:hover {
@@ -55,6 +55,11 @@
 
 .hover\:text-primary-700:hover {
   color: #991b1b;
+}
+
+/* Mobile sidebar overlay with 75% opacity Maltese red */
+.bg-primary-overlay {
+  background-color: rgba(207, 20, 43, 0.75);
 }
 
 /* Sticky header utilities */

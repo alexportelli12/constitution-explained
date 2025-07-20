@@ -23,52 +23,96 @@ export const Header = component$(() => {
 
   return (
     <>
-      <header class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex justify-between items-center h-16">
+      <header class="bg-white shadow-lg sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-6 lg:px-8">
+          <div class="flex justify-between items-center h-20">
             <div class="flex items-center">
               <div class="flex-shrink-0">
                 <Link
                   href="/"
-                  class="text-xl font-bold text-primary-900 hover:text-primary-700 transition-colors"
+                  class="block text-lg font-bold leading-tight transition-colors group"
                 >
-                  Maltese Constitution Explained
+                  <div class="text-primary-500 group-hover:text-primary-600">
+                    Maltese Constitution
+                  </div>
+                  <div class="italic text-primary-700 group-hover:text-primary-800">
+                    Explained
+                  </div>
                 </Link>
               </div>
             </div>
 
-            <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+            <div class="hidden sm:ml-6 sm:flex sm:space-x-2">
               <Link
                 href="/"
                 class={clsx(
-                  "inline-flex items-center px-1 pt-1 text-sm font-medium transition-colors",
+                  "flex items-center px-4 py-2 rounded-xl text-base font-medium transition-all duration-200",
                   isActive("/")
-                    ? "text-primary-900 border-b-2 border-primary-500"
-                    : "text-gray-500 hover:text-gray-700 hover:border-gray-300",
+                    ? "bg-primary-500 text-white shadow-lg"
+                    : "text-gray-700 hover:bg-gray-100 hover:text-gray-900",
                 )}
               >
+                <svg
+                  class="w-5 h-5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width={2}
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  />
+                </svg>
                 Home
               </Link>
               <Link
                 href="/overview"
                 class={clsx(
-                  "inline-flex items-center px-1 pt-1 text-sm font-medium transition-colors",
+                  "flex items-center px-4 py-2 rounded-xl text-base font-medium transition-all duration-200",
                   isActive("/overview")
-                    ? "text-primary-900 border-b-2 border-primary-500"
-                    : "text-gray-500 hover:text-gray-700 hover:border-gray-300",
+                    ? "bg-primary-500 text-white shadow-lg"
+                    : "text-gray-700 hover:bg-gray-100 hover:text-gray-900",
                 )}
               >
+                <svg
+                  class="w-5 h-5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width={2}
+                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                  />
+                </svg>
                 Overview
               </Link>
               <Link
                 href="/articles"
                 class={clsx(
-                  "inline-flex items-center px-1 pt-1 text-sm font-medium transition-colors",
+                  "flex items-center px-4 py-2 rounded-xl text-base font-medium transition-all duration-200",
                   isActive("/articles")
-                    ? "text-primary-900 border-b-2 border-primary-500"
-                    : "text-gray-500 hover:text-gray-700 hover:border-gray-300",
+                    ? "bg-primary-500 text-white shadow-lg"
+                    : "text-gray-700 hover:bg-gray-100 hover:text-gray-900",
                 )}
               >
+                <svg
+                  class="w-5 h-5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width={2}
+                    d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+                  />
+                </svg>
                 Articles
               </Link>
             </div>
@@ -76,7 +120,7 @@ export const Header = component$(() => {
             <div class="sm:hidden">
               <button
                 onClick$={toggleMobileMenu}
-                class="p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                class="p-3 rounded-full text-gray-500 hover:text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors"
                 aria-label="Toggle mobile menu"
               >
                 <svg

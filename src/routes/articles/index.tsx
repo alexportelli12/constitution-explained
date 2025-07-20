@@ -9,9 +9,9 @@ export default component$(() => {
       </h1>
       <div class="prose max-w-none">
         <p class="text-lg text-gray-600 mb-4">
-          Explore the individual articles of the Maltese Constitution. Each article
-          will be explained at different reading levels to make the Maltese Constitution
-          accessible to everyone.
+          Explore the individual articles of the Maltese Constitution. Each
+          article will be explained at different reading levels to make the
+          Maltese Constitution accessible to everyone.
         </p>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
           <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">

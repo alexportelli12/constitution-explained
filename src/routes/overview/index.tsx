@@ -9,9 +9,9 @@ export default component$(() => {
       </h1>
       <div class="prose max-w-none">
         <p class="text-lg text-gray-600 mb-4">
-          Welcome to the Maltese Constitution Overview page. This section will provide a
-          comprehensive overview of the Maltese Constitution, its structure, and
-          key principles.
+          Welcome to the Maltese Constitution Overview page. This section will
+          provide a comprehensive overview of the Maltese Constitution, its
+          structure, and key principles.
         </p>
         <p class="text-gray-600">Content coming soon...</p>
       </div>
