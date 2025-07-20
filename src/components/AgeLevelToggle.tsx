@@ -16,12 +16,12 @@ export const AgeLevelToggle = component$<AgeLevelToggleProps>(
     ];
 
     return (
-      <div class="flex flex-wrap gap-2 mb-6">
+      <div class="grid grid-cols-4 gap-2 my-2">
         {levels.map((level) => (
           <button
             key={level.key}
             class={clsx(
-              "px-4 py-2 rounded-xl text-base font-medium transition-all duration-200 cursor-pointer",
+              "px-2 py-2 rounded-xl text-sm sm:text-base font-medium transition-all duration-200 cursor-pointer min-w-0 text-center",
               activeLevel.value === level.key
                 ? "bg-primary-500 text-white shadow-lg"
                 : "text-gray-700 hover:bg-gray-100 hover:text-gray-900",

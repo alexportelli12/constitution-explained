@@ -7,3 +7,4 @@ export * from "./MobileSidebar";
 export * from "./router-head/router-head";
 export * from "./AgeLevelToggle";
 export * from "./MarkdownRenderer";
+export * from "./HeroImage";

@@ -25,6 +25,8 @@ Malta is a **republic** and a **neutral state** 🕊️, meaning it does not ali
 
 ### **Citizens’ Rights**
 
+![Citizens’ Rights Illustration](../../images/citizen-rights.png)
+
 Malta’s Constitution includes a list of **fundamental rights**, such as:
 
 - The right to life ❤️
@@ -78,6 +80,8 @@ The Constitution includes 4 Schedules:
 
 Malta’s Constitution shares a lot in common with those of other EU countries—but also has some unique features.
 
+![Constitution Differences Illustration](../../images/constitution-differences.png)
+
 ### ✅ Similarities:
 
 - **Protects rights and freedoms**
@@ -102,6 +106,8 @@ Malta’s Constitution shares a lot in common with those of other EU countries�
 ---
 
 ## 💡 Why It Matters
+
+![Malta Island Constitution Illustration](../../images/malta-island-constitution.png)
 
 Understanding the Constitution helps citizens:
 

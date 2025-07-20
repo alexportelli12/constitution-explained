@@ -1,7 +1,13 @@
-import { component$, useSignal, useTask$, useVisibleTask$, $ } from "@builder.io/qwik";
+import {
+  component$,
+  useSignal,
+  useTask$,
+  useVisibleTask$,
+  $,
+} from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { useLocation, useNavigate } from "@builder.io/qwik-city";
-import { AgeLevelToggle, MarkdownRenderer } from "../../components";
+import { AgeLevelToggle, MarkdownRenderer, HeroImage } from "../../components";
 import {
   fetchOverviewContent,
   type OverviewContent,
@@ -10,18 +16,20 @@ import {
 export default component$(() => {
   const loc = useLocation();
   const nav = useNavigate();
-  
+
   // Get initial level from URL or default to "citizen"
   const getInitialLevel = $(() => {
-    const levelParam = loc.url.searchParams.get('level');
-    const validLevels = ['5-year-old', '10-year-old', '15-year-old', 'citizen'];
-    return validLevels.includes(levelParam || '') ? levelParam! : 'citizen';
+    const levelParam = loc.url.searchParams.get("level");
+    const validLevels = ["5-year-old", "10-year-old", "15-year-old", "citizen"];
+    return validLevels.includes(levelParam || "") ? levelParam! : "citizen";
   });
-  
+
   // Initialize with URL parameter or default to "citizen"
-  const levelParam = loc.url.searchParams.get('level');
-  const validLevels = ['5-year-old', '10-year-old', '15-year-old', 'citizen'];
-  const initialLevel = validLevels.includes(levelParam || '') ? levelParam! : 'citizen';
+  const levelParam = loc.url.searchParams.get("level");
+  const validLevels = ["5-year-old", "10-year-old", "15-year-old", "citizen"];
+  const initialLevel = validLevels.includes(levelParam || "")
+    ? levelParam!
+    : "citizen";
   const activeLevel = useSignal<string>(initialLevel);
   const content = useSignal<OverviewContent | null>(null);
 
@@ -35,13 +43,26 @@ export default component$(() => {
     activeLevel.value = level;
     // Update URL with new level parameter
     const newUrl = new URL(loc.url);
-    newUrl.searchParams.set('level', level);
-    nav(newUrl.pathname + newUrl.search);
+    newUrl.searchParams.set("level", level);
+    nav(newUrl.pathname + newUrl.search, { scroll: false });
+  });
+
+  const getLevelDescription = $((level: string) => {
+    switch (level) {
+      case "5-year-old":
+        return "5 years old";
+      case "10-year-old":
+        return "10 years old";
+      case "15-year-old":
+        return "15 years old";
+      default:
+        return "an adult citizen";
+    }
   });
 
   // Watch for URL changes (back/forward navigation, direct links)
   useTask$(async ({ track }) => {
-    track(() => loc.url.searchParams.get('level'));
+    track(() => loc.url.searchParams.get("level"));
     const newLevel = await getInitialLevel();
     if (newLevel !== activeLevel.value) {
       activeLevel.value = newLevel;
@@ -66,29 +87,34 @@ export default component$(() => {
         </p>
       </div>
 
-      {/* Placeholder Hero Image */}
-      <div class="w-full h-48 bg-gradient-to-r from-red-100 to-red-50 rounded-lg mb-8 flex items-center justify-center">
-        <img
-          src="/placeholder-hero.jpg"
-          alt="Malta Constitution Hero"
-          class="w-full h-full object-cover rounded-lg"
-          onError$={(event) => {
-            // Fallback to gradient background
-            const target = event.target as HTMLImageElement;
-            target.style.display = "none";
-          }}
-        />
-        <div class="text-gray-500 text-center">
-          <div class="text-2xl mb-2">📜</div>
-          <p>Constitution Hero Image</p>
+      {/* Hero Image */}
+      <HeroImage
+        src="/images/constitution.png"
+        alt="Malta Constitution - Legal Document and Justice Symbols"
+        fallbackIcon="📜"
+        fallbackText="Constitution Hero Image"
+      />
+
+      {/* Age Level Toggle */}
+      <div class="sticky top-20 z-40 py-4 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 mb-2">
+        <div class="bg-white/90 backdrop-blur-md rounded-xl shadow-sm border border-gray-100 p-3">
+          <AgeLevelToggle
+            activeLevel={activeLevel}
+            onLevelChange={handleLevelChange}
+          />
         </div>
       </div>
 
-      {/* Age Level Toggle */}
-      <AgeLevelToggle
-        activeLevel={activeLevel}
-        onLevelChange={handleLevelChange}
-      />
+      {/* Dynamic Note */}
+      <div class="mb-4 p-3 bg-red-50 border-l-4 border-primary-500 rounded-r-lg">
+        <p class="text-sm text-primary-700">
+          Explain the Maltese constitution to me like I'm{" "}
+          <strong>
+            {getLevelDescription(activeLevel.value)}
+          </strong>
+          .
+        </p>
+      </div>
 
       {/* Content Area */}
       <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
@@ -103,11 +129,11 @@ export default component$(() => {
       </div>
 
       {/* Additional Info */}
-      <div class="mt-8 p-4 bg-blue-50 rounded-lg">
-        <p class="text-sm text-blue-800">
-          💡 <strong>Tip:</strong> Each explanation covers the same topics but
-          uses different language appropriate for different ages. Try switching
-          between levels to see the difference!
+      <div class="mt-8 p-4 bg-gray-50 rounded-lg border border-gray-200">
+        <p class="text-sm text-gray-700">
+          💡 <strong class="text-gray-900">Tip:</strong> Each explanation covers
+          the same topics but uses different language appropriate for different
+          ages. Try switching between levels to see the difference!
         </p>
       </div>
     </div>

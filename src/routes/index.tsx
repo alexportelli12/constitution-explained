@@ -1,5 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
+import { HeroImage } from "../components";
 
 export default component$(() => {
   return (
@@ -13,6 +14,15 @@ export default component$(() => {
           Making the Constitution of Malta accessible to everyone through
           age-appropriate explanations.
         </p>
+        
+        {/* Hero Image */}
+        <HeroImage
+          src="/images/valletta-skyline.png"
+          alt="Valletta Skyline - Malta's Historic Capital"
+          fallbackIcon="🏛️"
+          fallbackText="Malta's Constitutional Heritage"
+          gradientColors="from-blue-100 to-blue-50"
+        />
       </section>
 
       {/* Inspirational Quote Section */}
