@@ -38,8 +38,8 @@ export default component$(() => {
           </h2>
           <p class="text-lg sm:text-xl text-gray-600 leading-relaxed mb-6">
             Complex legal language shouldn't prevent citizens from understanding
-            their rights and responsibilities. Constitutional knowledge belongs to
-            everyone, not just lawyers and academics.
+            their rights and responsibilities. Constitutional knowledge belongs
+            to everyone, not just lawyers and academics.
           </p>
           <p class="text-lg sm:text-xl text-gray-600 leading-relaxed">
             This platform simplifies the Constitution of Malta into clear,
