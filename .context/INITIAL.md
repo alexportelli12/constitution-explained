@@ -1,28 +1,30 @@
 ## FEATURE:
 
-Create a global layout and navigation component for the site using Qwik and QwikUI.
+Create the Home / Landing Page at the root route (`/`) using Qwik.
 
-This includes a top-level layout (`src/routes/layout.tsx`) that wraps all pages with a consistent header, and a reusable `Header.tsx` component for navigation links. The navigation bar should include links to:
+The page should include:
 
-- Home (`/`)
-- Overview (`/overview`)
-- Articles (`/articles`)
+- A short welcome and introduction to the website's mission
+- A relevant quote on democracy or civic awareness
+- A brief explanation that the purpose of the site is to make the Maltese Constitution easier to understand by removing legal jargon
+- A simple call to action (e.g., a button that links to `/overview` or `/articles`)
 
-The layout must be responsive, mobile-first, and minimalistic in design using Tailwind CSS.
+The design must be clean, mobile-first, and styled with Tailwind CSS. Use QwikUI headless components where applicable (e.g., headings, buttons).
 
 ## DOCUMENTATION:
 
-- Qwik Routing: https://qwik.dev/docs/routing
-- Qwik Layouts: https://qwik.dev/docs/layout/ (example included)
-- QwikUI Headless Components: https://qwikui.com/docs/headless/introduction/
-- Tailwind CSS: https://tailwindcss.com/docs
+- Qwik Routing: https://qwik.dev/docs/routing/
+- Tailwind CSS Typography: https://tailwindcss.com/docs/typography-plugin
+- QwikUI Headless Elements: https://qwikui.com/docs/headless/introduction/
+- Sample quotes: https://www.goodreads.com/quotes/tag/democracy
 
 ## OTHER CONSIDERATIONS:
 
-- Use Qwik's `component$()` pattern and `useStylesScoped$()` for scoped styling if needed.
-- Navigation should highlight the current active route (if easy to implement).
-- Avoid using external routing libraries or client-side routers.
-- Ensure navigation works with QwikCity’s file-based routing (SSR-safe).
-- Mobile view should collapse navigation into a stacked or simplified format if necessary.
-- The header should not introduce unnecessary layout shifts or CLS (Cumulative Layout Shift).
-- QwikUI headless components may require custom styling via Tailwind — default to `div`+`a` patterns if needed.
+- Use `component$()` with functional composition (keep logic and layout clean)
+- Include visually distinct sections (quote, intro text, CTA)
+- Hero content should scale well on all screen sizes
+- Do not hardcode page height — layout should be fluid
+- Typography should emphasize readability and civic tone
+- If using a quote, prefer something like:
+  > “The most important political office is that of the private citizen.” — Louis Brandeis
+- Avoid clutter or overdesign — clarity and calmness are priorities
