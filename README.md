@@ -1,65 +1,146 @@
-# Qwik City App ⚡️
+# Constitution Explained 🇲🇹 ⚡️
 
-- [Qwik Docs](https://qwik.dev/)
-- [Discord](https://qwik.dev/chat)
-- [Qwik GitHub](https://github.com/QwikDev/qwik)
-- [@QwikDev](https://twitter.com/QwikDev)
-- [Vite](https://vitejs.dev/)
+<p align="center">
+  <strong>A civic education platform that simplifies the Maltese Constitution by offering age-appropriate explanations.</strong>
+</p>
+
+<p align="center">
+  <a href="https://github.com/yourusername/constitution-explained/blob/main/LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License">
+  </a>
+  <a href="https://qwik.dev/">
+    <img src="https://img.shields.io/badge/Qwik-Framework-blueviolet.svg" alt="Qwik Version">
+  </a>
+  <a href="https://firebase.google.com/">
+    <img src="https://img.shields.io/badge/Firebase-Enabled-orange.svg" alt="Firebase">
+  </a>
+</p>
 
 ---
 
-## Project Structure
+## 🎯 Overview
 
-This project is using Qwik with [QwikCity](https://qwik.dev/qwikcity/overview/). QwikCity is just an extra set of tools on top of Qwik to make it easier to build a full site, including directory-based routing, layouts, and more.
+**Constitution Explained** makes the Constitution of Malta more accessible by breaking down each article into simplified explanations for different age groups: 5, 10, 15, adults, and the original text.
 
-Inside your project, you'll see the following directory structure:
+### ✨ Key Features
 
-```
-├── public/
-│   └── ...
-└── src/
-    ├── components/
-    │   └── ...
-    └── routes/
-        └── ...
-```
+- 📜 Article Viewer - Read constitutional articles one at a time
+- 👶 Age-Level Toggle - View explanations simplified for age 5, 10, 15, adults, or read the original legal version
+- 🔍 Article Directory - Search and filter through all articles
+- 📁 Static Asset Storage - Host Markdown articles as static assets in the public folder
+- 💬 Open Source Collaboration - Community can contribute to simplify content
+- 📱 Mobile-First Design - Fully responsive across devices
+- 🧠 AI-Aware Planning - Designed with Claude Code-compatible project specs
 
-- `src/routes`: Provides the directory-based routing, which can include a hierarchy of `layout.tsx` layout files, and an `index.tsx` file as the page. Additionally, `index.ts` files are endpoints. Please see the [routing docs](https://qwik.dev/qwikcity/routing/overview/) for more info.
+---
 
-- `src/components`: Recommended directory for components.
+## 🚀 Quick Start
 
-- `public`: Any static assets, like images, can be placed in the public directory. Please see the [Vite public directory](https://vitejs.dev/guide/assets.html#the-public-directory) for more info.
+### Prerequisites
 
-## Add Integrations and deployment
+- **Node.js** (v18+)
+- **npm**
+- **Firebase CLI**
+- **Qwik CLI**
 
-Use the `npm run qwik add` command to add additional integrations. Some examples of integrations includes: Cloudflare, Netlify or Express Server, and the [Static Site Generator (SSG)](https://qwik.dev/qwikcity/guides/static-site-generation/).
+### Installation
 
-```shell
-npm run qwik add # or `yarn qwik add`
-```
+```bash
+# Clone the repo
+git clone https://github.com/alexportelli/constitution-explained.git
+cd constitution-explained
 
-## Development
+# Install dependencies
+npm install
 
-Development mode uses [Vite's development server](https://vitejs.dev/). The `dev` command will server-side render (SSR) the output during development.
-
-```shell
-npm start # or `yarn start`
-```
-
-> Note: during dev mode, Vite may request a significant number of `.js` files. This does not represent a Qwik production build.
-
-## Preview
-
-The preview command will create a production build of the client modules, a production build of `src/entry.preview.tsx`, and run a local server. The preview server is only for convenience to preview a production build locally and should not be used as a production server.
-
-```shell
-npm run preview # or `yarn preview`
+# Start development server
+npm start
 ```
 
-## Production
+---
 
-The production build will generate client and server modules by running both client and server build commands. The build command will use Typescript to run a type check on the source code.
+## 🏗️ Architecture
 
-```shell
-npm run build # or `yarn build`
+### Tech Stack
+
+- **Frontend**: Qwik + TypeScript
+- **Styling**: Tailwind CSS
+- **Backend**: Firebase Hosting
+- **Content**: Markdown files parsed at runtime
+- **AI Tooling**: Claude Code context (.context, PRPs folders)
+
+### Project Structure
+
 ```
+constitution-explained/
+├── .context/               # Claude context files
+├── PRPs/                   # Product Requirement Prompts
+├── public/articles/        # Markdown files as static assets
+├── public/                 # Static assets
+├── src/
+│   ├── components/         # Reusable UI components
+│   ├── lib/                # Markdown parsing/fetching logic
+│   └── routes/             # Pages (home, article list, detail)
+└── CLAUDE.md               # Project overview for Claude
+```
+
+---
+
+## 🛡️ Security & Privacy
+
+- 📁 Static file serving for secure article access
+- 🔍 No user authentication in MVP (read-only access)
+- 📁 Markdown-based content model (easy to audit and verify)
+
+---
+
+## 🧪 Testing
+
+```bash
+# Run dev server and manually test components and routes
+npm start
+```
+
+Test strategy for MVP will be manual with unit/component testing added in future releases.
+
+---
+
+## 🚀 Deployment
+
+```bash
+# Deploy to Firebase
+firebase login
+firebase deploy
+```
+
+Supports single-page app routing and Markdown asset hosting via static files.
+
+---
+
+### Development Workflow
+
+1. **Fork** the repository
+2. **Create** a new branch: `feature/article-toggle`
+3. **Follow** project conventions from [CLAUDE.md](CLAUDE.md)
+4. **Submit** a Pull Request with clear description
+5. **Review** and merge after approval
+
+---
+
+## 📚 Documentation
+
+- **[CLAUDE.md](CLAUDE.md)**: High-level overview and coding standards
+- **[.context/PLANNING.md](.context/PLANNING.md)**: Feature planning and routes
+- **[.context/INITIAL.md](.context/INITIAL.md)**: MVP setup and first tasks
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+<p align="center">
+  <strong>Built with ⚡️ Qwik • Powered by 🔥 Firebase • Designed for 🇲🇹 citizens</strong>
+</p>
