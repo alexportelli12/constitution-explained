@@ -55,6 +55,7 @@ Enhance the existing Home page at `/` to create a more engaging, professional la
 ### 📄 Current Implementation
 
 **File: `src/routes/index.tsx`**
+
 ```tsx
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
@@ -93,6 +94,7 @@ export default component$(() => {
 ### 📄 Layout Context
 
 **File: `src/routes/layout.tsx`**
+
 ```tsx
 import { component$, Slot } from "@builder.io/qwik";
 import { Header, Footer } from "../components";
@@ -113,14 +115,27 @@ export default component$(() => {
 ### 📄 Styling Context
 
 **File: `src/global.css` (Custom Primary Colors)**
+
 ```css
 /* Maltese Constitution red - override for primary colors */
-.bg-primary-500 { background-color: #CF142B; }
-.bg-primary-600 { background-color: #b91c1c; }
-.bg-primary-50 { background-color: #fef2f2; }
-.text-primary-500 { color: #CF142B; }
-.text-primary-900 { color: #641e16; }
-.border-primary-500 { border-color: #CF142B; }
+.bg-primary-500 {
+  background-color: #cf142b;
+}
+.bg-primary-600 {
+  background-color: #b91c1c;
+}
+.bg-primary-50 {
+  background-color: #fef2f2;
+}
+.text-primary-500 {
+  color: #cf142b;
+}
+.text-primary-900 {
+  color: #641e16;
+}
+.border-primary-500 {
+  border-color: #cf142b;
+}
 ```
 
 ### 📄 Documentation & References
@@ -172,6 +187,7 @@ src/
 ### 🔭 Desired Outcome After Enhancement
 
 **Enhanced Home Page Features:**
+
 - Prominent inspirational civic quote section
 - Clear mission statement about removing legal jargon
 - Visually distinct hero, mission, and action sections
@@ -204,7 +220,7 @@ src/
 **Target File: `src/routes/index.tsx`**
 
 1. **Hero Section** - Main title and subtitle with Malta flag emoji
-2. **Quote Section** - Inspirational democracy/civic quote with proper attribution  
+2. **Quote Section** - Inspirational democracy/civic quote with proper attribution
 3. **Mission Section** - Explanation of legal jargon removal purpose
 4. **CTA Section** - Enhanced call-to-action buttons with better spacing
 
@@ -268,7 +284,10 @@ export default component$(() => {
       {/* Mission Section */}
       <section class="mb-16">
         <h2>Our Mission</h2>
-        <p>Complex legal language shouldn't prevent citizens from understanding their rights...</p>
+        <p>
+          Complex legal language shouldn't prevent citizens from understanding
+          their rights...
+        </p>
       </section>
 
       {/* CTA Section */}
@@ -350,19 +369,22 @@ npm run preview
 ## 📋 Final Validation Checklist
 
 **Content & Messaging:**
+
 - [ ] Title removes "V2" and presents clean messaging
 - [ ] Democracy quote displays prominently with attribution
 - [ ] Mission clearly explains legal jargon removal purpose
 - [ ] Tone is civic, friendly, and professional
 
 **Design & UX:**
-- [ ] Mobile-first responsive design works across breakpoints  
+
+- [ ] Mobile-first responsive design works across breakpoints
 - [ ] Visual sections are distinct and well-organized
 - [ ] Typography emphasizes readability
 - [ ] Custom Maltese red primary colors are used correctly
 - [ ] Spacing and visual hierarchy guide user flow
 
 **Technical Quality:**
+
 - [ ] Build passes: `npm run build`
 - [ ] Type check passes: `npm run build.types`
 - [ ] Linting passes: `npm run lint`
@@ -372,6 +394,7 @@ npm run preview
 - [ ] No setTimeout anti-patterns used
 
 **Navigation & Integration:**
+
 - [ ] CTAs link correctly to /overview and /articles
 - [ ] Page integrates properly with layout.tsx
 - [ ] Header navigation highlights home page when active
@@ -383,7 +406,7 @@ npm run preview
 
 - ❌ **Hardcoding page height** — layout should be fluid and content-driven
 - ❌ **Using setTimeout for any state management** — violates CLAUDE.md rules
-- ❌ **Custom CSS instead of Tailwind** — maintain utility-first approach  
+- ❌ **Custom CSS instead of Tailwind** — maintain utility-first approach
 - ❌ **Ignoring mobile-first design** — responsive design is a priority
 - ❌ **Overdesign or clutter** — clarity and calmness are priorities
 - ❌ **Breaking component export patterns** — maintain centralized exports if adding components
@@ -396,8 +419,9 @@ npm run preview
 **9/10** - This PRP provides comprehensive context including current implementation, specific requirements, styling patterns, validation steps, and clear task breakdown. An AI agent should be able to successfully enhance the Home page following these specifications in a single implementation pass.
 
 The high confidence is based on:
+
 - Complete current code context provided
 - Clear enhancement requirements from INITIAL.md
-- Specific Qwik patterns and styling guidelines included  
+- Specific Qwik patterns and styling guidelines included
 - Comprehensive validation checklist for quality assurance
 - Anti-patterns explicitly called out to avoid common mistakes
