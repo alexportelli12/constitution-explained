@@ -6,7 +6,7 @@ export default component$(() => {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div class="text-center">
         <h1 class="text-4xl font-bold text-gray-900 mb-6">
-          Welcome to Maltese Constitution Explained 🇲🇹
+          V2 Welcome to Maltese Constitution Explained 🇲🇹
         </h1>
         <p class="text-xl text-gray-600 mb-8">
           Making the Constitution of Malta accessible to everyone through
@@ -36,7 +36,8 @@ export const head: DocumentHead = {
   meta: [
     {
       name: "description",
-      content: "Learn about the Constitution of Malta with age-appropriate explanations for everyone.",
+      content:
+        "Learn about the Constitution of Malta with age-appropriate explanations for everyone.",
     },
   ],
 };
