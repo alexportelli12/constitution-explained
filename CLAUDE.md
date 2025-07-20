@@ -70,6 +70,27 @@ const handleAction = $((path: string) => {
 
 **Why:** `setTimeout` creates race conditions, unpredictable behavior, and makes code harder to test and debug. Always use proper event handling, lifecycle hooks, or navigation APIs instead.
 
+#### ❌ Never Use Inline Styles
+
+```typescript
+// ❌ BAD: Using inline styles
+<div
+  class="fixed inset-0 z-[60]"
+  style="background-color: rgba(207, 20, 43, 0.75);"
+/>
+
+// ✅ GOOD: Create custom CSS classes for complex styling
+// In global.css:
+.bg-primary-overlay {
+  background-color: rgba(207, 20, 43, 0.75);
+}
+
+// In component:
+<div class="fixed inset-0 bg-primary-overlay z-[60]" />
+```
+
+**Why:** Inline styles break the design system, are harder to maintain, override CSS specificity, and prevent consistent theming. When Tailwind utilities don't work properly (like opacity modifiers), create semantic custom CSS classes instead of resorting to inline styles.
+
 ### 🧱 Architecture
 
 > See [`PLANNING.md`](./.context/PLANNING.md#architecture-overview) for full rationale.

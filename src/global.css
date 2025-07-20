@@ -57,6 +57,11 @@
   color: #991b1b;
 }
 
+/* Mobile sidebar overlay with 75% opacity Maltese red */
+.bg-primary-overlay {
+  background-color: rgba(207, 20, 43, 0.75);
+}
+
 /* Sticky header utilities */
 .sticky {
   position: sticky;
