@@ -1,4 +1,4 @@
-# TASK.md — Personal Finance Tool Task Log
+# TASK.md — Maltese Constitution Explained Task Log
 
 > This file tracks **active**, **completed**, and **discovered** tasks.
 > Always update this file **before starting a task** and **immediately after completing one**.

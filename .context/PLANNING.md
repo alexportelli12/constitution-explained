@@ -145,11 +145,18 @@ Plain language adult version...
 
 ### File Organization
 
-- `src/components/` for reusable elements
+- `src/components/` for reusable elements with centralized exports via `index.ts`
 - `src/routes/` for pages (QwikCity)
 - `src/lib/` for markdown/Firebase helpers
 - `.context/` for planning/specs
 - `PRPs/` for structured prompts and feature specs
+
+### Component Organization Standards
+
+- **Central Exports**: All components must be re-exported from `src/components/index.ts` using `export * from "./ComponentName"`
+- **Import Pattern**: Use `import { ComponentName } from "../components"` instead of direct file paths
+- **Export Pattern**: Use `export * from "./ComponentName"` for re-exports, no default exports for components
+- **Subdirectories**: Complex components with multiple files go in subdirectories (e.g., `router-head/`)
 
 ### Code Quality
 
