@@ -1,30 +1,46 @@
 ## FEATURE:
 
-Create the Home / Landing Page at the root route (`/`) using Qwik.
+Create the Overview Page at route `/overview` using Qwik. This page will serve as a high-level, simplified introduction to the Maltese Constitution, presented in different reading levels.
 
-The page should include:
+There are four overview documents stored in the following static markdown files located in `constitution/overview/`:
 
-- A short welcome and introduction to the website's mission
-- A relevant quote on democracy or civic awareness
-- A brief explanation that the purpose of the site is to make the Maltese Constitution easier to understand by removing legal jargon
-- A simple call to action (e.g., a button that links to `/overview` or `/articles`)
+- `5-year-old.md`
+- `10-year-old.md`
+- `15-year-old.md`
+- `adult.md`
 
-The design must be clean, mobile-first, and styled with Tailwind CSS. Use QwikUI headless components where applicable (e.g., headings, buttons).
+The user should be able to toggle between these different versions using a simple UI. Each version should be rendered from its respective markdown file and styled to appear clean, readable, and familiar to content creators — as if they were editing in markdown.
 
 ## DOCUMENTATION:
 
-- Qwik Routing: https://qwik.dev/docs/routing/
-- Tailwind CSS Typography: https://tailwindcss.com/docs/typography-plugin
-- QwikUI Headless Elements: https://qwikui.com/docs/headless/introduction/
-- Sample quotes: https://www.goodreads.com/quotes/tag/democracy
+- Markdown Rendering in Qwik: https://qwik.dev/docs/integrations/markdown/
+- QwikUI Headless Tabs (optional for toggles): https://qwikui.com/docs/headless/tabs/
+- Tailwind Typography Plugin: https://tailwindcss.com/docs/typography-plugin
+- Markdown to HTML Conversion (if not SSR’d): Use `marked`, `remark`, or similar
 
 ## OTHER CONSIDERATIONS:
 
-- Use `component$()` with functional composition (keep logic and layout clean)
-- Include visually distinct sections (quote, intro text, CTA)
-- Hero content should scale well on all screen sizes
-- Do not hardcode page height — layout should be fluid
-- Typography should emphasize readability and civic tone
-- If using a quote, prefer something like:
-  > “The most important political office is that of the private citizen.” — Louis Brandeis
-- Avoid clutter or overdesign — clarity and calmness are priorities
+- Create a component that fetches and renders the markdown files from `/constitution/overview/*.md`
+- Apply Tailwind typography classes (e.g., `prose`) to style the content for readability
+- Use placeholders for:
+  - A **hero image** section at the top of the page
+  - One or more **inline images** embedded within the markdown content
+- Markdown structure may include headings, paragraphs, bullet lists, numbered lists and image references (use `<img src="/placeholder.jpg" />` for now)
+- Ensure the content block is mobile-first, fluid, and accessible
+- The toggle between versions should be clear and easily reachable
+- Files should be easy to update in the future without code changes — emphasize markdown friendliness
+
+Example markdown layout:
+
+```md
+# What is the Constitution?
+
+![hero](/placeholder-hero.jpg)
+
+The Constitution is a set of rules...
+
+![illustration](/placeholder-inline.jpg)
+```
+
+- No Firebase usage — files are statically served
+- Fallback UI should show if a file fails to load or is malformed
