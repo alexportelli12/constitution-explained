@@ -42,6 +42,13 @@ These standards must be followed:
 - **Utilities**: use `clsx` for conditional classes
 - File size: split components over 500 lines
 
+### 🗂️ Component Organization
+
+- **Index File**: Always maintain `src/components/index.ts` with re-exports of all components
+- **Import Style**: Use centralized imports: `import { Header, Footer } from "../components"`
+- **Export Pattern**: Use `export * from "./ComponentName"` for re-exports, no default exports for components
+- **File Structure**: Keep related components in subdirectories when they have multiple files
+
 ### 🚫 Anti-Patterns & Best Practices
 
 #### ❌ Never Use setTimeout for State Management
@@ -69,6 +76,7 @@ const handleAction = $((path: string) => {
 
 - **Routing**: File-based via `src/routes/` (QwikCity)
 - **Components**: Use `component$()` for all Qwik components
+- **Component Organization**: Centralized exports via `src/components/index.ts` for clean imports
 - **Data Fetching**: Markdown content is served as static assets from the public folder and parsed client-side
 - **UI Logic**: Toggle components manage which age-level explanation is shown
 - **Markdown**: Each Maltese Constitution article stored in its own `.md` file with structured `##` sections (original, explain_5, explain_10, etc.)
