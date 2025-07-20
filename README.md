@@ -1,7 +1,7 @@
-# Constitution Explained 🇲🇹 ⚡️
+# Maltese Constitution Explained 🇲🇹 ⚡️
 
 <p align="center">
-  <strong>A civic education platform that simplifies the Maltese Constitution by offering age-appropriate explanations.</strong>
+  <strong>A civic education platform that simplifies the Constitution of Malta by offering age-appropriate explanations.</strong>
 </p>
 
 <p align="center">
@@ -20,13 +20,13 @@
 
 ## 🎯 Overview
 
-**Constitution Explained** makes the Constitution of Malta more accessible by breaking down each article into simplified explanations for different age groups: 5, 10, 15, adults, and the original text.
+**Maltese Constitution Explained** makes the Constitution of Malta more accessible by breaking down each article into simplified explanations for different age groups: 5, 10, 15, adults, and the original text.
 
 ### ✨ Key Features
 
-- 📜 Article Viewer - Read constitutional articles one at a time
+- 📜 Article Viewer - Read Maltese constitutional articles one at a time
 - 👶 Age-Level Toggle - View explanations simplified for age 5, 10, 15, adults, or read the original legal version
-- 🔍 Article Directory - Search and filter through all articles
+- 🔍 Article Directory - Search and filter through all Maltese Constitution articles
 - 📁 Static Asset Storage - Host Markdown articles as static assets in the public folder
 - 💬 Open Source Collaboration - Community can contribute to simplify content
 - 📱 Mobile-First Design - Fully responsive across devices

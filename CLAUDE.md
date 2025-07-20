@@ -1,8 +1,8 @@
-# CLAUDE.md — Constitution Explained (Qwik)
+# CLAUDE.md — Maltese Constitution Explained (Qwik)
 
 ## 🧠 **Context & Workflow Expectations**
 
-This file governs how Claude and developers should operate within the Constitution Explained codebase.
+This file governs how Claude and developers should operate within the Maltese Constitution Explained codebase.
 
 ### ✅ Before You Start
 
@@ -42,6 +42,27 @@ These standards must be followed:
 - **Utilities**: use `clsx` for conditional classes
 - File size: split components over 500 lines
 
+### 🚫 Anti-Patterns & Best Practices
+
+#### ❌ Never Use setTimeout for State Management
+
+```typescript
+// ❌ BAD: Using setTimeout to coordinate UI state
+onClick$={() => {
+  setTimeout(() => {
+    someState.value = false;
+  }, 100);
+}}
+
+// ✅ GOOD: Use proper event handling and navigation
+const handleAction = $((path: string) => {
+  someState.value = false;
+  navigate(path);
+});
+```
+
+**Why:** `setTimeout` creates race conditions, unpredictable behavior, and makes code harder to test and debug. Always use proper event handling, lifecycle hooks, or navigation APIs instead.
+
 ### 🧱 Architecture
 
 > See [`PLANNING.md`](./.context/PLANNING.md#architecture-overview) for full rationale.
@@ -50,7 +71,7 @@ These standards must be followed:
 - **Components**: Use `component$()` for all Qwik components
 - **Data Fetching**: Markdown content is served as static assets from the public folder and parsed client-side
 - **UI Logic**: Toggle components manage which age-level explanation is shown
-- **Markdown**: Each article stored in its own `.md` file with structured `##` sections (original, explain_5, explain_10, etc.)
+- **Markdown**: Each Maltese Constitution article stored in its own `.md` file with structured `##` sections (original, explain_5, explain_10, etc.)
 
 ---
 
@@ -82,16 +103,18 @@ Testing is encouraged for all utility functions and logic-heavy components.
 For Claude, GPT, or other agents:
 
 - ❌ Never assume context — ask for clarification
-- ❌ Don’t invent APIs or code — stick to actual project structure
+- ❌ Don't invent APIs or code — stick to actual project structure
 - ✅ Confirm file/module paths before using
 - ❌ Never delete/refactor outside the task list unless explicitly told
+- ❌ **Never use `setTimeout` as a solution** — always implement proper event handling, lifecycle management, or navigation APIs
+- ✅ **Code quality over quick fixes** — take time to implement clean, maintainable solutions
 
 ---
 
 ## 📌 Final Notes
 
 - All major plans and decisions are documented in [`PLANNING.md`](./.context/PLANNING.md)
-- Static assets in the public folder house article Markdown files
+- Static assets in the public folder house Maltese Constitution article Markdown files
 - Content is pulled client-side and rendered with age-level toggle
 - Mobile-first design is a priority
 - Open-source collaboration is encouraged

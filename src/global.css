@@ -1,1 +1,98 @@
 @import "tailwindcss";
+
+/* Maltese Constitution red - override for primary colors */
+.bg-primary-500 {
+  background-color: #CF142B;
+}
+
+.bg-primary-600 {
+  background-color: #b91c1c;
+}
+
+.bg-primary-50 {
+  background-color: #fef2f2;
+}
+
+.bg-primary-100 {
+  background-color: #fee2e2;
+}
+
+.text-primary-500 {
+  color: #CF142B;
+}
+
+.text-primary-600 {
+  color: #b91c1c;
+}
+
+.text-primary-700 {
+  color: #991b1b;
+}
+
+.text-primary-900 {
+  color: #641e16;
+}
+
+.border-primary-500 {
+  border-color: #CF142B;
+}
+
+.border-b-2 {
+  border-bottom-width: 2px;
+}
+
+.focus\:ring-primary-500:focus {
+  --tw-ring-color: #CF142B;
+}
+
+.hover\:bg-primary-600:hover {
+  background-color: #b91c1c;
+}
+
+.hover\:bg-primary-50:hover {
+  background-color: #fef2f2;
+}
+
+.hover\:text-primary-700:hover {
+  color: #991b1b;
+}
+
+/* Sticky header utilities */
+.sticky {
+  position: sticky;
+}
+
+.top-0 {
+  top: 0;
+}
+
+.z-50 {
+  z-index: 50;
+}
+
+/* Footer utilities */
+.border-t {
+  border-top-width: 1px;
+  border-top-style: solid;
+}
+
+.mt-16 {
+  margin-top: 4rem;
+}
+
+/* Flexbox layout utilities */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
