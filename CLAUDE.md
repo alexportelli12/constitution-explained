@@ -100,7 +100,7 @@ const handleAction = $((path: string) => {
 - **Component Organization**: Centralized exports via `src/components/index.ts` for clean imports
 - **Data Fetching**: Markdown content is served as static assets from the public folder and parsed client-side
 - **UI Logic**: Toggle components manage which age-level explanation is shown
-- **Markdown**: Each Maltese Constitution article stored in its own `.md` file with structured `##` sections (original, explain_5, explain_10, etc.)
+- **Markdown**: Each Maltese Constitution chapter stored in its own `.md` file with structured `##` sections (original, explain_5, explain_10, etc.)
 
 ---
 
@@ -143,7 +143,7 @@ For Claude, GPT, or other agents:
 ## 📌 Final Notes
 
 - All major plans and decisions are documented in [`PLANNING.md`](./.context/PLANNING.md)
-- Static assets in the public folder house Maltese Constitution article Markdown files
+- Static assets in the public folder house Maltese Constitution chapter Markdown files
 - Content is pulled client-side and rendered with age-level toggle
 - Mobile-first design is a priority
 - Open-source collaboration is encouraged

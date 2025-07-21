@@ -20,7 +20,7 @@ A mobile-first civic education platform that simplifies the Maltese Constitution
 
 ### Key Architectural Decisions
 
-- **Markdown-Driven Content**: Each article and its simplified versions live in a single Markdown file
+- **Markdown-Driven Content**: Each chapter and its simplified versions live in a single Markdown file
 - **Client-Fetched Content**: Markdown is served as static assets and parsed at runtime
 - **Component-Based Rendering**: Explanation toggles, layout logic, and markdown rendering are split into reusable components
 - **AI-Aware Planning**: Structured prompts and context used for spec-first dev with Claude
@@ -38,21 +38,21 @@ A mobile-first civic education platform that simplifies the Maltese Constitution
   - CTA to browse Constitution
   - Overview of simplification strategy
 
-#### **Articles List** (`/articles`)
+#### **Chapters List** (`/chapters`)
 
-- **Purpose**: List all constitutional articles
+- **Purpose**: List all constitutional chapters
 - **Features**:
-  - Search/filter articles
-  - Links to each article page
-  - Show article title and number
+  - Search/filter chapters
+  - Links to each chapter page
+  - Show chapter title and number
 
-#### **Article Detail** (`/article/:id`)
+#### **Chapter Detail** (`/chapters/:id`)
 
 - **Purpose**: Display individual article with age-level toggle
 - **Features**:
   - Toggle between 5, 10, 15, adult, and original versions
   - Markdown-rendered content sections
-  - Navigation to next/previous articles
+  - Navigation to next/previous chapters
 
 ---
 
@@ -118,7 +118,7 @@ More detailed explanation...
 Plain language adult version...
 ```
 
-- Content is stored as static assets under `public/articles/`
+- Content is stored as static assets under `public/constitution/`
 - Fetched dynamically by `fetchMarkdown.ts` in `src/lib/`
 
 ---
@@ -136,7 +136,7 @@ Plain language adult version...
 ### Firebase Configuration
 
 - Hosting: SPA with fallback to `index.html`
-- Static Assets: Public access to `/articles/` directory in public folder
+- Static Assets: Public access to `/constitution/` directory in public folder
 - CLI: `firebase deploy`
 
 ---
@@ -173,7 +173,7 @@ Plain language adult version...
 - **Multilingual Support**: Add Maltese translations
 - **Contributor Flow**: Let users submit or edit explanations
 - **Dark Mode**: Theme toggle
-- **Bookmarking**: Let users save favorite articles
+- **Bookmarking**: Let users save favorite chapters
 
 ### Technical Debt
 

@@ -69,10 +69,10 @@ export default component$(() => {
             Learn About the Constitution
           </a>
           <a
-            href="/articles"
+            href="/chapters"
             class="inline-block border-2 border-primary-500 text-primary-500 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-primary-50 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           >
-            Browse Articles
+            Browse Chapters
           </a>
         </div>
       </section>

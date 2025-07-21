@@ -1,6 +1,6 @@
 ## FEATURE:
 
-Create the Browse Articles Page at route `/articles` using Qwik. This page will allow users to browse the Constitution by chapter and article, switching between simplified versions written for different age levels.
+Create the Browse Chapters Page at route `/chapters` using Qwik. This page will allow users to browse the Constitution by chapter, switching between simplified versions written for different age levels.
 
 Markdown content is located in:
 `public/constitution/chapters/{age-level}/{chapter}.md`
@@ -47,7 +47,7 @@ This constant will be used for filtering/searching the content by keyword and ti
   - A static note:
     > “Want to read the full Constitution? Visit [legislation.mt](https://legislation.mt) to view or download the complete PDF.”
 
-- Use QwikUI accordion or collapsible structure for chapters/articles list
+- Use QwikUI accordion or collapsible structure for chapters list
 - Content should load quickly and display clearly on all screen sizes
 - Graceful fallback if markdown is missing or fetch fails
 - Preload titles and descriptions from the constant to make search snappy
