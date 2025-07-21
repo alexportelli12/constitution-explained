@@ -1,46 +1,103 @@
 ## FEATURE:
 
-Create the Overview Page at route `/overview` using Qwik. This page will serve as a high-level, simplified introduction to the Maltese Constitution, presented in different reading levels.
+Create the Browse Articles Page at route `/articles` using Qwik. This page will allow users to browse the Constitution by chapter and article, switching between simplified versions written for different age levels.
 
-There are four overview documents stored in the following static markdown files located in `constitution/overview/`:
+Markdown content is located in:
+`public/constitution/chapters/{age-level}/{chapter}.md`
 
-- `5-year-old.md`
-- `10-year-old.md`
-- `15-year-old.md`
-- `adult.md`
+### Age levels (folder names):
 
-The user should be able to toggle between these different versions using a simple UI. Each version should be rendered from its respective markdown file and styled to appear clean, readable, and familiar to content creators — as if they were editing in markdown.
+- `5-year-old`
+- `10-year-old`
+- `15-year-old`
+- `citizen`
+
+### Chapter filenames:
+
+- Example: `1.md`, `10A.md`, `11.md`, etc.
+
+---
 
 ## DOCUMENTATION:
 
-- Markdown Rendering in Qwik: https://qwik.dev/docs/integrations/markdown/
-- QwikUI Headless Tabs (optional for toggles): https://qwikui.com/docs/headless/tabs/
-- Tailwind Typography Plugin: https://tailwindcss.com/docs/typography-plugin
-- Markdown to HTML Conversion (if not SSR’d): Use `marked`, `remark`, or similar
+- Qwik Routing: https://qwik.dev/docs/routing/
+- Tailwind Grid and Typography: https://tailwindcss.com/docs
+- QwikUI Headless Accordion (for chapter/article list): https://qwikui.com/docs/headless/accordion/
+- Markdown rendering: https://marked.js.org/ (already an existing component for rendering markdown - MarkdownRenderer.tsx)
+
+---
 
 ## OTHER CONSIDERATIONS:
 
-- Create a component that fetches and renders the markdown files from `/constitution/overview/*.md`
-- Apply Tailwind typography classes (e.g., `prose`) to style the content for readability
-- Use placeholders for:
-  - A **hero image** section at the top of the page
-  - One or more **inline images** embedded within the markdown content
-- Markdown structure may include headings, paragraphs, bullet lists, numbered lists and image references (use `<img src="/placeholder.jpg" />` for now)
-- Ensure the content block is mobile-first, fluid, and accessible
-- The toggle between versions should be clear and easily reachable
-- Files should be easy to update in the future without code changes — emphasize markdown friendliness
+- Use an `AgeLevelToggle` component to allow switching between age versions
+- Create a constant object in `src/constants/chapters.ts` that contains:
+  - `chapter`: string or number
+  - `title`: string
+  - `description`: string
+  - `tags`: array of keywords (strings)
 
-Example markdown layout:
+This constant will be used for filtering/searching the content by keyword and title without having to parse the Markdown text for each search.
 
-```md
-# What is the Constitution?
+- Fetch the appropriate markdown based on selected age level and chapter number
+- When viewing an individual chapter, display:
 
-![hero](/placeholder-hero.jpg)
+  - Chapter title
+  - Markdown content
+  - Searchable tags
+  - A static note:
+    > “Want to read the full Constitution? Visit [legislation.mt](https://legislation.mt) to view or download the complete PDF.”
 
-The Constitution is a set of rules...
+- Use QwikUI accordion or collapsible structure for chapters/articles list
+- Content should load quickly and display clearly on all screen sizes
+- Graceful fallback if markdown is missing or fetch fails
+- Preload titles and descriptions from the constant to make search snappy
 
-![illustration](/placeholder-inline.jpg)
+---
+
+## Example Markdown File Path:
+
+`public/constitution/chapters/10-year-old/1.md`
+
+---
+
+## Search UX Goals:
+
+- Minimalistic input field
+- Filters by tags, titles, and chapter numbers
+- Responsive and accessible
+- No client-heavy search libraries
+
+---
+
+## Placeholder Example for Constant:
+
+```ts
+export const CHAPTERS = [
+  {
+    chapter: "1",
+    title: "The Republic of Malta",
+    description:
+      "Describes Malta as a democratic republic and defines national values.",
+    tags: ["democracy", "republic", "sovereignty"],
+  },
+  {
+    chapter: "10A",
+    title: "The Judiciary",
+    description:
+      "Outlines the structure and independence of Malta’s judiciary.",
+    tags: ["courts", "judges", "justice", "law"],
+  },
+];
 ```
 
-- No Firebase usage — files are statically served
-- Fallback UI should show if a file fails to load or is malformed
+---
+
+## Summary:
+
+Build a mobile-first article/chapter browsing page using:
+
+- Static markdown per age level
+- Constant metadata list for indexing
+- Simple but effective search
+- AgeLevelToggle for content switching
+- A clear and respectful tone, linking to official documents for full legal access
