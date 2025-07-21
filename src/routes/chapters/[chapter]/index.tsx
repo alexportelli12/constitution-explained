@@ -5,7 +5,7 @@ import {
   useVisibleTask$,
   $,
 } from "@builder.io/qwik";
-import type { DocumentHead, RequestHandler } from "@builder.io/qwik-city";
+import type { DocumentHead, RequestHandler, StaticGenerateHandler } from "@builder.io/qwik-city";
 import { useLocation, useNavigate, routeLoader$ } from "@builder.io/qwik-city";
 import {
   AgeLevelToggle,
@@ -16,7 +16,7 @@ import {
   fetchChapterContent,
   type ChapterContent,
 } from "../../../lib/fetchMarkdown";
-import { getChapterById, getChapterTitle } from "../../../constants/chapters";
+import { getChapterById, getChapterTitle, CHAPTERS } from "../../../constants/chapters";
 
 export const useChapterLoader = routeLoader$(async (requestEvent) => {
   const chapterId = requestEvent.params.chapter;
@@ -61,8 +61,8 @@ export default component$(() => {
     nav(newUrl.pathname + newUrl.search, { scroll: false });
   });
 
-  const handleBackToArticles = $(() => {
-    nav("/articles");
+  const handleBackToChapters = $(() => {
+    nav("/chapters");
   });
 
   const getLevelDescription = $((level: string) => {
@@ -108,9 +108,9 @@ export default component$(() => {
           </p>
           <button
             class="px-4 py-2 bg-primary-600 text-white rounded-md hover:bg-primary-700 transition-colors"
-            onClick$={handleBackToArticles}
+            onClick$={handleBackToChapters}
           >
-            ← Back to Articles
+            ← Back to Chapters
           </button>
         </div>
       </div>
@@ -123,7 +123,7 @@ export default component$(() => {
       <div class="mb-6">
         <button
           class="flex items-center text-primary-600 hover:text-primary-800 transition-colors"
-          onClick$={handleBackToArticles}
+          onClick$={handleBackToChapters}
         >
           <svg
             class="w-4 h-4 mr-2"
@@ -138,7 +138,7 @@ export default component$(() => {
               d="M15 19l-7-7 7-7"
             />
           </svg>
-          Back to Articles
+          Back to Chapters
         </button>
       </div>
 
@@ -258,4 +258,13 @@ export const onGet: RequestHandler = async ({ params, error }) => {
   if (!chapterMeta) {
     throw error(404, `Chapter ${params.chapter} not found`);
   }
+};
+
+// Static generation for all chapters
+export const onStaticGenerate: StaticGenerateHandler = async () => {
+  return {
+    params: CHAPTERS.map((chapter) => ({
+      chapter: chapter.chapter,
+    })),
+  };
 };

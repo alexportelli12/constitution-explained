@@ -20,14 +20,14 @@
 
 ## 🎯 Overview
 
-**Maltese Constitution Explained** makes the Constitution of Malta more accessible by breaking down each article into simplified explanations for different age groups: 5, 10, 15, adults, and the original text.
+**Maltese Constitution Explained** makes the Constitution of Malta more accessible by breaking down each chapter into simplified explanations for different age groups: 5, 10, 15, adults, and the original text.
 
 ### ✨ Key Features
 
-- 📜 Article Viewer - Read Maltese constitutional articles one at a time
+- 📜 Chapter Viewer - Read Maltese constitutional chapters one at a time
 - 👶 Age-Level Toggle - View explanations simplified for age 5, 10, 15, adults, or read the original legal version
-- 🔍 Article Directory - Search and filter through all Maltese Constitution articles
-- 📁 Static Asset Storage - Host Markdown articles as static assets in the public folder
+- 🔍 Chapter Directory - Search and filter through all Maltese Constitution chapters
+- 📁 Static Asset Storage - Host Markdown chapters as static assets in the public folder
 - 💬 Open Source Collaboration - Community can contribute to simplify content
 - 📱 Mobile-First Design - Fully responsive across devices
 - 🧠 AI-Aware Planning - Designed with Claude Code-compatible project specs
@@ -75,12 +75,12 @@ npm start
 constitution-explained/
 ├── .context/               # Claude context files
 ├── PRPs/                   # Product Requirement Prompts
-├── public/articles/        # Markdown files as static assets
+├── public/constitution/    # Markdown files as static assets
 ├── public/                 # Static assets
 ├── src/
 │   ├── components/         # Reusable UI components
 │   ├── lib/                # Markdown parsing/fetching logic
-│   └── routes/             # Pages (home, article list, detail)
+│   └── routes/             # Pages (home, chapters list, detail)
 └── CLAUDE.md               # Project overview for Claude
 ```
 
@@ -88,9 +88,10 @@ constitution-explained/
 
 ## 🛡️ Security & Privacy
 
-- 📁 Static file serving for secure article access
+- 📁 Static file serving for secure chapter access
 - 🔍 No user authentication in MVP (read-only access)
 - 📁 Markdown-based content model (easy to audit and verify)
+- 📡 Static site generation with Firebase hosting
 
 ---
 
@@ -113,14 +114,14 @@ firebase login
 firebase deploy
 ```
 
-Supports single-page app routing and Markdown asset hosting via static files.
+Supports single-page app routing and Markdown chapter hosting via static files.
 
 ---
 
 ### Development Workflow
 
 1. **Fork** the repository
-2. **Create** a new branch: `feature/article-toggle`
+2. **Create** a new branch: `feature/chapter-toggle`
 3. **Follow** project conventions from [CLAUDE.md](CLAUDE.md)
 4. **Submit** a Pull Request with clear description
 5. **Review** and merge after approval

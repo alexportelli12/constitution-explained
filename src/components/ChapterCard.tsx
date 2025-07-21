@@ -13,7 +13,7 @@ export const ChapterCard = component$<ChapterCardProps>(
     const nav = useNavigate();
 
     const handleCardClick = $(() => {
-      nav(`/articles/${chapter.chapter}`);
+      nav(`/chapters/${chapter.chapter}`);
     });
 
     return (
