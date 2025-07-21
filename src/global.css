@@ -102,13 +102,16 @@
   min-height: 100vh;
 }
 
-
 /* Markdown Content Styles */
 .markdown-content {
   max-width: none;
   line-height: 1.75;
   color: #374151;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 
 .markdown-content h1 {
@@ -231,7 +234,8 @@
   background-color: #f3f4f6;
   padding: 0.125rem 0.25rem;
   border-radius: 0.25rem;
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas,
+    "Liberation Mono", Menlo, monospace;
   font-size: 0.875rem;
   color: #1f2937;
 }
@@ -243,7 +247,8 @@
   border-radius: 0.5rem;
   overflow-x: auto;
   margin: 1.5rem 0;
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas,
+    "Liberation Mono", Menlo, monospace;
   font-size: 0.875rem;
   line-height: 1.5;
 }
@@ -294,7 +299,9 @@
   border-radius: 0.75rem;
   margin: 2rem auto;
   display: block;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 /* Constrain image size on larger screens */

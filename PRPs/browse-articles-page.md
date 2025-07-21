@@ -29,6 +29,7 @@ Create a comprehensive Browse Articles Page with card-based chapter display and 
 ## 📐 What
 
 Transform the placeholder `/articles` route and create new chapter routes with:
+
 - Constants file for chapter metadata (titles, descriptions, icons, hero images)
 - Card-based chapter browser with visual chapter representation
 - Individual chapter pages at `/articles/[chapter]` with hero images and content
@@ -59,7 +60,7 @@ Transform the placeholder `/articles` route and create new chapter routes with:
 ```yaml
 - file: src/routes/articles/index.tsx
   why: Current placeholder route that needs full implementation
-  
+
 - file: src/routes/overview/index.tsx
   why: Perfect reference for age-level toggle, URL param handling, useSignal patterns
 
@@ -167,13 +168,13 @@ public/constitution/chapters/
 // Constants provide instant metadata for cards and pages
 export const CHAPTERS = [
   {
-    chapter: "1", 
+    chapter: "1",
     title: "The Republic of Malta",
     description: "Malta as a democratic republic and national values",
     tags: ["democracy", "republic", "sovereignty", "neutrality"],
-    icon: "🏛️",  // Emoji icon for card display
+    icon: "🏛️", // Emoji icon for card display
     heroImage: "/images/malta-island-constitution.png",
-    articleCount: 6  // Number of sections in the chapter
+    articleCount: 6, // Number of sections in the chapter
   },
   // ... all 11 chapters with complete metadata
 ];
@@ -247,19 +248,22 @@ Task 9: VALIDATION
 const fetchChapterContent = async (chapter: string, level: string) => {
   const response = await fetch(`/constitution/chapters/${level}/${chapter}.md`);
   if (!response.ok) {
-    return { content: '', error: `Chapter ${chapter} not available for ${level} level` };
+    return {
+      content: "",
+      error: `Chapter ${chapter} not available for ${level} level`,
+    };
   }
   const content = await response.text();
   return { content, level };
 };
 
 // Search filter logic for chapter browser
-const filteredChapters = CHAPTERS.filter(chapter => {
+const filteredChapters = CHAPTERS.filter((chapter) => {
   const searchTerm = searchInput.value.toLowerCase();
   return (
     chapter.title.toLowerCase().includes(searchTerm) ||
     chapter.description.toLowerCase().includes(searchTerm) ||
-    chapter.tags.some(tag => tag.toLowerCase().includes(searchTerm)) ||
+    chapter.tags.some((tag) => tag.toLowerCase().includes(searchTerm)) ||
     chapter.chapter.includes(searchTerm)
   );
 });
@@ -271,17 +275,17 @@ const handleCardClick = $((chapterId: string) => {
 
 // Chapter page initialization
 const handleChapterPage = $(async (chapterId: string, level: string) => {
-  const chapterMeta = CHAPTERS.find(ch => ch.chapter === chapterId);
+  const chapterMeta = CHAPTERS.find((ch) => ch.chapter === chapterId);
   const content = await fetchChapterContent(chapterId, level);
   return { meta: chapterMeta, content };
 });
 
 // Content cleanup regex patterns
 const cleanupPatterns = [
-  /!\[.*?\]\(.*?\)/g,  // ![alt](src) markdown images
-  /<img[^>]*>/gi,      // <img> HTML tags
+  /!\[.*?\]\(.*?\)/g, // ![alt](src) markdown images
+  /<img[^>]*>/gi, // <img> HTML tags
   /\[.*?\]:\s*.*?\.(png|jpg|jpeg|gif|svg)/gi, // Reference-style links to images
-  />\s*📚.*?legislation\.mt.*?\.$/gm  // legislation.mt link blocks
+  />\s*📚.*?legislation\.mt.*?\.$/gm, // legislation.mt link blocks
 ];
 ```
 
@@ -323,7 +327,7 @@ RESPONSIVE DESIGN:
 ```ts
 // Browse Page - Search Bar (similar to sticky controls)
 <div class="mb-6 p-3 bg-white/90 backdrop-blur-md rounded-xl shadow-sm border border-gray-100">
-  <input 
+  <input
     type="search"
     placeholder="Search chapters by title, description, or topics..."
     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
@@ -363,7 +367,7 @@ RESPONSIVE DESIGN:
 // Dynamic note for chapters
 <div class="mb-4 p-3 bg-red-50 border-l-4 border-primary-500 rounded-r-lg">
   <p class="text-sm text-primary-700">
-    Reading Chapter {chapterMeta.chapter}: <strong>{chapterMeta.title}</strong> at 
+    Reading Chapter {chapterMeta.chapter}: <strong>{chapterMeta.title}</strong> at
     <strong>{activeLevel.value}</strong> level
   </p>
 </div>
@@ -371,8 +375,8 @@ RESPONSIVE DESIGN:
 // Official legislation link (moved from markdown to page template)
 <div class="mt-8 p-4 bg-gray-50 rounded-lg border border-gray-200">
   <p class="text-sm text-gray-700">
-    📚 <strong>Want the complete text?</strong> Visit 
-    <a href="https://legislation.mt/eli/const/eng" target="_blank" rel="noopener noreferrer" 
+    📚 <strong>Want the complete text?</strong> Visit
+    <a href="https://legislation.mt/eli/const/eng" target="_blank" rel="noopener noreferrer"
        class="text-primary-600 hover:text-primary-800 underline">
       legislation.mt
     </a> to read the full Constitution document.
@@ -385,6 +389,7 @@ RESPONSIVE DESIGN:
 ## ✅ Validation Loop
 
 ### Level 1: Development Testing
+
 ```bash
 npm start
 # Navigate to /articles
@@ -395,6 +400,7 @@ npm start
 ```
 
 ### Level 2: Build Validation
+
 ```bash
 npm run build
 npm run build.types
@@ -404,6 +410,7 @@ npm run preview
 ```
 
 ### Level 3: Manual Feature Testing
+
 ```bash
 # URL Navigation Tests:
 # /articles -> should show card grid with search
@@ -458,7 +465,7 @@ npm run preview
 ## 🚫 Anti-Patterns to Avoid
 
 - ❌ Using setTimeout for state coordination (per CLAUDE.md)
-- ❌ Inline styles instead of Tailwind classes (per CLAUDE.md)  
+- ❌ Inline styles instead of Tailwind classes (per CLAUDE.md)
 - ❌ Creating new components without adding to index.ts exports
 - ❌ Hardcoding chapter list instead of using constants
 - ❌ Loading all chapter content upfront (should be on-demand for chapter pages)
