@@ -109,10 +109,7 @@ export default component$(() => {
       <div class="mb-4 p-3 bg-red-50 border-l-4 border-primary-500 rounded-r-lg">
         <p class="text-sm text-primary-700">
           Explain the Maltese constitution to me like I'm{" "}
-          <strong>
-            {getLevelDescription(activeLevel.value)}
-          </strong>
-          .
+          <strong>{getLevelDescription(activeLevel.value)}</strong>.
         </p>
       </div>
 

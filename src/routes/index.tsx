@@ -14,7 +14,7 @@ export default component$(() => {
           Making the Constitution of Malta accessible to everyone through
           age-appropriate explanations.
         </p>
-        
+
         {/* Hero Image */}
         <HeroImage
           src="/images/valletta-skyline.png"

@@ -1,4 +1,4 @@
-# 🇲🇹 What is the Constitution?
+# What is the Constitution?
 
 A constitution is a country’s most important legal document 📜. It sets out how the country is governed, what rights people have, and how different parts of the state—like Parliament, the Government, and the Courts—work together. Think of it as the “rulebook” that guides how power is used and protected in a democracy ⚖️.
 
@@ -6,7 +6,7 @@ Malta’s Constitution is the highest law of the land 🏛️. No other law can 
 
 ---
 
-## 📊 Basic Facts
+## Basic Facts
 
 - **Number of Chapters**: 12 (including Chapter XA)
 - **Total Number of Articles**: 124 main articles
@@ -17,7 +17,7 @@ Malta’s Constitution is the highest law of the land 🏛️. No other law can 
 
 ---
 
-## 📘 What the Constitution Covers
+## What the Constitution Covers
 
 ### **The Republic and National Identity**
 
@@ -65,7 +65,7 @@ The Constitution ensures that **public money** 💰 is handled responsibly. The 
 
 ---
 
-## 📄 The Schedules
+## The Schedules
 
 The Constitution includes 4 Schedules:
 
@@ -76,20 +76,20 @@ The Constitution includes 4 Schedules:
 
 ---
 
-## 🇪🇺 How It Compares to Other EU Constitutions
+## How It Compares to Other EU Constitutions
 
 Malta’s Constitution shares a lot in common with those of other EU countries—but also has some unique features.
 
 ![Constitution Differences Illustration](../../images/constitution-differences.png)
 
-### ✅ Similarities:
+### Similarities:
 
 - **Protects rights and freedoms**
 - **Separates powers** between Parliament, Government, and Courts
 - **Independent courts and elections**
 - **Rule of law** and checks on power
 
-### 🌍 Unique to Malta:
+### Unique to Malta:
 
 - **Official religion** is Roman Catholicism ✝️ (rare in EU)
 - **Neutrality clause** 🕊️ (only Austria has something similar)
@@ -97,7 +97,7 @@ Malta’s Constitution shares a lot in common with those of other EU countries�
 - **Top-up seats** in Parliament to fix imbalances
 - **Declaration of Principles** in Chapter II (like social goals that guide policy)
 
-### 🇪🇺 What Others Have That Malta Doesn’t:
+### What Others Have That Malta Doesn’t:
 
 - Some EU constitutions guarantee **environmental rights** 🌱 or **digital/data rights** 💻 directly
 - A few countries (like Ireland) require a **public referendum** to change the constitution—Malta doesn’t
@@ -105,7 +105,7 @@ Malta’s Constitution shares a lot in common with those of other EU countries�
 
 ---
 
-## 💡 Why It Matters
+## Why It Matters
 
 ![Malta Island Constitution Illustration](../../images/malta-island-constitution.png)
 

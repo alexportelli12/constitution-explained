@@ -8,3 +8,5 @@ export * from "./router-head/router-head";
 export * from "./AgeLevelToggle";
 export * from "./MarkdownRenderer";
 export * from "./HeroImage";
+export * from "./ChapterCard";
+export * from "./ChapterBrowser";

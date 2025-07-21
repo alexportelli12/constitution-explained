@@ -24,8 +24,12 @@ export const MarkdownRenderer = component$<MarkdownRendererProps>(
         <div class="bg-gray-50 border border-gray-200 rounded-lg p-12 text-center">
           <div class="flex flex-col items-center">
             <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-500 mb-4"></div>
-            <p class="text-gray-600 text-lg font-medium mb-2">Loading content...</p>
-            <p class="text-gray-500 text-sm">Please wait while we fetch the content for you.</p>
+            <p class="text-gray-600 text-lg font-medium mb-2">
+              Loading content...
+            </p>
+            <p class="text-gray-500 text-sm">
+              Please wait while we fetch the content for you.
+            </p>
           </div>
         </div>
       );
