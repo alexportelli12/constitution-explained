@@ -1,8 +1,8 @@
-# 🇲🇹 What is the Constitution?
+# What is the Constitution?
 
 The Constitution is the **supreme law** of Malta 📜 — it’s like the foundation for how the country is governed 🏛️. It tells us who has power, how they should use it, and what rights all people have. It keeps everything balanced ⚖️ and fair.
 
-## 🧩 Structure and Key Parts:
+## Structure and Key Parts:
 
 - **12 Chapters** 📘, including one special one (Chapter XA) about local councils 🏘️
 - **124 Articles** ✒️ covering rights, laws, and institutions
@@ -10,7 +10,7 @@ The Constitution is the **supreme law** of Malta 📜 — it’s like the founda
 
 ![Scroll Articles Illustration](../../images/scroll-articles.png)
 
-## 📖 What does it cover?
+## What does it cover?
 
 1. **National Identity** 🇲🇹  
    Malta is a **republic** and a **neutral country** 🕊️. It defines the national flag 🚩, anthem 🎶, and languages (Maltese and English 🗣️).
@@ -44,13 +44,13 @@ The Constitution is the **supreme law** of Malta 📜 — it’s like the founda
 7. **Local Councils** 🏘️  
    Towns and villages have councils that take care of local things like parks, bins, and events.
 
-## 🇪🇺 How Malta Compares in the EU:
+## How Malta Compares in the EU:
 
 - ✅ Similar to others: Rights, democracy, fair courts
 - 🌍 Unique: Official religion, neutrality, STV system
 - 🇪🇺 Others have: Environmental rights 🌿, referendums 🗳️, stronger social rights 🏥🏠
 
-## 💬 Why it matters:
+## Why it matters:
 
 - Protects freedom and justice ⚖️
 - Limits power to avoid abuse ⛔
