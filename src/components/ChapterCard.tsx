@@ -20,7 +20,7 @@ export const ChapterCard = component$<ChapterCardProps>(
       <div
         class={clsx(
           "bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer group",
-          additionalClass
+          additionalClass,
         )}
         onClick$={handleCardClick}
         role="button"
@@ -72,5 +72,5 @@ export const ChapterCard = component$<ChapterCardProps>(
         </div>
       </div>
     );
-  }
+  },
 );

@@ -118,5 +118,5 @@ export const ChapterBrowser = component$<ChapterBrowserProps>(
         )}
       </div>
     );
-  }
+  },
 );

@@ -36,6 +36,7 @@ export const head: DocumentHead = {
 ### Available Reusable Components
 
 From `src/components/index.ts`:
+
 - **HeroImage**: Responsive image with gradient overlays
 - **ChapterCard**: Interactive cards with hover effects and navigation
 - **AgeLevelToggle**: 4-level explanation toggle (5yr, 10yr, 15yr, citizen)
@@ -63,11 +64,13 @@ From `src/components/index.ts`:
 ### New Sections to Add
 
 1. **Open Source & Contributions Welcome**
+
    - Highlight collaborative nature
    - GitHub repository link
    - Developer/contributor CTAs
 
 2. **Republic Protection Through Education**
+
    - Civic education messaging
    - Democratic values emphasis
    - Constitutional literacy importance
@@ -99,25 +102,28 @@ export const head: DocumentHead = {
   meta: [
     {
       name: "description",
-      content: "Learn Malta's Constitution through age-appropriate explanations. Open-source platform making constitutional education accessible to citizens of all ages."
+      content:
+        "Learn Malta's Constitution through age-appropriate explanations. Open-source platform making constitutional education accessible to citizens of all ages.",
     },
     {
-      name: "keywords", 
-      content: "Malta Constitution, constitutional education, civic education, democracy, constitutional rights, open source"
+      name: "keywords",
+      content:
+        "Malta Constitution, constitutional education, civic education, democracy, constitutional rights, open source",
     },
     {
       property: "og:title",
-      content: "Maltese Constitution Explained"
+      content: "Maltese Constitution Explained",
     },
     {
       property: "og:description",
-      content: "Making the Constitution of Malta accessible through clear, age-appropriate explanations"
+      content:
+        "Making the Constitution of Malta accessible through clear, age-appropriate explanations",
     },
     {
       property: "og:type",
-      content: "website"
-    }
-  ]
+      content: "website",
+    },
+  ],
 };
 ```
 
@@ -193,12 +199,12 @@ const HeroSection = component$(() => {
 // Age level preview component
 const AgeLevelPreview = component$(() => {
   const selectedLevel = useSignal<"5" | "10" | "15" | "citizen">("citizen");
-  
+
   return (
     <div class="bg-gray-100 rounded-xl p-6">
       <h3 class="text-lg font-semibold mb-4">Try Different Explanation Levels:</h3>
-      <AgeLevelToggle 
-        currentLevel={selectedLevel.value} 
+      <AgeLevelToggle
+        currentLevel={selectedLevel.value}
         onLevelChange$={(level) => selectedLevel.value = level}
       />
       <div class="mt-4 p-4 bg-white rounded-lg">
@@ -214,6 +220,7 @@ const AgeLevelPreview = component$(() => {
 ## ✅ Validation Gates
 
 ### Development Commands
+
 ```bash
 # Start development server
 npm start
@@ -229,6 +236,7 @@ npm run fmt.check && npm run lint
 ```
 
 ### Content Validation
+
 1. **SEO Check**: Lighthouse audit for SEO score ≥90
 2. **Accessibility**: WCAG 2.1 AA compliance via axe-core
 3. **Performance**: Core Web Vitals within acceptable ranges
@@ -236,6 +244,7 @@ npm run fmt.check && npm run lint
 5. **Content Hierarchy**: H1-H6 semantic structure validation
 
 ### Functional Testing
+
 ```typescript
 // Test scenarios to verify
 1. All CTA buttons navigate correctly
@@ -251,6 +260,7 @@ npm run fmt.check && npm run lint
 ## 🎨 Design Specifications
 
 ### Section Layout Pattern
+
 ```typescript
 // Standard section wrapper
 const SectionWrapper = component$(({ children, bgColor = "white" }: {
@@ -268,6 +278,7 @@ const SectionWrapper = component$(({ children, bgColor = "white" }: {
 ```
 
 ### Typography Scale
+
 ```css
 /* Heading hierarchy for new sections */
 .section-title {
@@ -284,6 +295,7 @@ const SectionWrapper = component$(({ children, bgColor = "white" }: {
 ```
 
 ### Color Scheme Enhancement
+
 - **Primary**: Maltese red (#cf142b) for CTAs and accents
 - **Secondary**: Warm grays for text and backgrounds
 - **Success**: Green for contribution stats
@@ -294,16 +306,19 @@ const SectionWrapper = component$(({ children, bgColor = "white" }: {
 ## 📊 Success Metrics
 
 ### User Engagement
+
 - Increased time on page
 - Higher click-through rates on CTAs
 - Reduced bounce rate from landing page
 
 ### Technical Performance
+
 - Lighthouse score ≥90 across all categories
 - First Contentful Paint <1.5s
 - Cumulative Layout Shift <0.1
 
 ### SEO Improvements
+
 - Enhanced search rankings for targeted keywords
 - Improved meta description click-through rates
 - Better social media sharing engagement
@@ -324,6 +339,7 @@ const SectionWrapper = component$(({ children, bgColor = "white" }: {
 ## 🧠 Implementation Notes
 
 ### Code Quality Requirements
+
 - Follow existing TypeScript patterns with strict mode
 - Maintain component export structure via `src/components/index.ts`
 - Use semantic HTML elements (`<section>`, `<article>`, `<nav>`)
@@ -332,12 +348,14 @@ const SectionWrapper = component$(({ children, bgColor = "white" }: {
 - Never use inline styles - create custom CSS classes when Tailwind is insufficient
 
 ### Content Strategy
+
 - Emphasize civic responsibility and democratic values
 - Highlight accessibility across age groups (5yr to citizen level)
 - Connect constitutional knowledge to personal empowerment
 - Promote open-source collaboration and transparency
 
 ### Performance Considerations
+
 - Lazy load non-critical sections
 - Optimize hero image with responsive variants
 - Use Qwik's resumability features effectively

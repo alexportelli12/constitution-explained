@@ -5,7 +5,11 @@ import {
   useVisibleTask$,
   $,
 } from "@builder.io/qwik";
-import type { DocumentHead, RequestHandler, StaticGenerateHandler } from "@builder.io/qwik-city";
+import type {
+  DocumentHead,
+  RequestHandler,
+  StaticGenerateHandler,
+} from "@builder.io/qwik-city";
 import { useLocation, useNavigate, routeLoader$ } from "@builder.io/qwik-city";
 import {
   AgeLevelToggle,
@@ -16,7 +20,11 @@ import {
   fetchChapterContent,
   type ChapterContent,
 } from "../../../lib/fetchMarkdown";
-import { getChapterById, getChapterTitle, CHAPTERS } from "../../../constants/chapters";
+import {
+  getChapterById,
+  getChapterTitle,
+  CHAPTERS,
+} from "../../../constants/chapters";
 
 export const useChapterLoader = routeLoader$(async (requestEvent) => {
   const chapterId = requestEvent.params.chapter;
