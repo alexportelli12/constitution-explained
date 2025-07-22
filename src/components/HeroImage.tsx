@@ -46,5 +46,5 @@ export const HeroImage = component$<HeroImageProps>(
         )}
       </div>
     );
-  }
+  },
 );

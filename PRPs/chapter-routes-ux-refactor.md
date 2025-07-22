@@ -74,19 +74,23 @@ Improve and standardize the UX, UI, and file structure of the `Chapters`, `Chapt
 ### 📄 Current Implementation Analysis
 
 **Routes Structure:**
+
 - `src/routes/chapters/index.tsx` - Main chapters browser page
 - `src/routes/chapters/[chapter]/index.tsx` - Individual chapter page
 - `src/routes/overview/index.tsx` - Constitution overview page
 
 **Components:**
+
 - `src/components/ChapterBrowser.tsx` - Main search and grid component
 - `src/components/ChapterCard.tsx` - Individual chapter card component
 - `src/components/AgeLevelToggle.tsx` - Age level selection component
 
 **Current Constants & Types:**
+
 - `src/constants/chapters.ts` - Chapter data and interfaces
 
 **Current Issues Identified:**
+
 1. Chapter cards use inconsistent emoji icons vs. other UI elements
 2. `+X` tag logic incorrectly counts all tags instead of hidden ones
 3. No previous/next navigation on chapter pages
@@ -162,7 +166,7 @@ src/
 │       └── index.tsx              # Constitution overview
 ├── components/
 │   ├── ChapterBrowser.tsx         # Search and chapter grid
-│   ├── ChapterCard.tsx            # Chapter card component  
+│   ├── ChapterCard.tsx            # Chapter card component
 │   ├── AgeLevelToggle.tsx         # Age level selector
 │   └── index.ts                   # Component exports
 ├── constants/
@@ -237,6 +241,7 @@ class="sticky top-20 z-40 py-4 bg-white/90 backdrop-blur-md"
 ### 📦 File Structure Changes (Order Matters)
 
 **Step 1: Create New Files**
+
 ```yaml
 CREATE src/models/chapter.model.ts:
   - Move Chapter and ChapterContent interfaces from constants and lib
@@ -257,10 +262,11 @@ CREATE src/components/ChapterNavigation.tsx:
 ```
 
 **Step 2: Update Existing Files**
+
 ```yaml
 UPDATE src/constants/chapters.ts → src/constants/chapters.constant.ts:
   - Remove interface definitions (moved to models)
-  - Remove helper functions (moved to utils) 
+  - Remove helper functions (moved to utils)
   - Expand tags with institutions, themes, legal concepts
   - Keep only CHAPTERS data array
 
@@ -300,6 +306,7 @@ UPDATE src/lib/fetchMarkdown.ts:
 ```
 
 **Step 3: Update All Imports**
+
 ```yaml
 UPDATE all files importing from:
   - src/constants/chapters → src/constants/chapters.constant
@@ -323,7 +330,7 @@ Task 1: CREATE src/models/chapter.model.ts
   - Define OverviewContent interface
   - Export all model types
 
-Task 2: CREATE src/constants/age-levels.constant.ts  
+Task 2: CREATE src/constants/age-levels.constant.ts
   - Move AGE_LEVELS array from chapters.ts
   - Move AGE_LEVEL_LABELS record from chapters.ts
   - Add AgeLevel type definition
@@ -331,7 +338,7 @@ Task 2: CREATE src/constants/age-levels.constant.ts
 
 Task 3: CREATE src/utils/chapter.utils.ts
   - Move and enhance getChapterById function
-  - Move and enhance getChapterTitle function  
+  - Move and enhance getChapterTitle function
   - Move and enhance searchChapters function with expanded search logic
   - Add getNextChapter function (handle "10a" ordering)
   - Add getPreviousChapter function (handle "10a" ordering)
@@ -384,7 +391,7 @@ Task 9: UPDATE src/components/AgeLevelToggle.tsx
 
 Task 10: UPDATE src/routes/chapters/index.tsx
   - Add CTA or navigation link to Overview page
-  - Improve SEO: enhance meta description and keywords  
+  - Improve SEO: enhance meta description and keywords
   - Add semantic HTML improvements (proper headings hierarchy)
   - Ensure visual consistency with landing page spacing and typography
 
@@ -421,7 +428,7 @@ Task 14: DOCUMENTATION
 // src/models/chapter.model.ts
 export interface Chapter {
   chapter: string;
-  title: string; 
+  title: string;
   description: string;
   tags: string[];
   icon: string;
@@ -449,28 +456,28 @@ export const searchChapters = (searchTerm: string): Chapter[] => {
   const term = searchTerm.toLowerCase();
   const scoredResults = CHAPTERS.map(chapter => {
     let score = 0;
-    
+
     // Title match (highest priority)
     if (chapter.title.toLowerCase().includes(term)) score += 10;
-    
+
     // Description match (medium priority)
     if (chapter.description.toLowerCase().includes(term)) score += 5;
-    
+
     // Tag matches (lower priority but comprehensive)
-    const tagMatches = chapter.tags.filter(tag => 
+    const tagMatches = chapter.tags.filter(tag =>
       tag.toLowerCase().includes(term)
     ).length;
     score += tagMatches * 2;
-    
+
     // Chapter number exact match
     if (chapter.chapter === term) score += 15;
-    
+
     return { chapter, score };
   })
   .filter(result => result.score > 0)
   .sort((a, b) => b.score - a.score)
   .map(result => result.chapter);
-  
+
   return scoredResults;
 };
 
@@ -479,7 +486,7 @@ export const getNextChapter = (currentChapter: string): Chapter | null => {
   const chapterOrder = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "10a", "11"];
   const currentIndex = chapterOrder.indexOf(currentChapter);
   if (currentIndex === -1 || currentIndex === chapterOrder.length - 1) return null;
-  
+
   const nextChapterId = chapterOrder[currentIndex + 1];
   return getChapterById(nextChapterId);
 };
@@ -627,7 +634,7 @@ npm run fmt.check
 ```bash
 # Manual SEO checks:
 # ✓ Page titles are descriptive and unique
-# ✓ Meta descriptions are compelling and informative  
+# ✓ Meta descriptions are compelling and informative
 # ✓ Heading hierarchy is semantic (h1 → h2 → h3)
 # ✓ Links have descriptive text
 # ✓ Images have alt text
@@ -639,6 +646,7 @@ npm run fmt.check
 ## 📋 Final Validation Checklist
 
 **File Structure:**
+
 - [ ] `src/models/chapter.model.ts` created with all interfaces
 - [ ] `src/constants/age-levels.constant.ts` created with shared constants
 - [ ] `src/utils/chapter.utils.ts` created with enhanced helpers
@@ -646,6 +654,7 @@ npm run fmt.check
 - [ ] All import statements updated across codebase
 
 **Functionality:**
+
 - [ ] Sticky search bar implemented with proper styling
 - [ ] Enhanced search covers expanded tag database
 - [ ] Chapter cards show consistent icons (no emojis)
@@ -654,6 +663,7 @@ npm run fmt.check
 - [ ] Chapter ordering handles "10a" correctly
 
 **SEO and Accessibility:**
+
 - [ ] Dynamic page titles with chapter-specific keywords
 - [ ] Enhanced meta descriptions and keyword tags
 - [ ] Semantic HTML with proper heading hierarchy
@@ -661,6 +671,7 @@ npm run fmt.check
 - [ ] Keyboard navigation support
 
 **Visual Consistency:**
+
 - [ ] All pages match landing page typography and spacing
 - [ ] Overview page has clear link to Chapters page
 - [ ] Chapters page has link to Overview page
@@ -668,6 +679,7 @@ npm run fmt.check
 - [ ] Consistent color scheme and component styling
 
 **Code Quality:**
+
 - [ ] No `setTimeout` usage (follows CLAUDE.md anti-patterns)
 - [ ] No inline styles (uses CSS classes)
 - [ ] Proper TypeScript typing throughout

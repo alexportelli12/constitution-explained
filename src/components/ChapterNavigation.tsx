@@ -32,13 +32,18 @@ export const ChapterNavigation = component$<ChapterNavigationProps>(
               class="flex items-center text-primary-600 hover:text-primary-800 transition-colors group cursor-pointer"
               onClick$={handlePrevNavigation}
             >
-              <svg 
-                class="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" 
-                fill="none" 
-                stroke="currentColor" 
+              <svg
+                class="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform"
+                fill="none"
+                stroke="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width={2} d="M15 19l-7-7 7-7" />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width={2}
+                  d="M15 19l-7-7 7-7"
+                />
               </svg>
               <div class="text-left">
                 <div class="text-sm text-gray-500">Previous</div>
@@ -49,7 +54,7 @@ export const ChapterNavigation = component$<ChapterNavigationProps>(
             </button>
           )}
         </div>
-        
+
         <div class="flex-1 flex justify-end">
           {nextChapter.value && (
             <button
@@ -62,13 +67,18 @@ export const ChapterNavigation = component$<ChapterNavigationProps>(
                   Chapter {nextChapter.value.chapter}: {nextChapter.value.title}
                 </div>
               </div>
-              <svg 
-                class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" 
-                fill="none" 
-                stroke="currentColor" 
+              <svg
+                class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+                fill="none"
+                stroke="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width={2} d="M9 5l7 7-7 7" />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width={2}
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </button>
           )}

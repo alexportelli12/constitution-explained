@@ -100,8 +100,8 @@ export default component$(() => {
     await loadContent(level, chapterId);
   });
 
-  const chapterMeta = useComputed$(() => 
-    getChapterById(chapterData.value.chapterId)
+  const chapterMeta = useComputed$(() =>
+    getChapterById(chapterData.value.chapterId),
   );
 
   // Show error if chapter not found
@@ -262,7 +262,8 @@ export const head: DocumentHead = ({ resolveValue, params }) => {
       },
       {
         property: "og:image",
-        content: chapterData.chapterMeta?.heroImage || "/images/valletta-skyline.png",
+        content:
+          chapterData.chapterMeta?.heroImage || "/images/valletta-skyline.png",
       },
       {
         name: "article:section",

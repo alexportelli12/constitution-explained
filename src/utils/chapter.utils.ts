@@ -38,7 +38,7 @@ export const searchChapters = (searchTerm: string): Chapter[] => {
 
     // Tag matches (lower priority but comprehensive)
     const tagMatches = chapter.tags.filter((tag) =>
-      tag.toLowerCase().includes(term)
+      tag.toLowerCase().includes(term),
     ).length;
     score += tagMatches * 2;
 

@@ -9,9 +9,9 @@ interface AgeLevelToggleProps {
 
 export const AgeLevelToggle = component$<AgeLevelToggleProps>(
   ({ activeLevel, onLevelChange }) => {
-    const levels = AGE_LEVELS.map(level => ({
+    const levels = AGE_LEVELS.map((level) => ({
       key: level,
-      label: AGE_LEVEL_LABELS[level]
+      label: AGE_LEVEL_LABELS[level],
     }));
 
     return (

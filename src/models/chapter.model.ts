@@ -13,14 +13,14 @@ export interface Chapter {
 }
 
 export interface ChapterContent {
-  level: '5-year-old' | '10-year-old' | '15-year-old' | 'citizen';
+  level: "5-year-old" | "10-year-old" | "15-year-old" | "citizen";
   content: string;
   chapter: string;
   error?: string;
 }
 
 export interface OverviewContent {
-  level: '5-year-old' | '10-year-old' | '15-year-old' | 'citizen';
+  level: "5-year-old" | "10-year-old" | "15-year-old" | "citizen";
   content: string;
   error?: string;
 }
