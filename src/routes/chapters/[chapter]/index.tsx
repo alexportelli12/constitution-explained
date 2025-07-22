@@ -15,16 +15,13 @@ import {
   AgeLevelToggle,
   MarkdownRenderer,
   HeroImage,
+  ChapterNavigation,
 } from "../../../components";
-import {
-  fetchChapterContent,
-  type ChapterContent,
-} from "../../../lib/fetchMarkdown";
-import {
-  getChapterById,
-  getChapterTitle,
-  CHAPTERS,
-} from "../../../constants/chapters";
+import { fetchChapterContent } from "../../../lib/fetchMarkdown";
+import type { ChapterContent } from "../../../models/chapter.model";
+import { getChapterById, getChapterTitle } from "../../../utils/chapter.utils";
+import { CHAPTERS } from "../../../constants/chapters.constant";
+import { AGE_LEVELS } from "../../../constants/age-levels.constant";
 
 export const useChapterLoader = routeLoader$(async (requestEvent) => {
   const chapterId = requestEvent.params.chapter;
@@ -42,14 +39,12 @@ export default component$(() => {
   // Get initial level from URL or default to "citizen"
   const getInitialLevel = $(() => {
     const levelParam = loc.url.searchParams.get("level");
-    const validLevels = ["5-year-old", "10-year-old", "15-year-old", "citizen"];
-    return validLevels.includes(levelParam || "") ? levelParam! : "citizen";
+    return AGE_LEVELS.includes(levelParam as any) ? levelParam! : "citizen";
   });
 
   // Initialize with URL parameter or default to "citizen"
   const levelParam = loc.url.searchParams.get("level");
-  const validLevels = ["5-year-old", "10-year-old", "15-year-old", "citizen"];
-  const initialLevel = validLevels.includes(levelParam || "")
+  const initialLevel = AGE_LEVELS.includes(levelParam as any)
     ? levelParam!
     : "citizen";
   const activeLevel = useSignal<string>(initialLevel);
@@ -107,7 +102,9 @@ export default component$(() => {
     return (
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div class="text-center">
-          <div class="text-6xl mb-4">📚</div>
+          <svg class="w-24 h-24 mx-auto text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+          </svg>
           <h1 class="text-2xl font-bold text-gray-900 mb-4">
             Chapter Not Found
           </h1>
@@ -209,15 +206,21 @@ export default component$(() => {
         )}
       </div>
 
+      {/* Chapter Navigation */}
+      <ChapterNavigation chapterID={chapterData.value.chapterId} />
+
       {/* Official legislation link */}
       <div class="mt-8 p-4 bg-gray-50 rounded-lg border border-gray-200">
-        <p class="text-sm text-gray-700">
-          📚 <strong>Want the complete text?</strong> Visit{" "}
+        <p class="text-sm text-gray-700 flex items-center">
+          <svg class="w-5 h-5 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+          </svg>
+          <strong>Want the complete text?</strong> Visit{" "}
           <a
             href="https://legislation.mt/eli/const/eng"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-primary-600 hover:text-primary-800 underline"
+            class="text-primary-600 hover:text-primary-800 underline ml-1"
           >
             legislation.mt
           </a>{" "}
@@ -225,10 +228,13 @@ export default component$(() => {
         </p>
       </div>
 
-      {/* Chapter Navigation */}
-      <div class="mt-8 p-4 bg-primary-50 rounded-lg border border-primary-200">
-        <p class="text-sm text-primary-700">
-          💡 <strong class="text-primary-900">Tip:</strong> Each chapter is
+      {/* Tips Section */}
+      <div class="mt-4 p-4 bg-primary-50 rounded-lg border border-primary-200">
+        <p class="text-sm text-primary-700 flex items-center">
+          <svg class="w-5 h-5 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+          </svg>
+          <strong class="text-primary-900">Tip:</strong> Each chapter is
           available at different reading levels. Try switching levels to see how
           the same content is explained for different ages!
         </p>
@@ -243,19 +249,41 @@ export const head: DocumentHead = ({ resolveValue, params }) => {
     ? chapterData.chapterMeta.title
     : getChapterTitle(params.chapter);
 
+  const chapterDescription = chapterData.chapterMeta
+    ? `${chapterData.chapterMeta.description} Learn about this constitutional chapter with age-appropriate explanations for 5-year-olds, 10-year-olds, 15-year-olds, and citizens.`
+    : `Learn about Chapter ${params.chapter} of Malta's Constitution with age-appropriate explanations for all ages.`;
+
   return {
-    title: `Chapter ${params.chapter}: ${chapterTitle} - Malta's Constitution`,
+    title: `Chapter ${params.chapter}: ${chapterTitle} | Malta Constitution Explained`,
     meta: [
       {
         name: "description",
-        content: chapterData.chapterMeta
-          ? chapterData.chapterMeta.description
-          : `Learn about Chapter ${params.chapter} of Malta's Constitution with age-appropriate explanations.`,
+        content: chapterDescription,
       },
       {
         name: "keywords",
-        content: `Malta Constitution, Chapter ${params.chapter}, ${chapterData.chapterMeta?.tags.join(", ") || "constitutional law, civic education"}`,
+        content: `Malta Constitution, Chapter ${params.chapter}, ${chapterTitle}, ${chapterData.chapterMeta?.tags.join(", ") || "constitutional law, civic education"}, Malta law, constitutional democracy, civic education, age-appropriate learning, constitutional literacy`,
       },
+      {
+        property: "og:title",
+        content: `Chapter ${params.chapter}: ${chapterTitle} | Malta Constitution`
+      },
+      {
+        property: "og:description",
+        content: chapterData.chapterMeta?.description || `Learn about Chapter ${params.chapter} of Malta's Constitution with age-appropriate explanations.`
+      },
+      {
+        property: "og:type",
+        content: "article"
+      },
+      {
+        name: "article:section",
+        content: "Constitutional Law"
+      },
+      {
+        name: "article:tag",
+        content: chapterData.chapterMeta?.tags.slice(0, 5).join(", ") || "Malta Constitution"
+      }
     ],
   };
 };

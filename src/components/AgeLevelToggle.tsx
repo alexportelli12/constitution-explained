@@ -1,5 +1,6 @@
 import { component$, type Signal, type QRL } from "@builder.io/qwik";
 import { clsx } from "clsx";
+import { AGE_LEVELS, AGE_LEVEL_LABELS } from "../constants/age-levels.constant";
 
 interface AgeLevelToggleProps {
   activeLevel: Signal<string>;
@@ -8,12 +9,10 @@ interface AgeLevelToggleProps {
 
 export const AgeLevelToggle = component$<AgeLevelToggleProps>(
   ({ activeLevel, onLevelChange }) => {
-    const levels = [
-      { key: "5-year-old", label: "5 years" },
-      { key: "10-year-old", label: "10 years" },
-      { key: "15-year-old", label: "15 years" },
-      { key: "citizen", label: "Citizen" },
-    ];
+    const levels = AGE_LEVELS.map(level => ({
+      key: level,
+      label: AGE_LEVEL_LABELS[level]
+    }));
 
     return (
       <div class="grid grid-cols-4 gap-2 my-2">

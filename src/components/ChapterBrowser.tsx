@@ -1,6 +1,7 @@
 import { component$, useSignal, useComputed$ } from "@builder.io/qwik";
 import { clsx } from "clsx";
-import { CHAPTERS, searchChapters } from "../constants/chapters";
+import { CHAPTERS } from "../constants/chapters.constant";
+import { searchChapters } from "../utils/chapter.utils";
 import { ChapterCard } from "./ChapterCard";
 
 interface ChapterBrowserProps {
@@ -17,8 +18,9 @@ export const ChapterBrowser = component$<ChapterBrowserProps>(
 
     return (
       <div class={clsx("w-full", additionalClass)}>
-        {/* Search Bar */}
-        <div class="mb-6 p-3 bg-white/90 backdrop-blur-md rounded-xl shadow-sm border border-gray-100">
+        {/* Search Bar - Sticky */}
+        <div class="sticky top-16 z-40 mb-6 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+          <div class="bg-white/95 backdrop-blur-sm rounded-xl shadow-sm border border-gray-100 p-4">
           <div class="relative">
             <input
               type="search"
@@ -46,6 +48,7 @@ export const ChapterBrowser = component$<ChapterBrowserProps>(
               </svg>
             </div>
           </div>
+        </div>
         </div>
 
         {/* Results Summary */}

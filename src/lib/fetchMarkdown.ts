@@ -1,15 +1,4 @@
-export interface OverviewContent {
-  level: '5-year-old' | '10-year-old' | '15-year-old' | 'citizen';
-  content: string;
-  error?: string;
-}
-
-export interface ChapterContent {
-  level: '5-year-old' | '10-year-old' | '15-year-old' | 'citizen';
-  content: string;
-  chapter: string;
-  error?: string;
-}
+import type { OverviewContent, ChapterContent } from "../models/chapter.model";
 
 export const fetchOverviewContent = async (level: string): Promise<OverviewContent> => {
   try {

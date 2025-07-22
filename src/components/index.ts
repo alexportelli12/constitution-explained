@@ -10,6 +10,7 @@ export * from "./MarkdownRenderer";
 export * from "./HeroImage";
 export * from "./ChapterCard";
 export * from "./ChapterBrowser";
+export * from "./ChapterNavigation";
 export * from "./OpenSourceSection";
 export * from "./CivicEducationSection";
 export * from "./CitizenOwnershipSection";
