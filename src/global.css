@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Maltese Constitution red - override for primary colors */
+/* Constitution of Malta red - override for primary colors */
 .bg-primary-500 {
   background-color: #cf142b;
 }

@@ -17,12 +17,12 @@ export default component$(() => {
           <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-                🇲🇹 Maltese Constitution{" "}
+                🇲🇹 Constitution of Malta{" "}
                 <span class="text-primary-500">Explained</span>
               </h1>
               <p class="text-xl text-gray-600 mb-6 leading-relaxed">
                 Empowering every Maltese citizen with constitutional knowledge.
-                From 5-year-olds to legal scholars—democracy belongs to
+                From 5 year olds to legal scholars—democracy belongs to
                 everyone.
               </p>
               <p class="text-lg text-gray-700 mb-8 leading-relaxed">
@@ -85,7 +85,8 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Maltese Constitution Explained - Accessible Constitutional Education",
+  title:
+    "Constitution of Malta Explained - Accessible Constitutional Education",
   meta: [
     {
       name: "description",
@@ -99,7 +100,7 @@ export const head: DocumentHead = {
     },
     {
       property: "og:title",
-      content: "Maltese Constitution Explained",
+      content: "Constitution of Malta Explained",
     },
     {
       property: "og:description",

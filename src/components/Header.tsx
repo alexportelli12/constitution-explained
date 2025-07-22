@@ -33,7 +33,7 @@ export const Header = component$(() => {
                   class="block text-lg font-bold leading-tight transition-colors group"
                 >
                   <div class="text-primary-500 group-hover:text-primary-600">
-                    Maltese Constitution
+                    Constitution of Malta
                   </div>
                   <div class="italic text-primary-700 group-hover:text-primary-800">
                     Explained
@@ -49,7 +49,7 @@ export const Header = component$(() => {
                   "flex items-center px-4 py-2 rounded-xl text-base font-medium transition-all duration-200",
                   isActive("/")
                     ? "bg-primary-500 text-white shadow-lg"
-                    : "text-gray-700 hover:bg-gray-100 hover:text-gray-900",
+                    : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 )}
               >
                 <svg
@@ -73,7 +73,7 @@ export const Header = component$(() => {
                   "flex items-center px-4 py-2 rounded-xl text-base font-medium transition-all duration-200",
                   isActive("/overview")
                     ? "bg-primary-500 text-white shadow-lg"
-                    : "text-gray-700 hover:bg-gray-100 hover:text-gray-900",
+                    : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 )}
               >
                 <svg
@@ -97,7 +97,7 @@ export const Header = component$(() => {
                   "flex items-center px-4 py-2 rounded-xl text-base font-medium transition-all duration-200",
                   isActive("/chapters")
                     ? "bg-primary-500 text-white shadow-lg"
-                    : "text-gray-700 hover:bg-gray-100 hover:text-gray-900",
+                    : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 )}
               >
                 <svg

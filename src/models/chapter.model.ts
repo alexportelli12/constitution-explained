@@ -1,5 +1,5 @@
 /**
- * Chapter and content type definitions for the Maltese Constitution Explained app
+ * Chapter and content type definitions for the Constitution of Malta Explained app
  */
 
 export interface Chapter {

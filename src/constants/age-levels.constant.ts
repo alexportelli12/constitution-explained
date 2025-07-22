@@ -1,5 +1,5 @@
 /**
- * Age level constants and types for the Maltese Constitution Explained app
+ * Age level constants and types for the Constitution of Malta Explained app
  */
 
 export const AGE_LEVELS = [

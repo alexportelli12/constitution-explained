@@ -43,7 +43,7 @@ export const MobileSidebar = component$<MobileSidebarProps>(
         <div class="fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-[70] sm:hidden flex flex-col">
           <div class="flex items-center justify-between p-6">
             <div class="text-base font-bold leading-tight">
-              <div class="text-primary-500">Maltese Constitution</div>
+              <div class="text-primary-500">Constitution of Malta</div>
               <div class="italic text-primary-700">Explained</div>
             </div>
             <button
@@ -75,7 +75,7 @@ export const MobileSidebar = component$<MobileSidebarProps>(
                   "flex items-center w-full text-left px-4 py-3 rounded-xl text-base font-medium transition-all duration-200",
                   isActive("/")
                     ? "bg-primary-500 text-white shadow-lg"
-                    : "text-gray-700 hover:bg-gray-100 hover:text-gray-900",
+                    : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 )}
               >
                 <svg
@@ -99,7 +99,7 @@ export const MobileSidebar = component$<MobileSidebarProps>(
                   "flex items-center w-full text-left px-4 py-3 rounded-xl text-base font-medium transition-all duration-200",
                   isActive("/overview")
                     ? "bg-primary-500 text-white shadow-lg"
-                    : "text-gray-700 hover:bg-gray-100 hover:text-gray-900",
+                    : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 )}
               >
                 <svg
@@ -123,7 +123,7 @@ export const MobileSidebar = component$<MobileSidebarProps>(
                   "flex items-center w-full text-left px-4 py-3 rounded-xl text-base font-medium transition-all duration-200",
                   isActive("/chapters")
                     ? "bg-primary-500 text-white shadow-lg"
-                    : "text-gray-700 hover:bg-gray-100 hover:text-gray-900",
+                    : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 )}
               >
                 <svg
@@ -152,5 +152,5 @@ export const MobileSidebar = component$<MobileSidebarProps>(
         </div>
       </>
     );
-  },
+  }
 );

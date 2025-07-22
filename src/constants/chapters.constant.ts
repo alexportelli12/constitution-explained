@@ -1,5 +1,5 @@
 /**
- * Chapter metadata and data for the Maltese Constitution
+ * Chapter metadata and data for the Constitution of Malta
  */
 
 import type { Chapter } from "../models/chapter.model";
@@ -30,7 +30,7 @@ export const CHAPTERS: Chapter[] = [
       "republicanism",
     ],
     icon: "🏛️",
-    heroImage: "/images/malta-island-constitution.png",
+    heroImage: "/images/chapters/1.png",
     articleCount: 6,
   },
   {
@@ -59,7 +59,7 @@ export const CHAPTERS: Chapter[] = [
       "social cohesion",
     ],
     icon: "📜",
-    heroImage: "/images/maltese-flag.png",
+    heroImage: "/images/chapters/2.png",
     articleCount: 15,
   },
   {
@@ -87,7 +87,7 @@ export const CHAPTERS: Chapter[] = [
       "migration",
     ],
     icon: "🆔",
-    heroImage: "/images/malta-citizenship.png",
+    heroImage: "/images/chapters/3.png",
     articleCount: 4,
   },
   {
@@ -122,7 +122,7 @@ export const CHAPTERS: Chapter[] = [
       "habeas corpus",
     ],
     icon: "⚖️",
-    heroImage: "/images/scales-justice.png",
+    heroImage: "/images/chapters/4.png",
     articleCount: 16,
   },
   {
@@ -149,7 +149,7 @@ export const CHAPTERS: Chapter[] = [
       "constitutional guardian",
     ],
     icon: "🎖️",
-    heroImage: "/images/maltese-president.png",
+    heroImage: "/images/chapters/5.png",
     articleCount: 8,
   },
   {
@@ -181,7 +181,7 @@ export const CHAPTERS: Chapter[] = [
       "parliamentary committees",
     ],
     icon: "🏛️",
-    heroImage: "/images/maltese-parliament.png",
+    heroImage: "/images/chapters/6.png",
     articleCount: 12,
   },
   {
@@ -210,7 +210,7 @@ export const CHAPTERS: Chapter[] = [
       "executive leadership",
     ],
     icon: "🏢",
-    heroImage: "/images/auberge-de-castille.png",
+    heroImage: "/images/chapters/7.png",
     articleCount: 10,
   },
   {
@@ -242,7 +242,7 @@ export const CHAPTERS: Chapter[] = [
       "legal proceedings",
     ],
     icon: "⚖️",
-    heroImage: "/images/malta-courts.png",
+    heroImage: "/images/chapters/8.png",
     articleCount: 8,
   },
   {
@@ -272,7 +272,7 @@ export const CHAPTERS: Chapter[] = [
       "consolidated fund",
     ],
     icon: "💰",
-    heroImage: "/images/central-bank-malta.png",
+    heroImage: "/images/chapters/9.png",
     articleCount: 6,
   },
   {
@@ -300,7 +300,7 @@ export const CHAPTERS: Chapter[] = [
       "government workforce",
     ],
     icon: "👔",
-    heroImage: "/images/public-service.png",
+    heroImage: "/images/chapters/10.png",
     articleCount: 5,
   },
   {
@@ -328,7 +328,7 @@ export const CHAPTERS: Chapter[] = [
       "civic participation",
     ],
     icon: "🏘️",
-    heroImage: "/images/malta-local-councils.png",
+    heroImage: "/images/chapters/10A.png",
     articleCount: 4,
   },
   {
@@ -352,7 +352,7 @@ export const CHAPTERS: Chapter[] = [
       "constitutional technicalities",
     ],
     icon: "📋",
-    heroImage: "/images/constitution-book.png",
+    heroImage: "/images/chapters/11.png",
     articleCount: 6,
   },
 ];

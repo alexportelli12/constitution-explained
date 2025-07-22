@@ -106,8 +106,18 @@ export default component$(() => {
     return (
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div class="text-center">
-          <svg class="w-24 h-24 mx-auto text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+          <svg
+            class="w-24 h-24 mx-auto text-gray-400 mb-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width={1.5}
+              d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+            />
           </svg>
           <h1 class="text-2xl font-bold text-gray-900 mb-4">
             Chapter Not Found
@@ -235,24 +245,28 @@ export const head: DocumentHead = ({ resolveValue, params }) => {
       },
       {
         property: "og:title",
-        content: `Chapter ${params.chapter}: ${chapterTitle} | Malta Constitution`
+        content: `Chapter ${params.chapter}: ${chapterTitle} | Malta Constitution`,
       },
       {
         property: "og:description",
-        content: chapterData.chapterMeta?.description || `Learn about Chapter ${params.chapter} of Malta's Constitution with age-appropriate explanations.`
+        content:
+          chapterData.chapterMeta?.description ||
+          `Learn about Chapter ${params.chapter} of Malta's Constitution with age-appropriate explanations.`,
       },
       {
         property: "og:type",
-        content: "article"
+        content: "article",
       },
       {
         name: "article:section",
-        content: "Constitutional Law"
+        content: "Constitutional Law",
       },
       {
         name: "article:tag",
-        content: chapterData.chapterMeta?.tags.slice(0, 5).join(", ") || "Malta Constitution"
-      }
+        content:
+          chapterData.chapterMeta?.tags.slice(0, 5).join(", ") ||
+          "Malta Constitution",
+      },
     ],
   };
 };

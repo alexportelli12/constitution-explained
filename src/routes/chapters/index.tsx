@@ -36,7 +36,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Browse Constitution Chapters - Maltese Constitution Explained",
+  title: "Browse Constitution Chapters - Constitution of Malta Explained",
   meta: [
     {
       name: "description",
@@ -50,7 +50,7 @@ export const head: DocumentHead = {
     },
     {
       property: "og:title",
-      content: "Browse Constitution Chapters - Maltese Constitution Explained"
+      content: "Browse Constitution Chapters - Constitution of Malta Explained"
     },
     {
       property: "og:description", 

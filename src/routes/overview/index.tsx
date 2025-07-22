@@ -7,7 +7,12 @@ import {
 } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { useLocation, useNavigate, Link } from "@builder.io/qwik-city";
-import { AgeLevelToggle, MarkdownRenderer, ReadingLevelsTip, OfficialLegislationLink } from "../../components";
+import {
+  AgeLevelToggle,
+  MarkdownRenderer,
+  ReadingLevelsTip,
+  OfficialLegislationLink,
+} from "../../components";
 import { fetchOverviewContent } from "../../lib/fetchMarkdown";
 import type { OverviewContent } from "../../models/chapter.model";
 import { AGE_LEVELS } from "../../constants/age-levels.constant";
@@ -87,14 +92,23 @@ export default component$(() => {
             href="/chapters"
             class="inline-flex items-center px-6 py-3 border border-primary-500 text-primary-600 font-medium rounded-xl hover:bg-primary-50 transition-colors"
           >
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+            <svg
+              class="w-5 h-5 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width={2}
+                d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+              />
             </svg>
             Browse All Chapters
           </Link>
         </div>
       </div>
-
 
       {/* Age Level Toggle */}
       <div class="sticky top-20 z-40 py-4 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 mb-2">
@@ -109,7 +123,7 @@ export default component$(() => {
       {/* Dynamic Note */}
       <div class="mb-4 p-3 bg-red-50 border-l-4 border-primary-500 rounded-r-lg">
         <p class="text-sm text-primary-700">
-          Explain the Maltese constitution to me like I'm{" "}
+          Explain the Constitution of Malta to me like I'm{" "}
           <strong>{getLevelDescription(activeLevel.value)}</strong>.
         </p>
       </div>
@@ -136,12 +150,12 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Constitution Overview - Maltese Constitution Explained",
+  title: "Constitution Overview - Constitution of Malta Explained",
   meta: [
     {
       name: "description",
       content:
-        "Comprehensive overview of Malta's Constitution with age-appropriate explanations for all ages. Learn about Malta's fundamental law, democratic principles, and constitutional foundations from 5-year-old to citizen level.",
+        "Comprehensive overview of Malta's Constitution with age-appropriate explanations for all ages. Learn about Malta's fundamental law, democratic principles, and constitutional foundations from 5 year old to citizen level.",
     },
     {
       name: "keywords",
@@ -150,19 +164,20 @@ export const head: DocumentHead = {
     },
     {
       property: "og:title",
-      content: "Constitution Overview - Maltese Constitution Explained"
+      content: "Constitution Overview - Constitution of Malta Explained",
     },
     {
       property: "og:description",
-      content: "Comprehensive overview of Malta's Constitution with age-appropriate explanations for all ages."
+      content:
+        "Comprehensive overview of Malta's Constitution with age-appropriate explanations for all ages.",
     },
     {
       property: "og:type",
-      content: "website"
+      content: "website",
     },
     {
       name: "article:section",
-      content: "Constitutional Education"
-    }
+      content: "Constitutional Education",
+    },
   ],
 };

@@ -1,5 +1,5 @@
 /**
- * Chapter utility functions for the Maltese Constitution Explained app
+ * Chapter utility functions for the Constitution of Malta Explained app
  */
 
 import type { Chapter } from "../models/chapter.model";
