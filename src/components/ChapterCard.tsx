@@ -62,8 +62,7 @@ export const ChapterCard = component$<ChapterCardProps>(
             </div>
             <div class="flex justify-between items-center mt-3">
               <span class="text-xs text-gray-500">
-                {chapter.articleCount} article
-                {chapter.articleCount !== 1 ? "s" : ""}
+                {chapter.articleCount} article(s)
               </span>
               <span class="text-primary-600 text-sm font-medium group-hover:text-primary-800 transition-colors">
                 Read Chapter →

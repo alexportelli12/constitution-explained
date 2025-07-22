@@ -1,103 +1,25 @@
 ## FEATURE:
 
-Create the Browse Chapters Page at route `/chapters` using Qwik. This page will allow users to browse the Constitution by chapter, switching between simplified versions written for different age levels.
-
-Markdown content is located in:
-`public/constitution/chapters/{age-level}/{chapter}.md`
-
-### Age levels (folder names):
-
-- `5-year-old`
-- `10-year-old`
-- `15-year-old`
-- `citizen`
-
-### Chapter filenames:
-
-- Example: `1.md`, `10A.md`, `11.md`, etc.
-
----
+Improve the landing page layout, content, and structure to create a visually appealing, informative, and action-driven experience. The updated landing page should include sections that express the civic purpose of the platform, its open-source nature, and encourage deeper engagement with the Constitution. The design should be clean, responsive, and optimized for SEO and user retention.
 
 ## DOCUMENTATION:
 
-- Qwik Routing: https://qwik.dev/docs/routing/
-- Tailwind Grid and Typography: https://tailwindcss.com/docs
-- QwikUI Headless Accordion (for chapter/article list): https://qwikui.com/docs/headless/accordion/
-- Markdown rendering: https://marked.js.org/ (already an existing component for rendering markdown - MarkdownRenderer.tsx)
-
----
+- https://qwik.dev/docs/overview/
+- https://tailwindcss.com/docs/installation
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section
+- https://ahrefs.com/blog/seo-best-practices/
+- [Existing site structure](https://constitution-explained.firebaseapp.com)
 
 ## OTHER CONSIDERATIONS:
 
-- Use an `AgeLevelToggle` component to allow switching between age versions
-- Create a constant object in `src/constants/chapters.ts` that contains:
-  - `chapter`: string or number
-  - `title`: string
-  - `description`: string
-  - `tags`: array of keywords (strings)
-
-This constant will be used for filtering/searching the content by keyword and title without having to parse the Markdown text for each search.
-
-- Fetch the appropriate markdown based on selected age level and chapter number
-- When viewing an individual chapter, display:
-
-  - Chapter title
-  - Markdown content
-  - Searchable tags
-  - A static note:
-    > “Want to read the full Constitution? Visit [legislation.mt](https://legislation.mt) to view or download the complete PDF.”
-
-- Use QwikUI accordion or collapsible structure for chapters list
-- Content should load quickly and display clearly on all screen sizes
-- Graceful fallback if markdown is missing or fetch fails
-- Preload titles and descriptions from the constant to make search snappy
-
----
-
-## Example Markdown File Path:
-
-`public/constitution/chapters/10-year-old/1.md`
-
----
-
-## Search UX Goals:
-
-- Minimalistic input field
-- Filters by tags, titles, and chapter numbers
-- Responsive and accessible
-- No client-heavy search libraries
-
----
-
-## Placeholder Example for Constant:
-
-```ts
-export const CHAPTERS = [
-  {
-    chapter: "1",
-    title: "The Republic of Malta",
-    description:
-      "Describes Malta as a democratic republic and defines national values.",
-    tags: ["democracy", "republic", "sovereignty"],
-  },
-  {
-    chapter: "10A",
-    title: "The Judiciary",
-    description:
-      "Outlines the structure and independence of Malta’s judiciary.",
-    tags: ["courts", "judges", "justice", "law"],
-  },
-];
-```
-
----
-
-## Summary:
-
-Build a mobile-first article/chapter browsing page using:
-
-- Static markdown per age level
-- Constant metadata list for indexing
-- Simple but effective search
-- AgeLevelToggle for content switching
-- A clear and respectful tone, linking to official documents for full legal access
+- Use Tailwind CSS for styling and layout.
+- Prioritize accessibility and mobile-first responsiveness.
+- Design with a clear content hierarchy and calls-to-action (CTAs).
+- Add 3 new sections:
+  1. Open Source & Contributions Welcome
+  2. Republic Protection Through Education
+  3. Ownership of the Constitution as a Civic Document
+- Ensure headings, meta tags, and content structure are optimized for SEO.
+- Create CTA buttons that direct users to the overview and chapters pages.
+- Consider semantic HTML structure (sections, articles, navs, etc.)
+- Reuse existing components like AgeLevelToggle or Chapter CTA cards where possible.
