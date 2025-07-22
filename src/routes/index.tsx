@@ -8,7 +8,6 @@ import {
   AgeLevelPreview,
 } from "../components";
 
-
 export default component$(() => {
   return (
     <div class="min-h-screen bg-white">
