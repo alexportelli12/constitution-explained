@@ -43,7 +43,7 @@ export const MobileSidebar = component$<MobileSidebarProps>(
         <div class="fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-[70] sm:hidden flex flex-col">
           <div class="flex items-center justify-between p-6">
             <div class="text-base font-bold leading-tight">
-              <div class="text-primary-500">Maltese Constitution</div>
+              <div class="text-primary-500">Constitution of Malta</div>
               <div class="italic text-primary-700">Explained</div>
             </div>
             <button

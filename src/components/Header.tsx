@@ -33,7 +33,7 @@ export const Header = component$(() => {
                   class="block text-lg font-bold leading-tight transition-colors group"
                 >
                   <div class="text-primary-500 group-hover:text-primary-600">
-                    Maltese Constitution
+                    Constitution of Malta
                   </div>
                   <div class="italic text-primary-700 group-hover:text-primary-800">
                     Explained

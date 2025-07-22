@@ -117,7 +117,3 @@ Understanding the Constitution helps citizens:
 - Hold leaders **accountable** 🗳️
 
 The Constitution isn’t just for lawyers—it’s for everyone. It’s the backbone of how Malta stays free, fair, and democratic 💪.
-
----
-
-> 📚 You can read the full constitution on the official legislation.mt website [here](https://legislation.mt/eli/const/eng).
