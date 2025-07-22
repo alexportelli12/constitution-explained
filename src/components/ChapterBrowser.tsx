@@ -26,8 +26,8 @@ export const ChapterBrowser = component$<ChapterBrowserProps>(
               class="w-full px-4 py-2 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
               value={searchQuery.value}
               onInput$={(event) => {
-                const target = event.target as HTMLInputElement;
-                searchQuery.value = target.value;
+                const { value } = event.target as HTMLInputElement;
+                searchQuery.value = value;
               }}
             />
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -58,8 +58,7 @@ export const ChapterBrowser = component$<ChapterBrowserProps>(
                 </>
               ) : (
                 <>
-                  {filteredChapters.value.length} chapter
-                  {filteredChapters.value.length !== 1 ? "s" : ""} found for "
+                  {filteredChapters.value.length} chapter(s) found for "
                   <strong>{searchQuery.value}</strong>"
                 </>
               )}
@@ -119,5 +118,5 @@ export const ChapterBrowser = component$<ChapterBrowserProps>(
         )}
       </div>
     );
-  },
+  }
 );
