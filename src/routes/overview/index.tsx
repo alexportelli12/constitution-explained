@@ -176,6 +176,10 @@ export const head: DocumentHead = {
       content: "website",
     },
     {
+      property: "og:image",
+      content: "/images/valletta-skyline.png",
+    },
+    {
       name: "article:section",
       content: "Constitutional Education",
     },

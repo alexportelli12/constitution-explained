@@ -59,6 +59,10 @@ export const head: DocumentHead = {
     {
       property: "og:type",
       content: "website"
+    },
+    {
+      property: "og:image",
+      content: "/images/valletta-skyline.png",
     }
   ],
 };

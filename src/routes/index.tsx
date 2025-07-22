@@ -112,6 +112,10 @@ export const head: DocumentHead = {
       content: "website",
     },
     {
+      property: "og:image",
+      content: "/images/valletta-skyline.png",
+    },
+    {
       name: "viewport",
       content: "width=device-width, initial-scale=1",
     },

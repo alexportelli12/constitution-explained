@@ -3,6 +3,7 @@ import {
   useSignal,
   useTask$,
   useVisibleTask$,
+  useComputed$,
   $,
 } from "@builder.io/qwik";
 import type {
@@ -99,10 +100,12 @@ export default component$(() => {
     await loadContent(level, chapterId);
   });
 
-  const chapterMeta = chapterData.value.chapterMeta;
+  const chapterMeta = useComputed$(() => 
+    getChapterById(chapterData.value.chapterId)
+  );
 
   // Show error if chapter not found
-  if (!chapterMeta) {
+  if (!chapterMeta.value) {
     return (
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div class="text-center">
@@ -164,19 +167,19 @@ export default component$(() => {
       {/* Hero Section */}
       <div class="text-center mb-8">
         <h1 class="text-4xl font-bold text-gray-900 mb-4">
-          Chapter {chapterMeta.chapter}: {chapterMeta.title}
+          Chapter {chapterMeta.value?.chapter}: {chapterMeta.value?.title}
         </h1>
         <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          {chapterMeta.description}
+          {chapterMeta.value?.description}
         </p>
       </div>
 
       {/* Hero Image */}
       <HeroImage
-        src={chapterMeta.heroImage}
-        alt={`Chapter ${chapterMeta.chapter}: ${chapterMeta.title}`}
-        fallbackIcon={chapterMeta.icon}
-        fallbackText={`Chapter ${chapterMeta.chapter} Hero Image`}
+        src={chapterMeta.value?.heroImage}
+        alt={`Chapter ${chapterMeta.value?.chapter}: ${chapterMeta.value?.title}`}
+        fallbackIcon={chapterMeta.value?.icon}
+        fallbackText={`Chapter ${chapterMeta.value?.chapter} Hero Image`}
       />
 
       {/* Age Level Toggle */}
@@ -192,8 +195,8 @@ export default component$(() => {
       {/* Dynamic Note */}
       <div class="mb-4 p-3 bg-red-50 border-l-4 border-primary-500 rounded-r-lg">
         <p class="text-sm text-primary-700">
-          Reading Chapter {chapterMeta.chapter}:{" "}
-          <strong>{chapterMeta.title}</strong> at{" "}
+          Reading Chapter {chapterMeta.value?.chapter}:{" "}
+          <strong>{chapterMeta.value?.title}</strong> at{" "}
           <strong>{getLevelDescription(activeLevel.value)}</strong> level
         </p>
       </div>
@@ -256,6 +259,10 @@ export const head: DocumentHead = ({ resolveValue, params }) => {
       {
         property: "og:type",
         content: "article",
+      },
+      {
+        property: "og:image",
+        content: chapterData.chapterMeta?.heroImage || "/images/valletta-skyline.png",
       },
       {
         name: "article:section",
