@@ -23,7 +23,3 @@ The Constitution is like the biggest rulebook 📖 Malta has! It tells everyone 
 - It helps everyone play by the same rules 🎲
 - It makes sure no one is being mean or unfair 😠
 - It protects us, like a superhero shield 🦸 for everyone in Malta!
-
----
-
-> You can read the full constitution on the official legislation.mt website [here](https://legislation.mt/eli/const/eng).

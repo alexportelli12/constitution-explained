@@ -20,7 +20,7 @@ export const HeroImage = component$<HeroImageProps>(
     objectPosition = "center",
     gradientColors = "from-red-100 to-red-50",
   }) => {
-    const className = `w-full max-w-3xl mx-auto aspect-video bg-gradient-to-r ${gradientColors} rounded-xl mb-8 flex items-center justify-center shadow-lg`;
+    const className = `w-full aspect-video bg-gradient-to-r ${gradientColors} rounded-xl mb-8 flex items-center justify-center shadow-lg`;
     const imageLoadError = useSignal(false);
 
     return (

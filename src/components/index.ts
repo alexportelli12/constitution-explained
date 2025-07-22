@@ -15,3 +15,5 @@ export * from "./OpenSourceSection";
 export * from "./CivicEducationSection";
 export * from "./CitizenOwnershipSection";
 export * from "./AgeLevelPreview";
+export * from "./ReadingLevelsTip";
+export * from "./OfficialLegislationLink";

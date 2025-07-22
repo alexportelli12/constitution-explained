@@ -16,6 +16,8 @@ import {
   MarkdownRenderer,
   HeroImage,
   ChapterNavigation,
+  ReadingLevelsTip,
+  OfficialLegislationLink,
 } from "../../../components";
 import { fetchChapterContent } from "../../../lib/fetchMarkdown";
 import type { ChapterContent } from "../../../models/chapter.model";
@@ -84,6 +86,7 @@ export default component$(() => {
   // Watch for URL changes (back/forward navigation, direct links)
   useTask$(async ({ track }) => {
     track(() => loc.url.searchParams.get("level"));
+    track(() => loc.url.pathname); // Track chapter changes in URL path
     const newLevel = await getInitialLevel();
     if (newLevel !== activeLevel.value) {
       activeLevel.value = newLevel;
@@ -92,7 +95,8 @@ export default component$(() => {
 
   useVisibleTask$(async ({ track }) => {
     const level = track(() => activeLevel.value);
-    await loadContent(level, chapterData.value.chapterId);
+    const chapterId = track(() => chapterData.value.chapterId); // Track chapter ID changes
+    await loadContent(level, chapterId);
   });
 
   const chapterMeta = chapterData.value.chapterMeta;
@@ -127,7 +131,7 @@ export default component$(() => {
       {/* Back Navigation */}
       <div class="mb-6">
         <button
-          class="flex items-center text-primary-600 hover:text-primary-800 transition-colors"
+          class="flex items-center text-primary-600 hover:text-primary-800 transition-colors cursor-pointer"
           onClick$={handleBackToChapters}
         >
           <svg
@@ -155,16 +159,6 @@ export default component$(() => {
         <p class="text-lg text-gray-600 max-w-2xl mx-auto">
           {chapterMeta.description}
         </p>
-        <div class="flex flex-wrap justify-center gap-2 mt-4">
-          {chapterMeta.tags.slice(0, 5).map((tag) => (
-            <span
-              key={tag}
-              class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary-100 text-primary-800"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
       </div>
 
       {/* Hero Image */}
@@ -210,35 +204,10 @@ export default component$(() => {
       <ChapterNavigation chapterID={chapterData.value.chapterId} />
 
       {/* Official legislation link */}
-      <div class="mt-8 p-4 bg-gray-50 rounded-lg border border-gray-200">
-        <p class="text-sm text-gray-700 flex items-center">
-          <svg class="w-5 h-5 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-          </svg>
-          <strong>Want the complete text?</strong> Visit{" "}
-          <a
-            href="https://legislation.mt/eli/const/eng"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-primary-600 hover:text-primary-800 underline ml-1"
-          >
-            legislation.mt
-          </a>{" "}
-          to read the full Constitution document.
-        </p>
-      </div>
+      <OfficialLegislationLink />
 
       {/* Tips Section */}
-      <div class="mt-4 p-4 bg-primary-50 rounded-lg border border-primary-200">
-        <p class="text-sm text-primary-700 flex items-center">
-          <svg class="w-5 h-5 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-          </svg>
-          <strong class="text-primary-900">Tip:</strong> Each chapter is
-          available at different reading levels. Try switching levels to see how
-          the same content is explained for different ages!
-        </p>
-      </div>
+      <ReadingLevelsTip />
     </div>
   );
 });

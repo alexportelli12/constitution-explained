@@ -13,12 +13,12 @@ export const CHAPTERS: Chapter[] = [
     tags: [
       "democracy",
       "republic",
-      "sovereignty", 
+      "sovereignty",
       "neutrality",
       "religion",
       "symbols",
       "Malta",
-      "independence", 
+      "independence",
       "state",
       "nation",
       "Catholic",
@@ -27,10 +27,10 @@ export const CHAPTERS: Chapter[] = [
       "democratic values",
       "national identity",
       "constitutional foundations",
-      "republicanism"
+      "republicanism",
     ],
     icon: "🏛️",
-    heroImage: "/images/malta-island-constitution.png", 
+    heroImage: "/images/malta-island-constitution.png",
     articleCount: 6,
   },
   {
@@ -43,7 +43,7 @@ export const CHAPTERS: Chapter[] = [
       "social",
       "work",
       "employment",
-      "equality", 
+      "equality",
       "sustainability",
       "social policy",
       "guiding principles",
@@ -56,20 +56,20 @@ export const CHAPTERS: Chapter[] = [
       "workers rights",
       "social protection",
       "public policy",
-      "social cohesion"
+      "social cohesion",
     ],
     icon: "📜",
     heroImage: "/images/maltese-flag.png",
     articleCount: 15,
   },
   {
-    chapter: "3", 
+    chapter: "3",
     title: "Citizenship",
     description:
       "How Maltese citizenship is regulated and treatment of Commonwealth and Irish citizens",
     tags: [
       "citizenship",
-      "nationality", 
+      "nationality",
       "commonwealth",
       "immigration",
       "legal status",
@@ -84,7 +84,7 @@ export const CHAPTERS: Chapter[] = [
       "dual citizenship",
       "citizenship acquisition",
       "legal identity",
-      "migration"
+      "migration",
     ],
     icon: "🆔",
     heroImage: "/images/malta-citizenship.png",
@@ -92,7 +92,7 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     chapter: "4",
-    title: "Fundamental Rights and Freedoms", 
+    title: "Fundamental Rights and Freedoms",
     description:
       "The cornerstone of Malta's constitutional democracy guaranteeing civil liberties and basic freedoms",
     tags: [
@@ -119,9 +119,9 @@ export const CHAPTERS: Chapter[] = [
       "personal liberty",
       "property rights",
       "fair trial",
-      "habeas corpus"
+      "habeas corpus",
     ],
-    icon: "⚖️", 
+    icon: "⚖️",
     heroImage: "/images/scales-justice.png",
     articleCount: 16,
   },
@@ -129,7 +129,7 @@ export const CHAPTERS: Chapter[] = [
     chapter: "5",
     title: "The President of Malta",
     description:
-      "The office of the President, appointment process, duties and constitutional role in democratic functions", 
+      "The office of the President, appointment process, duties and constitutional role in democratic functions",
     tags: [
       "president",
       "head of state",
@@ -146,14 +146,14 @@ export const CHAPTERS: Chapter[] = [
       "ceremonial functions",
       "state visits",
       "appointments",
-      "constitutional guardian"
+      "constitutional guardian",
     ],
     icon: "🎖️",
     heroImage: "/images/maltese-president.png",
     articleCount: 8,
   },
   {
-    chapter: "6", 
+    chapter: "6",
     title: "Parliament",
     description:
       "The legislative branch of government, parliamentary procedures and democratic representation",
@@ -172,13 +172,13 @@ export const CHAPTERS: Chapter[] = [
       "legislation",
       "parliamentary procedure",
       "lawmaking",
-      "democratic representation", 
+      "democratic representation",
       "parliamentary sovereignty",
       "bills",
       "acts of parliament",
       "parliamentary sessions",
       "Speaker",
-      "parliamentary committees"
+      "parliamentary committees",
     ],
     icon: "🏛️",
     heroImage: "/images/maltese-parliament.png",
@@ -191,7 +191,7 @@ export const CHAPTERS: Chapter[] = [
       "How executive authority is exercised through symbolic leadership, practical governance and legal accountability",
     tags: [
       "executive",
-      "government", 
+      "government",
       "prime minister",
       "cabinet",
       "governance",
@@ -207,7 +207,7 @@ export const CHAPTERS: Chapter[] = [
       "government departments",
       "public service",
       "policy implementation",
-      "executive leadership"
+      "executive leadership",
     ],
     icon: "🏢",
     heroImage: "/images/auberge-de-castille.png",
@@ -219,7 +219,7 @@ export const CHAPTERS: Chapter[] = [
     description:
       "A pillar of democratic governance ensuring judicial independence, accountability and fairness",
     tags: [
-      "judiciary", 
+      "judiciary",
       "courts",
       "judges",
       "justice",
@@ -239,10 +239,10 @@ export const CHAPTERS: Chapter[] = [
       "access to justice",
       "fair trial",
       "judicial process",
-      "legal proceedings"
+      "legal proceedings",
     ],
     icon: "⚖️",
-    heroImage: "/images/malta-courts.png", 
+    heroImage: "/images/malta-courts.png",
     articleCount: 8,
   },
   {
@@ -252,7 +252,7 @@ export const CHAPTERS: Chapter[] = [
       "Managing public funds transparently through constitutional controls and parliamentary oversight",
     tags: [
       "finance",
-      "budget", 
+      "budget",
       "public funds",
       "transparency",
       "oversight",
@@ -269,7 +269,7 @@ export const CHAPTERS: Chapter[] = [
       "government revenue",
       "fiscal responsibility",
       "public expenditure",
-      "consolidated fund"
+      "consolidated fund",
     ],
     icon: "💰",
     heroImage: "/images/central-bank-malta.png",
@@ -277,7 +277,7 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     chapter: "10",
-    title: "The Public Service", 
+    title: "The Public Service",
     description:
       "Appointment, oversight and pension rights for Malta's civil service and public sector employees",
     tags: [
@@ -287,7 +287,7 @@ export const CHAPTERS: Chapter[] = [
       "pensions",
       "oversight",
       "public servants",
-      "government employees", 
+      "government employees",
       "public sector",
       "civil servants",
       "public administration",
@@ -297,20 +297,20 @@ export const CHAPTERS: Chapter[] = [
       "retirement benefits",
       "public sector employment",
       "administrative service",
-      "government workforce"
+      "government workforce",
     ],
-    icon: "👔", 
+    icon: "👔",
     heroImage: "/images/public-service.png",
     articleCount: 5,
   },
   {
-    chapter: "10a",
+    chapter: "10A",
     title: "Local Councils",
     description:
       "Local government structure and the role of councils in Malta's democratic governance",
     tags: [
       "local government",
-      "councils", 
+      "councils",
       "municipalities",
       "local democracy",
       "local authorities",
@@ -325,14 +325,14 @@ export const CHAPTERS: Chapter[] = [
       "councillors",
       "local autonomy",
       "grassroots democracy",
-      "civic participation"
+      "civic participation",
     ],
     icon: "🏘️",
     heroImage: "/images/malta-local-councils.png",
     articleCount: 4,
   },
   {
-    chapter: "11", 
+    chapter: "11",
     title: "Miscellaneous Provisions",
     description:
       "Additional constitutional provisions covering various aspects of Malta's legal framework",
@@ -349,7 +349,7 @@ export const CHAPTERS: Chapter[] = [
       "legal provisions",
       "constitutional completeness",
       "framework provisions",
-      "constitutional technicalities"
+      "constitutional technicalities",
     ],
     icon: "📋",
     heroImage: "/images/constitution-book.png",

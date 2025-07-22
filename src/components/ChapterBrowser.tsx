@@ -19,7 +19,7 @@ export const ChapterBrowser = component$<ChapterBrowserProps>(
     return (
       <div class={clsx("w-full", additionalClass)}>
         {/* Search Bar - Sticky */}
-        <div class="sticky top-16 z-40 mb-6 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+        <div class="sticky top-20 z-40 py-4 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 mb-2">
           <div class="bg-white/95 backdrop-blur-sm rounded-xl shadow-sm border border-gray-100 p-4">
           <div class="relative">
             <input

@@ -7,7 +7,7 @@ import {
 } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { useLocation, useNavigate, Link } from "@builder.io/qwik-city";
-import { AgeLevelToggle, MarkdownRenderer, HeroImage } from "../../components";
+import { AgeLevelToggle, MarkdownRenderer, ReadingLevelsTip, OfficialLegislationLink } from "../../components";
 import { fetchOverviewContent } from "../../lib/fetchMarkdown";
 import type { OverviewContent } from "../../models/chapter.model";
 import { AGE_LEVELS } from "../../constants/age-levels.constant";
@@ -95,13 +95,6 @@ export default component$(() => {
         </div>
       </div>
 
-      {/* Hero Image */}
-      <HeroImage
-        src="/images/constitution.png"
-        alt="Malta Constitution - Legal Document and Justice Symbols"
-        fallbackIcon="document"
-        fallbackText="Constitution Hero Image"
-      />
 
       {/* Age Level Toggle */}
       <div class="sticky top-20 z-40 py-4 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 mb-2">
@@ -133,17 +126,11 @@ export default component$(() => {
         )}
       </div>
 
+      {/* Official legislation link */}
+      <OfficialLegislationLink />
+
       {/* Additional Info */}
-      <div class="mt-8 p-4 bg-gray-50 rounded-lg border border-gray-200">
-        <p class="text-sm text-gray-700 flex items-center">
-          <svg class="w-5 h-5 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-          </svg>
-          <strong class="text-gray-900">Tip:</strong> Each explanation covers
-          the same topics but uses different language appropriate for different
-          ages. Try switching between levels to see the difference!
-        </p>
-      </div>
+      <ReadingLevelsTip />
     </div>
   );
 });

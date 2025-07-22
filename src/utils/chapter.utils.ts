@@ -27,41 +27,55 @@ export const searchChapters = (searchTerm: string): Chapter[] => {
   if (!searchTerm.trim()) return CHAPTERS;
 
   const term = searchTerm.toLowerCase();
-  const scoredResults = CHAPTERS.map(chapter => {
+  const scoredResults = CHAPTERS.map((chapter) => {
     let score = 0;
-    
+
     // Title match (highest priority)
     if (chapter.title.toLowerCase().includes(term)) score += 10;
-    
-    // Description match (medium priority)  
+
+    // Description match (medium priority)
     if (chapter.description.toLowerCase().includes(term)) score += 5;
-    
+
     // Tag matches (lower priority but comprehensive)
-    const tagMatches = chapter.tags.filter(tag => 
+    const tagMatches = chapter.tags.filter((tag) =>
       tag.toLowerCase().includes(term)
     ).length;
     score += tagMatches * 2;
-    
+
     // Chapter number exact match
     if (chapter.chapter === term) score += 15;
-    
+
     return { chapter, score };
   })
-  .filter(result => result.score > 0)
-  .sort((a, b) => b.score - a.score)
-  .map(result => result.chapter);
-  
+    .filter((result) => result.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .map((result) => result.chapter);
+
   return scoredResults;
 };
 
 /**
- * Get the next chapter in sequence, handling "10a" ordering
+ * Get the next chapter in sequence, handling "10A" ordering
  */
 export const getNextChapter = (currentChapter: string): Chapter | null => {
-  const chapterOrder = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "10a", "11"];
+  const chapterOrder = [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "10A",
+    "11",
+  ];
   const currentIndex = chapterOrder.indexOf(currentChapter);
-  if (currentIndex === -1 || currentIndex === chapterOrder.length - 1) return null;
-  
+  if (currentIndex === -1 || currentIndex === chapterOrder.length - 1)
+    return null;
+
   const nextChapterId = chapterOrder[currentIndex + 1];
   return getChapterById(nextChapterId) || null;
 };
@@ -70,10 +84,23 @@ export const getNextChapter = (currentChapter: string): Chapter | null => {
  * Get the previous chapter in sequence, handling "10a" ordering
  */
 export const getPreviousChapter = (currentChapter: string): Chapter | null => {
-  const chapterOrder = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "10a", "11"];
+  const chapterOrder = [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "10A",
+    "11",
+  ];
   const currentIndex = chapterOrder.indexOf(currentChapter);
   if (currentIndex === -1 || currentIndex === 0) return null;
-  
+
   const prevChapterId = chapterOrder[currentIndex - 1];
   return getChapterById(prevChapterId) || null;
 };

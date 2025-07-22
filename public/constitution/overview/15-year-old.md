@@ -55,7 +55,3 @@ The Constitution is the **supreme law** of Malta 📜 — it’s like the founda
 - Protects freedom and justice ⚖️
 - Limits power to avoid abuse ⛔
 - Helps you understand your rights 🧠 and role as a citizen 🇲🇹
-
----
-
-> You can read the full constitution on the official legislation.mt website [here](https://legislation.mt/eli/const/eng).
