@@ -1,62 +1,65 @@
 ## FEATURE:
 
-Improve and standardize the UX, UI, and file structure of the `Chapters`, `Chapter`, and `Overview` routes. Refactor components, styling, search logic, and reusable models/utilities to match updated best practices, align with the landing page styling, and optimize for SEO. These changes aim to improve visual consistency, search accuracy, component modularity, and developer clarity.
+Full Codebase Refactor: Consolidation, Standards, and Import Hygiene
 
 ## DOCUMENTATION:
 
-- https://qwik.dev/docs/components/rendering/
-- https://qwik.dev/docs/routing/overview/
-- https://developer.mozilla.org/en-US/docs/Web/Accessibility
-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
-- https://tailwindcss.com/docs/installation
-- `src/routes/chapters/index.tsx`
-- `src/routes/chapters/[chapter]/index.tsx`
-- `src/routes/overview/index.tsx`
-- `src/constants/chapter.ts`
-- `src/components/ChapterCard.tsx`
-- `src/components/AgeLevelToggle.tsx`
-- Current production site: https://constitution-explained.firebaseapp.com
+- `src/constants/age-levels.constant.ts` – defines the standard age levels used throughout the application. These must be reused wherever possible.
+- `components/` folder – all components should live at the root of the folder, and be exported via a single `index.ts` file.
+- Existing documentation files:
+  - [`CLAUDE.md`](../../CLAUDE.md) — Update with standards regarding file structure and reusable component creation.
+  - [`PLANNING.md`](../../.context/PLANNING.md) — Document any abstraction strategies or reusable logic consolidation.
 
 ## OTHER CONSIDERATIONS:
 
-### ✅ Functional/UI Improvements
+### 🎯 Refactor Goals
 
-- Replace emojis in chapter cards with consistent icons (e.g., Lucide) that visually match the header/sidebar style.
-- Ensure all chapter cards display the “Read Chapter” CTA in the same vertical position.
-- Fix `+X` tag count logic in chapter cards (only count tags not visibly shown).
-- Add "Previous Chapter" / "Next Chapter" buttons to the bottom of each chapter page.
-- Make the search bar in the Chapters route sticky when scrolling.
-- Update `chapter.constant.ts` with significantly more search tags:
-  - Include institutions (e.g., President, Prime Minister, Parliament)
-  - Include key themes or legal concepts in each chapter
-  - Do **not** display tags in UI; use them strictly for search matching
+1. **Code Repetition Cleanup**:
 
-### 🛠 Refactoring
+   - Scan all routes and components for repeated logic, styling, or markup.
+   - Consolidate repeating patterns into utility functions or new reusable components.
+   - Prioritize abstraction **only** if reused 2+ times or likely to be extended in the future.
+   - Document this practice in the CLAUDE.md and PLANNING.md files.
 
-- Move `Chapter` and `ChapterContent` interfaces into `src/models/chapter.model.ts`.
-- Move helper methods from `constants/chapter.ts` into `src/utils/chapter.utils.ts`.
-- Rename `constants/chapter.ts` to `constants/chapter.constant.ts` (update all imports).
-- Create a new file: `src/constants/age-levels.constant.ts`
-  - Move all age level constants and types into this file.
-  - Reuse these constants in `ChapterContent` types and anywhere else level labels are duplicated.
+2. **Import Hygiene via `index.ts` Files**:
 
-### 🧩 Cross-Component Consistency
+   - Adopt the convention that **any folder containing `.ts`/`.tsx` files must expose them via an `index.ts`**.
+   - This improves import clarity and avoids deeply nested file path references.
+   - Update `CLAUDE.md` and `PLANNING.md` to include this as a **non-optional architectural standard**.
 
-- Add a clear link from the `Overview` page to the `Chapters` page (CTA or nav link).
-- Ensure all pages updated follow visual conventions and spacing of the updated landing page.
-- Improve semantic HTML structure and `<meta>` tags for SEO performance.
-- Improve page titles and headings to reflect SEO keywords (e.g., "Malta Constitution - Chapter 5 Overview for Age 15").
+3. **Age Level Constant Unification**:
 
-### 📚 Documentation Notes
+   - Any references to 5-year-old, 10-year-old, 15-year-old, and citizen must use the `age-levels.constant.ts` file.
+   - Refactor interfaces (e.g., `ChapterContent`) and conditional checks to avoid string literals for age level values.
+   - This improves resilience across components and avoids mismatch bugs.
 
-- Document these new structural conventions in the repo:
-  - Where to place models (`src/models`)
-  - Where to define reusable constants (`src/constants`)
-  - Where to write reusable utilities (`src/utils`)
-  - Guidance for when to use tags for search vs. display
+4. **Component Folder Cleanup**:
+   - Flatten the `components/` directory by moving any child components to the root level.
+   - Update `components/index.ts` to export all of them.
+   - Add a documented rule that nested folders for components should only exist for **complex composite components**, not single-use or atomic components.
 
-### ✨ SEO Considerations
+### 📌 Additional Best Practices
 
-- Use heading tags (h1/h2) with keywords on all routes.
-- Improve `<title>` and `<meta description>` tags in route entries (for each main route).
-- Ensure all content is crawlable and semantically structured.
+- Do not extract one-off styles or logic unless you’re sure of re-use.
+- Avoid over-abstracting—only extract patterns that appear more than once or are likely to recur.
+- Run lint, format, and build checks after structural changes.
+
+### ✅ Validation Commands
+
+```bash
+# Confirm working build
+npm run build
+
+# Confirm formatting
+npm run fmt.check
+
+# Confirm linting
+npm run lint
+
+# Confirm all exports/imports resolve cleanly
+tsc --noEmit
+```
+
+```
+
+```
