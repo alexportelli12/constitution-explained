@@ -12,7 +12,7 @@ export default extendConfig(baseConfig, () => {
     },
     plugins: [
       staticAdapter({
-        origin: "https://constitution-explained.web.app",
+        origin: "https://constitutionofmalta.com",
       }),
     ],
   };
