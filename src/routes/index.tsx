@@ -113,7 +113,7 @@ export const head: DocumentHead = {
     },
     {
       property: "og:image",
-      content: "/images/valletta-skyline.png",
+      content: "https://constitutionofmalta.com/images/valletta-skyline.png",
     },
     {
       name: "viewport",
