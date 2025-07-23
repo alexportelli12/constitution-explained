@@ -104,8 +104,8 @@ export default component$(() => {
     getChapterById(chapterData.value.chapterId),
   );
 
-  const chapterDisplayTitle = useComputed$(() => 
-    `Chapter ${chapterMeta.value?.chapter}: ${chapterMeta.value?.title}`
+  const chapterDisplayTitle = useComputed$(
+    () => `Chapter ${chapterMeta.value?.chapter}: ${chapterMeta.value?.title}`,
   );
 
   // Show error if chapter not found
