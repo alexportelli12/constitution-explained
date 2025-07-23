@@ -126,7 +126,8 @@ export const CitizenOwnershipSection = component$(() => {
                   <span class="text-2xl">👩‍⚖️</span>
                 </div>
                 <p class="text-sm text-gray-600 mt-2">
-                  "Clear, accessible explanations without legal jargon"
+                  "Understanding your rights and responsibilities as a member of
+                  a democracy"
                 </p>
               </div>
             </div>

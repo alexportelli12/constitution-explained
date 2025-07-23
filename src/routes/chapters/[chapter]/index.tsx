@@ -104,6 +104,10 @@ export default component$(() => {
     getChapterById(chapterData.value.chapterId),
   );
 
+  const chapterDisplayTitle = useComputed$(
+    () => `Chapter ${chapterMeta.value?.chapter}: ${chapterMeta.value?.title}`,
+  );
+
   // Show error if chapter not found
   if (!chapterMeta.value) {
     return (
@@ -167,7 +171,7 @@ export default component$(() => {
       {/* Hero Section */}
       <div class="text-center mb-8">
         <h1 class="text-4xl font-bold text-gray-900 mb-4">
-          Chapter {chapterMeta.value?.chapter}: {chapterMeta.value?.title}
+          {chapterDisplayTitle.value}
         </h1>
         <p class="text-lg text-gray-600 max-w-2xl mx-auto">
           {chapterMeta.value?.description}
@@ -195,8 +199,7 @@ export default component$(() => {
       {/* Dynamic Note */}
       <div class="mb-4 p-3 bg-red-50 border-l-4 border-primary-500 rounded-r-lg">
         <p class="text-sm text-primary-700">
-          Reading Chapter {chapterMeta.value?.chapter}:{" "}
-          <strong>{chapterMeta.value?.title}</strong> at{" "}
+          Reading <strong>{chapterDisplayTitle.value}</strong> at{" "}
           <strong>{getLevelDescription(activeLevel.value)}</strong> level
         </p>
       </div>

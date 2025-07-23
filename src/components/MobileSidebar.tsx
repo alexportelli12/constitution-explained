@@ -146,7 +146,15 @@ export const MobileSidebar = component$<MobileSidebarProps>(
 
           <div class="px-6 py-4 border-t border-gray-200">
             <p class="text-center text-sm text-gray-500">
-              Built by Alex Portelli
+              Built by{" "}
+              <a
+                href="https://alexportelli.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-primary-500 hover:text-primary-600 font-medium transition-colors"
+              >
+                Alex Portelli
+              </a>
             </p>
           </div>
         </div>
