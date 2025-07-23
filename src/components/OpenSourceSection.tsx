@@ -2,7 +2,7 @@ import { component$ } from "@builder.io/qwik";
 
 export const OpenSourceSection = component$(() => {
   return (
-    <section class="py-16 bg-white">
+    <section class="py-12 bg-white">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
           <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">

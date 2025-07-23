@@ -75,7 +75,7 @@ export const MobileSidebar = component$<MobileSidebarProps>(
                   "flex items-center w-full text-left px-4 py-3 rounded-xl text-base font-medium transition-all duration-200",
                   isActive("/")
                     ? "bg-primary-500 text-white shadow-lg"
-                    : "text-gray-700 hover:bg-gray-100 hover:text-gray-900",
+                    : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 )}
               >
                 <svg
@@ -99,7 +99,7 @@ export const MobileSidebar = component$<MobileSidebarProps>(
                   "flex items-center w-full text-left px-4 py-3 rounded-xl text-base font-medium transition-all duration-200",
                   isActive("/overview")
                     ? "bg-primary-500 text-white shadow-lg"
-                    : "text-gray-700 hover:bg-gray-100 hover:text-gray-900",
+                    : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 )}
               >
                 <svg
@@ -123,7 +123,7 @@ export const MobileSidebar = component$<MobileSidebarProps>(
                   "flex items-center w-full text-left px-4 py-3 rounded-xl text-base font-medium transition-all duration-200",
                   isActive("/chapters")
                     ? "bg-primary-500 text-white shadow-lg"
-                    : "text-gray-700 hover:bg-gray-100 hover:text-gray-900",
+                    : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 )}
               >
                 <svg
@@ -146,11 +146,19 @@ export const MobileSidebar = component$<MobileSidebarProps>(
 
           <div class="px-6 py-4 border-t border-gray-200">
             <p class="text-center text-sm text-gray-500">
-              Built by Alex Portelli
+              Built by{" "}
+              <a
+                href="https://alexportelli.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-primary-500 hover:text-primary-600 font-medium transition-colors"
+              >
+                Alex Portelli
+              </a>
             </p>
           </div>
         </div>
       </>
     );
-  },
+  }
 );
