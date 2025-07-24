@@ -1,6 +1,6 @@
 import { component$, type Signal, type QRL } from "@builder.io/qwik";
 import { clsx } from "clsx";
-import { AGE_LEVELS, AGE_LEVEL_LABELS } from "../constants/age-levels.constant";
+import { AGE_LEVELS, AGE_LEVEL_LABELS } from "../constants";
 
 interface AgeLevelToggleProps {
   activeLevel: Signal<string>;

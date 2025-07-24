@@ -1,19 +1,20 @@
 import { component$, useSignal, $ } from "@builder.io/qwik";
 import { AgeLevelToggle } from "./AgeLevelToggle";
+import { AGE_LEVELS, type AgeLevel } from "../constants";
 
 export const AgeLevelPreview = component$(() => {
   const selectedLevel = useSignal("citizen");
 
-  const sampleContent = {
-    "5-year-old":
+  const sampleContent: Record<AgeLevel, string> = {
+    [AGE_LEVELS[0]]:
       "Everyone in Malta has the right to say what they think and believe what they want. It's like having the freedom to choose your favorite color!",
-    "10-year-old":
+    [AGE_LEVELS[1]]:
       "All Maltese citizens have the right to freedom of expression and belief. This means you can share your opinions and practice your religion safely.",
-    "15-year-old":
+    [AGE_LEVELS[2]]:
       "The Constitution guarantees fundamental rights including freedom of expression, conscience, and religion. These rights are protected but come with responsibilities to respect others' rights too.",
-    citizen:
+    [AGE_LEVELS[3]]:
       "Article 41 establishes the fundamental right to freedom of expression, conscience, and religion, subject to the interests of decency, public order, and the rights and freedoms of others.",
-  } as const;
+  };
 
   return (
     <section class="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">

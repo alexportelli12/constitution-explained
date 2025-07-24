@@ -47,7 +47,15 @@ These standards must be followed:
 - **Index File**: Always maintain `src/components/index.ts` with re-exports of all components
 - **Import Style**: Use centralized imports: `import { Header, Footer } from "../components"`
 - **Export Pattern**: Use `export * from "./ComponentName"` for re-exports, no default exports for components
-- **File Structure**: Keep related components in subdirectories when they have multiple files
+- **File Structure**: Keep components at root level of `src/components/` unless they are complex composite components with multiple files
+- **Component Naming**: Use PascalCase for all component files (e.g., `RouterHead.tsx`, not `router-head.tsx`)
+
+### 📁 Directory Index Files
+
+- **Required**: All TypeScript directories must have an `index.ts` file for clean imports
+- **Pattern**: Use `export * from "./filename"` for re-exports  
+- **Coverage**: Apply to `src/constants/`, `src/lib/`, `src/models/`, `src/utils/`, `src/hooks/`, etc.
+- **Import Style**: Always use index imports: `import { CHAPTERS } from "../constants"` not `import { CHAPTERS } from "../constants/chapters.constant"`
 
 ### 🚫 Anti-Patterns & Best Practices
 

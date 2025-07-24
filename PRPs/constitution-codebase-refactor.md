@@ -17,16 +17,19 @@ Execute a comprehensive codebase refactor to eliminate code repetition, establis
 ### Core Refactor Areas
 
 1. **Code Repetition Elimination**
+
    - Extract duplicated URL parameter handling logic into reusable hooks
    - Consolidate level description functionality
    - Create reusable content loading patterns
 
 2. **Import Hygiene Implementation**
+
    - Add `index.ts` files to all directories containing `.ts`/`.tsx` files
    - Update all import statements to use cleaner paths
    - Ensure consistent re-export patterns
 
 3. **Age Level Constant Unification**
+
    - Replace all hardcoded age level strings with imports from `age-levels.constant.ts`
    - Update TypeScript interfaces to use the `AgeLevel` type
    - Fix inconsistent age level usage across components
@@ -108,7 +111,7 @@ src/
 src/
 ├── components/
 │   ├── OfficialLegislationLink.tsx      # MOVED: Flattened from subdirectory
-│   ├── ReadingLevelsTip.tsx             # MOVED: Flattened from subdirectory  
+│   ├── ReadingLevelsTip.tsx             # MOVED: Flattened from subdirectory
 │   ├── RouterHead.tsx                   # MOVED: Flattened from router-head/
 │   └── index.ts                         # UPDATED: New exports
 ├── constants/
@@ -132,7 +135,7 @@ src/
 // GOTCHA: AgeLevelPreview has hardcoded strings in sampleContent object
 const sampleContent = {
   "5-year-old": "...", // Should use AGE_LEVELS[0] or similar approach
-}
+};
 
 // GOTCHA: ChapterContent interface uses string literals instead of AgeLevel type
 interface ChapterContent {
@@ -152,7 +155,7 @@ const getLevelDescription = $((level: string) => {
 // GOTCHA: router-head component uses kebab-case filename, others use PascalCase
 // Must maintain consistent naming when flattening
 
-// GOTCHA: OfficialLegislationLink and ReadingLevelsTip are in subdirectories  
+// GOTCHA: OfficialLegislationLink and ReadingLevelsTip are in subdirectories
 // These should be flattened to component root level like other atomic components
 
 // GOTCHA: root.tsx imports RouterHead from components index
@@ -172,7 +175,7 @@ export const useAgeLevelUrl = () => {
   // Return { activeLevel, handleLevelChange, getInitialLevel }
 };
 
-// src/hooks/useContentLoader.ts  
+// src/hooks/useContentLoader.ts
 export const useContentLoader = <T>() => {
   // Extract content loading pattern
   // Return { content, loadContent, isLoading }
@@ -192,28 +195,28 @@ export * from "./file-name";
 ```yaml
 Task 1: Create Index Files
   CREATE src/constants/index.ts
-  CREATE src/lib/index.ts  
+  CREATE src/lib/index.ts
   CREATE src/models/index.ts
   CREATE src/utils/index.ts
-  
+
 Task 2: Fix Age Level Type Issues
   UPDATE src/models/chapter.model.ts
-    - Replace hardcoded strings with AgeLevel type
+  - Replace hardcoded strings with AgeLevel type
   UPDATE src/components/AgeLevelPreview.tsx
-    - Use AGE_LEVELS constant instead of hardcoded strings
+  - Use AGE_LEVELS constant instead of hardcoded strings
 
 Task 3: Extract Repeated Logic
   CREATE src/hooks/useAgeLevelUrl.ts
-    - Extract URL parameter handling from routes
-  CREATE src/utils/age-levels.utils.ts  
-    - Extract getLevelDescription function
+  - Extract URL parameter handling from routes
+  CREATE src/utils/age-levels.utils.ts
+  - Extract getLevelDescription function
   CREATE src/hooks/useContentLoader.ts
-    - Extract content loading pattern
+  - Extract content loading pattern
 
 Task 4: Flatten Component Structure
   MOVE src/components/OfficialLegislationLink/OfficialLegislationLink.tsx → src/components/OfficialLegislationLink.tsx
   DELETE src/components/OfficialLegislationLink/ directory
-  MOVE src/components/ReadingLevelsTip/ReadingLevelsTip.tsx → src/components/ReadingLevelsTip.tsx  
+  MOVE src/components/ReadingLevelsTip/ReadingLevelsTip.tsx → src/components/ReadingLevelsTip.tsx
   DELETE src/components/ReadingLevelsTip/ directory
   MOVE src/components/router-head/router-head.tsx → src/components/RouterHead.tsx
   DELETE src/components/router-head/ directory
@@ -222,24 +225,24 @@ Task 4: Flatten Component Structure
 Task 5: Update All Imports
   UPDATE all files to use new index.ts imports
   UPDATE component imports to use flattened structure
-  
-Task 6: Refactor Route Components  
+
+Task 6: Refactor Route Components
   UPDATE src/routes/chapters/[chapter]/index.tsx
-    - Use new hooks instead of duplicated logic
+  - Use new hooks instead of duplicated logic
   UPDATE src/routes/overview/index.tsx
-    - Use new hooks instead of duplicated logic
+  - Use new hooks instead of duplicated logic
 
 Task 7: Create Missing Hook Directory
   CREATE src/hooks/index.ts for hook exports
 
-Task 8: Update Repository Documentation  
+Task 8: Update Repository Documentation
   UPDATE CLAUDE.md
-    - Add rule that components should be at root level unless complex composites
-    - Document index.ts requirement for all TypeScript directories
-    - Add import path standardization guidelines
+  - Add rule that components should be at root level unless complex composites
+  - Document index.ts requirement for all TypeScript directories
+  - Add import path standardization guidelines
   UPDATE .context/PLANNING.md
-    - Document the refactor outcomes and new architectural standards
-    - Add component organization best practices
+  - Document the refactor outcomes and new architectural standards
+  - Add component organization best practices
 ```
 
 ### 🔁 Pseudocode (Key Extractions)
@@ -249,7 +252,7 @@ Task 8: Update Repository Documentation
 export const useAgeLevelUrl = () => {
   const loc = useLocation();
   const nav = useNavigate();
-  
+
   const getInitialLevel = $(() => {
     const levelParam = loc.url.searchParams.get("level");
     return AGE_LEVELS.includes(levelParam as any) ? levelParam! : "citizen";
@@ -266,9 +269,9 @@ export const useAgeLevelUrl = () => {
 export const getLevelDescription = (level: AgeLevel): string => {
   const descriptions: Record<AgeLevel, string> = {
     "5-year-old": "5 years old",
-    "10-year-old": "10 years old", 
+    "10-year-old": "10 years old",
     "15-year-old": "15 years old",
-    "citizen": "an adult citizen"
+    citizen: "an adult citizen",
   };
   return descriptions[level];
 };
@@ -282,15 +285,15 @@ export const getLevelDescription = (level: AgeLevel): string => {
 HOOK INTEGRATION:
   - Routes will import custom hooks instead of duplicating logic
   - Hooks encapsulate URL parameter management and content loading
-  
+
 CONSTANT UNIFICATION:
   - All age level references go through constants/age-levels.constant.ts
   - TypeScript interfaces use AgeLevel type for type safety
 
-IMPORT STANDARDIZATION:  
+IMPORT STANDARDIZATION:
   - All imports use index.ts files for clean paths
   - Component imports use flattened structure
-  
+
 COMPONENT ORGANIZATION:
   - All atomic components at root level of components/
   - Only complex composite components with multiple files keep subdirectories
@@ -316,7 +319,7 @@ npm start
 ### Level 2: Build and Quality Checks
 
 ```bash
-# Confirm working build  
+# Confirm working build
 npm run build
 
 # Confirm formatting
@@ -347,21 +350,25 @@ npm run build
 ## 📋 Final Validation Checklist
 
 **Code Repetition Elimination:**
+
 - [ ] No duplicated URL parameter handling logic between routes
 - [ ] No duplicated level description functions
 - [ ] No duplicated content loading patterns
 
 **Import Hygiene:**
+
 - [ ] All directories with `.ts`/`.tsx` files have `index.ts` exports
 - [ ] All imports use clean paths through index files
 - [ ] No deep relative imports (e.g., `../../../constants/file`)
 
 **Age Level Constant Unification:**
+
 - [ ] All hardcoded age level strings replaced with constants
 - [ ] ChapterContent and OverviewContent use AgeLevel type
 - [ ] AgeLevelPreview uses AGE_LEVELS constant
 
 **Component Structure:**
+
 - [ ] OfficialLegislationLink component flattened to root level
 - [ ] ReadingLevelsTip component flattened to root level
 - [ ] router-head component flattened to RouterHead.tsx
@@ -370,20 +377,23 @@ npm run build
 - [ ] root.tsx import updated to use flattened RouterHead
 
 **Build Quality:**
+
 - [ ] `npm run build` passes without errors
 - [ ] `npm run lint` passes without warnings
 - [ ] `npm run fmt.check` passes without issues
 - [ ] `tsc --noEmit` confirms all types resolve
 
 **Functional Verification:**
+
 - [ ] Age level toggles work on all routes
 - [ ] URL parameters update correctly
 - [ ] Content loads properly for all age levels
 - [ ] No breaking changes to existing functionality
 
 **Documentation Updates:**
+
 - [ ] CLAUDE.md updated with new component organization rules
-- [ ] CLAUDE.md includes index.ts requirement documentation  
+- [ ] CLAUDE.md includes index.ts requirement documentation
 - [ ] .context/PLANNING.md documents refactor outcomes and standards
 
 ---
@@ -408,6 +418,7 @@ npm run build
 This PRP provides comprehensive context, specific file references, clear task ordering, and executable validation steps. The refactor addresses well-defined repetition patterns and follows established architectural standards. The main risk areas (import updates, component flattening) are clearly documented with specific gotchas identified.
 
 **Success Factors:**
+
 - Detailed analysis of current codebase structure
 - Clear identification of repetition patterns
 - Step-by-step task breakdown with dependencies
@@ -416,6 +427,7 @@ This PRP provides comprehensive context, specific file references, clear task or
 - Full context of existing conventions and standards
 
 **Potential Risk Mitigation:**
+
 - Start with index.ts creation (low risk)
 - Extract utilities before updating consumers
 - Test each major change before proceeding

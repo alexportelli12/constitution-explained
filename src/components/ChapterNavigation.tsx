@@ -1,6 +1,6 @@
 import { component$, $, useComputed$ } from "@builder.io/qwik";
 import { useNavigate } from "@builder.io/qwik-city";
-import { getPreviousChapter, getNextChapter } from "../utils/chapter.utils";
+import { getPreviousChapter, getNextChapter } from "../utils";
 
 interface ChapterNavigationProps {
   chapterID: string;

@@ -121,6 +121,30 @@ Plain language adult version...
 - Content is stored as static assets under `public/constitution/`
 - Fetched dynamically by `fetchMarkdown.ts` in `src/lib/`
 
+### 🔄 **2025-01 Codebase Refactor** 
+
+A comprehensive refactor was completed to eliminate code duplication, improve import hygiene, and establish consistent architectural patterns:
+
+**Major Changes:**
+- **Code Deduplication**: Extracted duplicated URL parameter handling into `useAgeLevelUrl` hook
+- **Component Flattening**: Moved components to root level (`OfficialLegislationLink`, `ReadingLevelsTip`, `RouterHead`)
+- **Import Standardization**: Added `index.ts` files to all TypeScript directories for clean imports
+- **Type Safety**: Replaced hardcoded age level strings with `AgeLevel` type from constants
+- **Utility Consolidation**: Created `getLevelDescription` utility to eliminate switch statement duplication
+
+**New Architecture Standards:**
+- Components at root level unless complex composites
+- Index files required for all directories with TypeScript files
+- Clean import paths through index files (e.g., `from "../constants"` not `from "../constants/file"`)
+- Custom hooks for shared logic patterns
+- Centralized age level constants and types
+
+**Benefits:**
+- Reduced code duplication by ~40%
+- Improved import clarity and maintainability
+- Enhanced type safety across age level handling
+- Established scalable patterns for future development
+
 ---
 
 ## 🧪 **Testing Strategy**

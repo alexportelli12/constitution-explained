@@ -2,6 +2,8 @@
  * Chapter and content type definitions for the Constitution of Malta Explained app
  */
 
+import type { AgeLevel } from "../constants";
+
 export interface Chapter {
   chapter: string;
   title: string;
@@ -13,14 +15,14 @@ export interface Chapter {
 }
 
 export interface ChapterContent {
-  level: "5-year-old" | "10-year-old" | "15-year-old" | "citizen";
+  level: AgeLevel;
   content: string;
   chapter: string;
   error?: string;
 }
 
 export interface OverviewContent {
-  level: "5-year-old" | "10-year-old" | "15-year-old" | "citizen";
+  level: AgeLevel;
   content: string;
   error?: string;
 }

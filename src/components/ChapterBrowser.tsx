@@ -1,7 +1,7 @@
 import { component$, useSignal, useComputed$ } from "@builder.io/qwik";
 import { clsx } from "clsx";
-import { CHAPTERS } from "../constants/chapters.constant";
-import { searchChapters } from "../utils/chapter.utils";
+import { CHAPTERS } from "../constants";
+import { searchChapters } from "../utils";
 import { ChapterCard } from "./ChapterCard";
 
 interface ChapterBrowserProps {
