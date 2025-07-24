@@ -224,8 +224,7 @@ export const head: DocumentHead = ({ resolveValue, params }) => {
       },
       {
         property: "og:image",
-        content:
-          chapterData.chapterMeta?.heroImage || "/images/valletta-skyline.png",
+        content: `https://constitutionofmalta.com${chapterData.chapterMeta?.heroImage || "/images/valletta-skyline.png"}`,
       },
       {
         name: "article:section",
