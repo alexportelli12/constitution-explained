@@ -2,6 +2,7 @@ import { component$, $ } from "@builder.io/qwik";
 import { useNavigate } from "@builder.io/qwik-city";
 import { clsx } from "clsx";
 import type { Chapter } from "../models";
+import { AnalyticsButton } from "./ui";
 import {
   BuildingIcon,
   DocumentIcon,
@@ -58,14 +59,13 @@ export const ChapterCard = component$<ChapterCardProps>(
     });
 
     return (
-      <div
+      <AnalyticsButton
+        eventTag={`chapter-card-${chapter.chapter}`}
+        onClick$={handleCardClick}
         class={clsx(
-          "bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer group",
+          "bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer group block w-full text-left",
           additionalClass,
         )}
-        onClick$={handleCardClick}
-        role="button"
-        tabIndex={0}
         onKeyDown$={(event) => {
           if (event.key === "Enter" || event.key === " ") {
             event.preventDefault();
@@ -94,7 +94,7 @@ export const ChapterCard = component$<ChapterCardProps>(
             </div>
           </div>
         </div>
-      </div>
+      </AnalyticsButton>
     );
   },
 );

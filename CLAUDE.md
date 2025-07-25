@@ -61,6 +61,79 @@ These standards must be followed:
 - **Coverage**: Apply to `src/constants/`, `src/lib/`, `src/models/`, `src/utils/`, `src/hooks/`, etc.
 - **Import Style**: Always use index imports: `import { CHAPTERS } from "../constants"` not `import { CHAPTERS } from "../constants/chapters.constant"`
 
+### 🎯 TypeScript Interface Organization
+
+**CRITICAL RULE**: All TypeScript interfaces and types MUST be placed in the `src/models/` directory following this standardized pattern:
+
+#### 📁 File Structure & Naming
+
+- **File naming**: `feature-name.model.ts` (e.g., `analytics.model.ts`, `user.model.ts`, `auth.model.ts`)
+- **Location**: All interface files in `src/models/` directory
+- **Index file**: Centralized exports via `src/models/index.ts`
+
+#### 📝 Examples from Codebase
+
+```typescript
+// src/models/chapter.model.ts
+export interface Chapter {
+  chapter: string;
+  title: string;
+  description: string;
+  tags: string[];
+  heroImage: string;
+  articleCount: number;
+}
+
+export interface ChapterContent {
+  level: AgeLevel;
+  content: string;
+  chapter: string;
+  error?: string;
+}
+
+// src/models/analytics.model.ts
+export type EventType = "page_view" | "button_click";
+export type DeviceType = "mobile" | "tablet" | "desktop";
+
+export interface AnalyticsEvent {
+  eventType: EventType;
+  page: string;
+  timestamp: Timestamp;
+  device: DeviceType;
+  tag?: string;
+}
+```
+
+#### 📦 Import Pattern
+
+```typescript
+// ✅ GOOD: Clean imports from centralized models
+import type { Chapter, ChapterContent } from "../models";
+import type { AnalyticsEvent, EventType } from "../models";
+
+// ❌ BAD: Direct file imports
+import type { Chapter } from "../models/chapter.model";
+import type { AnalyticsEvent } from "../models/analytics.model";
+```
+
+#### 🎯 Benefits of This Organization
+
+- **Consistency**: All type definitions in one predictable location
+- **Reusability**: Interfaces easily shared across components, services, and contexts
+- **Maintainability**: Single source of truth for data structures
+- **Import Clarity**: Clean, consistent import patterns across the entire codebase
+- **IDE Support**: Better autocomplete and refactoring capabilities
+
+#### 🔄 Model Index File Pattern
+
+```typescript
+// src/models/index.ts
+export * from "./chapter.model";
+export * from "./analytics.model";
+export * from "./svg.model";
+export * from "./content-page.model";
+```
+
 ### 🚫 Anti-Patterns & Best Practices
 
 #### ❌ Never Use setTimeout for State Management
