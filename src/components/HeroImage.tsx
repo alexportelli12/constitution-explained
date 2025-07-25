@@ -22,11 +22,16 @@ export const HeroImage = component$<HeroImageProps>(
     const imageLoaded = useSignal(false);
 
     return (
-      <div class="w-full rounded-xl mb-8 shadow-lg overflow-hidden" style={{ height: "400px" }}>
+      <div
+        class="w-full rounded-xl mb-8 shadow-lg overflow-hidden"
+        style={{ height: "400px" }}
+      >
         {!imageLoadError.value ? (
           <div class="relative w-full h-full">
             {!imageLoaded.value && (
-              <div class={`absolute inset-0 bg-gradient-to-r ${gradientColors} animate-pulse flex items-center justify-center`}>
+              <div
+                class={`absolute inset-0 bg-gradient-to-r ${gradientColors} animate-pulse flex items-center justify-center`}
+              >
                 <div class="w-12 h-12 bg-white/30 rounded-full animate-pulse"></div>
               </div>
             )}
@@ -50,7 +55,9 @@ export const HeroImage = component$<HeroImageProps>(
             />
           </div>
         ) : (
-          <div class={`w-full h-full bg-gradient-to-r ${gradientColors} flex items-center justify-center text-gray-500 text-center`}>
+          <div
+            class={`w-full h-full bg-gradient-to-r ${gradientColors} flex items-center justify-center text-gray-500 text-center`}
+          >
             <div>
               <div class="text-2xl mb-2">📖</div>
               <p>{fallbackText}</p>

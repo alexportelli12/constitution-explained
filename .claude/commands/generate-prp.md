@@ -4,6 +4,10 @@
 
 Generate a complete PRP (Product Requirement Prompt) for a **feature, bug fix, or architectural change** with full context for AI agents (Claude, GPT, etc.). Ensure that context, references, and expectations are clearly passed into the PRP for **self-validation, one-pass success**, and iterative refinement.
 
+### 📝 What is a PRP?
+
+**PRP** stands for **Product Requirement Prompt** - a detailed implementation specification that outlines feature requirements, component structure, and step-by-step implementation instructions for developers and AI agents.
+
 > ⚠️ The AI agent only receives the PRP + training data. It **does not inherently know** the context of your feature or your reasoning unless you **pass it through this PRP**.
 > Assume the agent has codebase access and your level of training-cutoff knowledge. Use links and real examples generously.
 

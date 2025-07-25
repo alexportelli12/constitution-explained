@@ -1,65 +1,63 @@
 ## FEATURE:
 
-Full Codebase Refactor: Consolidation, Standards, and Import Hygiene
+Enhance Landing Page with Civic Engagement Section + Reposition Open Source Content on Desktop and Mobile
 
 ## DOCUMENTATION:
 
-- `src/constants/age-levels.constant.ts` – defines the standard age levels used throughout the application. These must be reused wherever possible.
-- `components/` folder – all components should live at the root of the folder, and be exported via a single `index.ts` file.
-- Existing documentation files:
-  - [`CLAUDE.md`](../../CLAUDE.md) — Update with standards regarding file structure and reusable component creation.
-  - [`PLANNING.md`](../context/PLANNING.md) — Document any abstraction strategies or reusable logic consolidation.
+- `src/routes/index.tsx` – Landing page layout
+- `src/components/MobileSidebar.tsx` – Mobile sidebar navigation
+- Tailwind CSS v4 – styling framework
 
 ## OTHER CONSIDERATIONS:
 
-### 🎯 Refactor Goals
+### ✨ What’s Changing
 
-1. **Code Repetition Cleanup**:
+#### 1. 🧠 Add a New Section After the Hero on the Landing Page
 
-   - Scan all routes and components for repeated logic, styling, or markup.
-   - Consolidate repeating patterns into utility functions or new reusable components.
-   - Prioritize abstraction **only** if reused 2+ times or likely to be extended in the future.
-   - Document this practice in the CLAUDE.md and PLANNING.md files.
+- **Title**: Suggested — “Why Should I Learn About the Constitution?”
+- **Purpose**: Emotional, civic-focused hook that encourages site engagement
+- **Key Messages**:
+  - Despite its small size, Malta's path to self-governance is remarkable
+  - Our constitution protects our fundamental rights: freedom of speech, right to life, equal protection
+  - Knowing the constitution:
+    - Empowers citizens to recognize when rights are not upheld
+    - Deepens understanding of democratic systems
+    - Fosters better civic participation
+  - Malta’s institutions (e.g., the President, Parliament, Courts) exist because of this foundational document
+- **Tone**: Empowering, clear, and inviting
+- **Design**: Use Tailwind typography utilities for structure, add optional icon or image space
 
-2. **Import Hygiene via `index.ts` Files**:
+#### 2. 🔁 Reposition Existing Open Source Section
 
-   - Adopt the convention that **any folder containing `.ts`/`.tsx` files must expose them via an `index.ts`**.
-   - This improves import clarity and avoids deeply nested file path references.
-   - Update `CLAUDE.md` and `PLANNING.md` to include this as a **non-optional architectural standard**.
+- **Current Location**: Mid-page
+- **New Location**: Directly **above the footer** on the landing page
+- **No content changes required** — only move the JSX block
+- **Purpose**: Keep the Open Source CTA visible, but not competing with top-level civic content
 
-3. **Age Level Constant Unification**:
+#### 3. 📱 Add Open Source Link in Mobile Sidebar
 
-   - Any references to 5-year-old, 10-year-old, 15-year-old, and citizen must use the `age-levels.constant.ts` file.
-   - Refactor interfaces (e.g., `ChapterContent`) and conditional checks to avoid string literals for age level values.
-   - This improves resilience across components and avoids mismatch bugs.
+- File: `src/components/MobileSidebar.tsx`
+- Add item at the bottom of the nav list
+- **Label**: `Open Source`
+- **Action**: Opens GitHub repo (`https://github.com/alexportelli12/constitution-explained`) in a **new tab**
+- **Content**: Keep it brief, e.g., “View on GitHub”
+- **Optional**: Add GitHub icon or external link icon
 
-4. **Component Folder Cleanup**:
-   - Flatten the `components/` directory by moving any child components to the root level.
-   - Update `components/index.ts` to export all of them.
-   - Add a documented rule that nested folders for components should only exist for **complex composite components**, not single-use or atomic components.
+---
 
-### 📌 Additional Best Practices
+### 🔧 Technical Notes
 
-- Do not extract one-off styles or logic unless you’re sure of re-use.
-- Avoid over-abstracting—only extract patterns that appear more than once or are likely to recur.
-- Run lint, format, and build checks after structural changes.
+- New civic section should use semantic `<section>` and `<h2>` for SEO
+- Mobile sidebar link should use `target="_blank"` and `rel="noopener noreferrer"`
+- All styles should follow Tailwind v4 conventions
+- Maintain light/dark mode compatibility
 
-### ✅ Validation Commands
+---
 
-```bash
-# Confirm working build
-npm run build
+### ✅ Validation Checklist
 
-# Confirm formatting
-npm run fmt.check
-
-# Confirm linting
-npm run lint
-
-# Confirm all exports/imports resolve cleanly
-tsc --noEmit
-```
-
-```
-
-```
+- [ ] New “Why the Constitution Matters” section is present after hero
+- [ ] Content is emotionally compelling and visually coherent
+- [ ] Open Source section is successfully moved above the footer
+- [ ] Mobile sidebar includes GitHub link at the bottom
+- [ ] All changes maintain responsive layout and accessibility standards

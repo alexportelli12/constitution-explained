@@ -6,6 +6,7 @@ import {
   CivicEducationSection,
   CitizenOwnershipSection,
   AgeLevelPreview,
+  WhyConstitutionSection,
 } from "../components";
 
 export default component$(() => {
@@ -57,8 +58,10 @@ export default component$(() => {
         </div>
       </section>
 
-      {/* New Sections */}
-      <OpenSourceSection />
+      {/* NEW: Add civic engagement section after hero */}
+      <WhyConstitutionSection />
+
+      {/* UNCHANGED: Keep existing sections in order */}
       <CivicEducationSection />
       <CitizenOwnershipSection />
       <AgeLevelPreview />
@@ -79,6 +82,9 @@ export default component$(() => {
           </div>
         </div>
       </section>
+
+      {/* MOVED: Open Source section now above footer */}
+      <OpenSourceSection />
     </div>
   );
 });
