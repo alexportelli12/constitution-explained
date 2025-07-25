@@ -16,7 +16,7 @@ A mobile-first civic education platform that simplifies the Maltese Constitution
 - **Backend**: Firebase Hosting
 - **Testing**: Playwright (E2E) + Vitest (unit/component, planned)
 - **Internationalization**: English (MVP), Maltese (future)
-- **Tooling**: Claude Code AI-assisted specs via `context/`, `PRPs/`
+- **Tooling**: Claude Code AI-assisted specs via `context/`, `PRPs/` (Product Requirement Prompts)
 
 ### Key Architectural Decisions
 
@@ -92,12 +92,14 @@ A mobile-first civic education platform that simplifies the Maltese Constitution
 ### Content Organization Structure
 
 **Current Implementation:**
+
 - Content is organized by age level in separate directories under `public/constitution/chapters/`
 - Each age level has its own folder: `5-year-old/`, `10-year-old/`, `15-year-old/`, `citizen/`
 - Original text is stored at the root level (e.g., `public/constitution/chapters/1.md`)
 - Overview content is separated in `public/constitution/overview/`
 
 **File Structure:**
+
 ```
 public/constitution/
 ├── chapters/
@@ -180,7 +182,7 @@ A comprehensive refactor was completed to eliminate code duplication, improve im
 - `src/models/` for TypeScript interfaces and types
 - `src/utils/` for utility functions and helpers
 - `context/` for architectural planning and specifications
-- `PRPs/` for structured prompts and feature specifications
+- `PRPs/` for Product Requirement Prompts - detailed feature specifications and implementation instructions
 
 ### Component Organization Standards
 

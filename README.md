@@ -78,7 +78,7 @@ npm start
 ```
 constitution-explained/
 ├── context/                # Claude context files
-├── PRPs/                   # Product Requirement Prompts
+├── PRPs/                   # Product Requirement Prompts (detailed implementation specs)
 ├── public/
 │   ├── constitution/       # Markdown files as static assets
 │   │   ├── chapters/      # Chapter content by age level

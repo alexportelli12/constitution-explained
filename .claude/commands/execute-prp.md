@@ -2,8 +2,12 @@
 
 ## 📄 PRP File: `$ARGUMENTS`
 
-Implement a feature or fix using the PRP file provided in `PRPs/`.
+Implement a feature or fix using the PRP (Product Requirement Prompt) file provided in `PRPs/`.
 This document outlines the **step-by-step execution strategy** that both human developers and AI agents must follow.
+
+### 📝 What is a PRP?
+
+**PRP** stands for **Product Requirement Prompt** - a detailed implementation specification that outlines feature requirements, component structure, and step-by-step implementation instructions for developers and AI agents.
 
 ---
 
@@ -98,8 +102,9 @@ npm run fmt.check
 - **Component Documentation**: Ensure any new components are properly exported in `src/components/index.ts`
 
 **When to Update Each File:**
+
 - **README.md**: New user-facing features, changed tech stack, new installation steps
-- **CLAUDE.md**: New development commands, coding patterns, or architectural decisions  
+- **CLAUDE.md**: New development commands, coding patterns, or architectural decisions
 - **PLANNING.md**: New routes, significant architectural changes, updated content structure
 - **Component Index**: Always update when adding new components
 

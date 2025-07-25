@@ -4,6 +4,10 @@
 
 This file governs how Claude and developers should operate within the Maltese Constitution Explained codebase.
 
+### 📝 **Terminology**
+
+- **PRP**: **Product Requirement Prompt** - Detailed implementation specifications stored in the `PRPs/` directory that outline feature requirements, component structure, and step-by-step implementation instructions for developers and AI agents.
+
 ### ✅ Before You Start
 
 - **Read [`PLANNING.md`](./context/PLANNING.md)** for architecture, features, and route structure.
