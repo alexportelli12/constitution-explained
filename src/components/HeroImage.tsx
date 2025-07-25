@@ -24,7 +24,7 @@ export const HeroImage = component$<HeroImageProps>(
     return (
       <div
         class="w-full rounded-xl mb-8 shadow-lg overflow-hidden"
-        style={{ height: "400px" }}
+        style={{ "min-height": "190px" }}
       >
         {!imageLoadError.value ? (
           <div class="relative w-full h-full">

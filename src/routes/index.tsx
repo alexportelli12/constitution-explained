@@ -7,14 +7,15 @@ import {
   CitizenOwnershipSection,
   AgeLevelPreview,
   WhyConstitutionSection,
+  HistorySection,
 } from "../components";
 
 export default component$(() => {
   return (
     <div class="min-h-screen bg-white">
       {/* Enhanced Hero Section */}
-      <section class="relative min-h-screen bg-gradient-to-br from-primary-50 to-white flex items-center">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <section class="relative bg-gradient-to-br from-primary-50 to-white flex items-center">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
@@ -65,6 +66,9 @@ export default component$(() => {
       <CivicEducationSection />
       <CitizenOwnershipSection />
       <AgeLevelPreview />
+
+      {/* NEW: History Section */}
+      <HistorySection />
 
       {/* Inspirational Quote Section */}
       <section class="py-16 bg-gray-50">

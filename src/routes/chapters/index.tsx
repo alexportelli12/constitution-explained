@@ -1,47 +1,44 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
-import { Link } from "@builder.io/qwik-city";
-import { ChapterBrowser } from "../../components/ChapterBrowser";
+import { ContentPage, ChapterBrowser } from "../../components";
 
 export default component$(() => {
-  return (
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Hero Section */}
-      <div class="text-center mb-8">
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">
-          Browse Constitution Chapters
-        </h1>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
-          Explore all chapters of Malta's Constitution. Each chapter is
-          available with age-appropriate explanations to make constitutional
-          learning accessible to everyone.
-        </p>
-        <div class="flex justify-center">
-          <Link
-            href="/overview"
-            class="inline-flex items-center px-6 py-3 border border-primary-500 text-primary-600 font-medium rounded-xl hover:bg-primary-50 transition-colors"
-          >
-            <svg
-              class="w-5 h-5 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width={2}
-                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-              />
-            </svg>
-            Read Constitution Overview
-          </Link>
-        </div>
-      </div>
+  const pageConfig = {
+    hero: {
+      title: "Browse Constitution Chapters",
+      description:
+        "Explore all chapters of Malta's Constitution. Each chapter is available with age-appropriate explanations to make constitutional learning accessible to everyone.",
+    },
+    dynamicNotePrefix: "",
+    exploreMoreTitle: "Learn More About Malta's Constitution",
+    exploreMoreDescription:
+      "Gain deeper insights into Malta's constitutional framework and history",
+    exploreLinks: [
+      {
+        href: "/overview",
+        title: "Constitution Overview",
+        description:
+          "Get a comprehensive understanding of Malta's Constitution and its key principles",
+        svgType: "document",
+      },
+      {
+        href: "/history",
+        title: "Constitutional History",
+        description:
+          "Discover Malta's journey from British colonial rule to independence and republic",
+        svgType: "clock",
+      },
+    ],
+    showAgeLevelToggle: false,
+    showOfficialLink: false,
+    showReadingTip: false,
+    maxWidth: "7xl" as const,
+  };
 
-      {/* Chapter Browser */}
+  return (
+    <ContentPage config={pageConfig}>
       <ChapterBrowser />
-    </div>
+    </ContentPage>
   );
 });
 
