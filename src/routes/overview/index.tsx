@@ -1,16 +1,9 @@
 import { component$, useSignal, useVisibleTask$, $ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
-import { Link } from "@builder.io/qwik-city";
-import {
-  AgeLevelToggle,
-  MarkdownRenderer,
-  ReadingLevelsTip,
-  OfficialLegislationLink,
-} from "../../components";
+import { ContentPage } from "../../components";
 import { fetchOverviewContent } from "../../lib";
 import type { OverviewContent } from "../../models";
 import type { AgeLevel } from "../../constants";
-import { getLevelDescription } from "../../utils";
 import { useAgeLevel } from "../../contexts";
 
 export default component$(() => {
@@ -32,76 +25,41 @@ export default component$(() => {
     await loadContent(level);
   });
 
+  const pageConfig = {
+    hero: {
+      title: "Understanding Malta's Constitution",
+      description:
+        "Learn about Malta's Constitution at your level. Choose an explanation that works for you.",
+    },
+    dynamicNotePrefix: "Explain the Constitution of Malta to me like I'm",
+    exploreMoreTitle: "Explore More",
+    exploreMoreDescription:
+      "Continue your constitutional journey with our comprehensive resources",
+    exploreLinks: [
+      {
+        href: "/history",
+        title: "Constitutional History",
+        description:
+          "Discover Malta's journey from British colonial rule to independence and republic",
+        svgType: "clock",
+      },
+      {
+        href: "/chapters",
+        title: "Browse Chapters",
+        description:
+          "Explore detailed explanations of each constitutional chapter at your reading level",
+        svgType: "book",
+      },
+    ],
+  };
+
   return (
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Hero Section */}
-      <div class="text-center mb-8">
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">
-          Understanding Malta's Constitution
-        </h1>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
-          Learn about Malta's Constitution at your level. Choose an explanation
-          that works for you:
-        </p>
-        <div class="flex justify-center">
-          <Link
-            href="/chapters"
-            class="inline-flex items-center px-6 py-3 border border-primary-500 text-primary-600 font-medium rounded-xl hover:bg-primary-50 transition-colors"
-          >
-            <svg
-              class="w-5 h-5 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width={2}
-                d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
-              />
-            </svg>
-            Browse All Chapters
-          </Link>
-        </div>
-      </div>
-
-      {/* Age Level Toggle */}
-      <div class="sticky top-20 z-40 py-4 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 mb-2">
-        <div class="bg-white/90 backdrop-blur-md rounded-xl shadow-sm border border-gray-100 px-3 py-2">
-          <AgeLevelToggle
-            activeLevel={activeLevel}
-            onLevelChange={handleLevelChange}
-          />
-        </div>
-      </div>
-
-      {/* Dynamic Note */}
-      <div class="mb-4 p-3 bg-red-50 border-l-4 border-primary-500 rounded-r-lg">
-        <p class="text-sm text-primary-700">
-          Explain the Constitution of Malta to me like I'm{" "}
-          <strong>{getLevelDescription(activeLevel.value)}</strong>.
-        </p>
-      </div>
-
-      {/* Content Area */}
-      <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        {!content.value ? (
-          <MarkdownRenderer content="" />
-        ) : (
-          <MarkdownRenderer
-            content={content.value.content}
-            error={content.value.error}
-          />
-        )}
-      </div>
-
-      {/* Official legislation link */}
-      <OfficialLegislationLink />
-
-      {/* Additional Info */}
-      <ReadingLevelsTip />
-    </div>
+    <ContentPage
+      config={pageConfig}
+      activeLevel={activeLevel}
+      onLevelChange={handleLevelChange}
+      content={content}
+    />
   );
 });
 

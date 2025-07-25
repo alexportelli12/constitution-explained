@@ -1,63 +1,90 @@
 ## FEATURE:
 
-Enhance Landing Page with Civic Engagement Section + Reposition Open Source Content on Desktop and Mobile
+Create an Interactive “History” Page Tracing Malta’s Journey to a Republic
 
 ## DOCUMENTATION:
 
-- `src/routes/index.tsx` – Landing page layout
-- `src/components/MobileSidebar.tsx` – Mobile sidebar navigation
-- Tailwind CSS v4 – styling framework
+- History research content prepared in this project - see the public/history/source.md file.
+- Use content structure and tone aligned with:
+  - Overview and Chapter pages
+  - Existing `AgeLevelToggle` component (re-use logic)
+- Existing Tailwind CSS v4 configuration
+- Reuse visual/card conventions seen in `/overview` and `/chapters` pages
 
 ## OTHER CONSIDERATIONS:
 
-### ✨ What’s Changing
+### 🧠 Educational Goals
 
-#### 1. 🧠 Add a New Section After the Hero on the Landing Page
+The history page should help users understand:
 
-- **Title**: Suggested — “Why Should I Learn About the Constitution?”
-- **Purpose**: Emotional, civic-focused hook that encourages site engagement
-- **Key Messages**:
-  - Despite its small size, Malta's path to self-governance is remarkable
-  - Our constitution protects our fundamental rights: freedom of speech, right to life, equal protection
-  - Knowing the constitution:
-    - Empowers citizens to recognize when rights are not upheld
-    - Deepens understanding of democratic systems
-    - Fosters better civic participation
-  - Malta’s institutions (e.g., the President, Parliament, Courts) exist because of this foundational document
-- **Tone**: Empowering, clear, and inviting
-- **Design**: Use Tailwind typography utilities for structure, add optional icon or image space
+- How Malta evolved from colonial rule to an independent state and then to a republic
+- The meaning and role of a constitution in this national journey
+- Key figures (e.g., George Borg Olivier, Dom Mintoff) and milestones
+- How amendments over the years have shaped democracy in Malta
 
-#### 2. 🔁 Reposition Existing Open Source Section
+### 📚 Content Design & Layout
 
-- **Current Location**: Mid-page
-- **New Location**: Directly **above the footer** on the landing page
-- **No content changes required** — only move the JSX block
-- **Purpose**: Keep the Open Source CTA visible, but not competing with top-level civic content
+#### 1. Section Breakdown (in Age-Level Toggle format)
 
-#### 3. 📱 Add Open Source Link in Mobile Sidebar
+Each age level (5, 10, 15, adult) version will cover:
 
-- File: `src/components/MobileSidebar.tsx`
-- Add item at the bottom of the nav list
-- **Label**: `Open Source`
-- **Action**: Opens GitHub repo (`https://github.com/alexportelli12/constitution-explained`) in a **new tab**
-- **Content**: Keep it brief, e.g., “View on GitHub”
-- **Optional**: Add GitHub icon or external link icon
+- What it means to be a sovereign country
+- The British colonial period and push for independence
+- 1964 Independence and its Constitution
+- Becoming a Republic in 1974
+- Notable updates (e.g., 1987 constitutional amendments, 2004 EU alignment, 2020–2024 judicial reform)
 
----
+**Tone**: Simple, educational, friendly  
+**Goal**: Make it easy for children and adults alike to follow Malta's constitutional evolution
 
-### 🔧 Technical Notes
+#### 2. Visual/Interactive Features
 
-- New civic section should use semantic `<section>` and `<h2>` for SEO
-- Mobile sidebar link should use `target="_blank"` and `rel="noopener noreferrer"`
-- All styles should follow Tailwind v4 conventions
-- Maintain light/dark mode compatibility
+- Timeline or section cards representing key moments (e.g. 1964, 1974, 2004, 2020)
+- Each section includes:
+  - Image (use `/public/images/history/` placeholders for now)
+  - Title + date
+  - Age-level-adjusted description
+
+> 💡 Use the same rendering system used in the Overview and Chapter pages (i.e. Markdown → HTML with consistent typography classes)
+
+#### 3. Reusability
+
+- Use existing `AgeLevelToggle` to let users flip between simplified versions
+- Use Tailwind utilities for layout
+- Enable light/dark mode compatibility
+
+### 📂 Content Source
+
+- Add Markdown files to: `public/history/`
+  - `5-year-old.md`
+  - `10-year-old.md`
+  - `15-year-old.md`
+  - `citizen.md`
+
+#### Example Headings (inside each .md)
+
+- “When Malta Was Ruled by Others”
+- “The Fight for Independence”
+- “A New Constitution”
+- “How We Became a Republic”
+- “How the Constitution Changed Over Time”
 
 ---
 
 ### ✅ Validation Checklist
 
-- [ ] New “Why the Constitution Matters” section is present after hero
-- [ ] Content is emotionally compelling and visually coherent
-- [ ] Open Source section is successfully moved above the footer
-- [ ] Mobile sidebar includes GitHub link at the bottom
-- [ ] All changes maintain responsive layout and accessibility standards
+- [ ] New `/history` route created with dynamic markdown loading per age level
+- [ ] `AgeLevelToggle` works across all versions
+- [ ] Timeline-style layout or vertically stacked visual cards created
+- [ ] All images have alt text and responsive scaling
+- [ ] Content rendered from `public/history/*.md` files
+- [ ] Page is SEO-optimized (section headers, meta tags, title tag)
+- [ ] Responsive and accessible on all devices
+
+---
+
+### 💡 Optional Enhancements
+
+- Add hover interaction on timeline or milestone cards (zoom or tooltip)
+- Allow deep-linking to specific age-level versions via URL (e.g. `/history?level=10`)
+- Animate transitions between age levels

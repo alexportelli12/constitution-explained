@@ -1,5 +1,5 @@
 import { AgeLevel } from "../constants";
-import type { OverviewContent, ChapterContent } from "../models/chapter.model";
+import type { OverviewContent, ChapterContent, HistoryContent } from "../models/chapter.model";
 
 export const fetchOverviewContent = async (level: AgeLevel): Promise<OverviewContent> => {
   try {
@@ -49,6 +49,23 @@ export const fetchChapterContent = async (chapter: string, level: AgeLevel): Pro
       content: '',
       chapter,
       error: error instanceof Error ? error.message : `Failed to load Chapter ${chapter}. Please try again later.`
+    };
+  }
+};
+
+export const fetchHistoryContent = async (level: AgeLevel): Promise<HistoryContent> => {
+  try {
+    const response = await fetch(`/history/${level}.md`);
+    if (!response.ok) {
+      throw new Error(`Failed to load content: ${response.status}`);
+    }
+    const content = await response.text();
+    return { level, content };
+  } catch (error) {
+    return {
+      level,
+      content: '',
+      error: `Failed to load ${level} history content. Please try again later.`
     };
   }
 };

@@ -175,6 +175,95 @@ const inputValue = (event.target as HTMLInputElement).value; // DOM events need 
 
 **Why:** Type casting should only be used when absolutely necessary (e.g., DOM events, library type issues). Prefer designing functions with correct parameter types from the start rather than casting inside the function. This maintains type safety and prevents runtime errors.
 
+### ✨ SVG Component Standards
+
+**All SVG icons must use the centralized component system located in `src/components/svgs/`.**
+
+#### 🔧 Creating New SVG Components
+
+```typescript
+// ✅ GOOD: Create reusable SVG component with proper abstractions
+import { component$ } from "@builder.io/qwik";
+import { BaseSvg, type BaseSvgProps } from "./BaseSvg";
+
+export interface NewIconProps extends Omit<BaseSvgProps, "children"> {}
+
+export const NewIcon = component$<NewIconProps>((props) => {
+  return (
+    <BaseSvg {...props}>
+      <path d="SVG_PATH_DATA_HERE" />
+    </BaseSvg>
+  );
+});
+```
+
+#### 📦 SVG Component Usage
+
+```typescript
+// ✅ GOOD: Import and use SVG components
+import { HomeIcon, ClockIcon } from "../components/svgs";
+
+// Usage with customizable properties
+<HomeIcon
+  class="w-6 h-6 text-primary-600"
+  color="currentColor"
+  strokeWidth={2}
+/>
+
+// ❌ BAD: Never use inline SVGs
+<svg class="w-6 h-6" viewBox="0 0 24 24">
+  <path d="M3 12l2-2m0 0l7-7 7 7..." />
+</svg>
+```
+
+#### 🎯 SVG Component Props
+
+All SVG components support these standardized props:
+
+- `class?: string` - CSS classes for styling
+- `width?: string | number` - Icon width (default: 24)
+- `height?: string | number` - Icon height (default: 24)
+- `color?: string` - Icon color (default: "currentColor")
+- `strokeWidth?: number` - Stroke width (default: 2 for UI icons, 1.5 for chapter icons)
+- `viewBox?: string` - SVG viewBox (default: "0 0 24 24")
+
+#### 📂 File Organization
+
+```
+src/components/svgs/
+├── index.ts              # Central exports
+├── BaseSvg.tsx          # Base component with common props
+├── HomeIcon.tsx         # Individual icon components
+├── ClockIcon.tsx
+└── ...
+```
+
+#### 🚀 Benefits of This System
+
+- **Consistency**: All icons follow the same prop interface
+- **Maintainability**: Central management of all SVG assets
+- **Type Safety**: Full TypeScript support with proper interfaces
+- **Performance**: Reduced code duplication and better tree-shaking
+- **Customization**: Easy color, size, and styling modifications
+- **Accessibility**: Built-in support for screen readers and themes
+
+#### ❌ Anti-Patterns
+
+```typescript
+// ❌ BAD: Inline SVGs scattered throughout components
+const BadComponent = component$(() => (
+  <svg viewBox="0 0 24 24">
+    <path d="..." />
+  </svg>
+));
+
+// ❌ BAD: Hardcoded colors and sizes
+<HomeIcon style="color: #ff0000; width: 24px;" />
+
+// ✅ GOOD: Use design system classes and currentColor
+<HomeIcon class="w-6 h-6 text-primary-600" />
+```
+
 ### 🧱 Architecture
 
 > See [`PLANNING.md`](./context/PLANNING.md#architecture-overview) for full rationale.
@@ -182,6 +271,7 @@ const inputValue = (event.target as HTMLInputElement).value; // DOM events need 
 - **Routing**: File-based via `src/routes/` (QwikCity)
 - **Components**: Use `component$()` for all Qwik components
 - **Component Organization**: Centralized exports via `src/components/index.ts` for clean imports
+- **SVG Icons**: Centralized SVG component system in `src/components/svgs/` with standardized props and interfaces
 - **Data Fetching**: Markdown content is served as static assets from the public folder and parsed client-side
 - **UI Logic**: Toggle components manage which age-level explanation is shown
 - **Markdown**: Each Maltese Constitution chapter stored in its own `.md` file with structured `##` sections (original, explain_5, explain_10, etc.)

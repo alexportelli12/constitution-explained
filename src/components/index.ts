@@ -18,3 +18,6 @@ export * from "./AgeLevelPreview";
 export * from "./ReadingLevelsTip";
 export * from "./OfficialLegislationLink";
 export * from "./WhyConstitutionSection";
+export * from "./HistorySection";
+export * from "./ContentPage";
+export * from "./svgs";

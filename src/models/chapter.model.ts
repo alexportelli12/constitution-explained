@@ -24,3 +24,9 @@ export interface OverviewContent {
   content: string;
   error?: string;
 }
+
+export interface HistoryContent {
+  level: AgeLevel;
+  content: string;
+  error?: string;
+}
