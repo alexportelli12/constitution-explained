@@ -26,8 +26,8 @@ import {
   getChapterTitle,
   getLevelDescription,
 } from "../../../utils";
-import { CHAPTERS } from "../../../constants";
-import { useAgeLevelUrl } from "../../../hooks";
+import { AgeLevel, CHAPTERS } from "../../../constants";
+import { useAgeLevel } from "../../../contexts";
 
 export const useChapterLoader = routeLoader$(async (requestEvent) => {
   const chapterId = requestEvent.params.chapter;
@@ -40,10 +40,10 @@ export const useChapterLoader = routeLoader$(async (requestEvent) => {
 export default component$(() => {
   const nav = useNavigate();
   const chapterData = useChapterLoader();
-  const { activeLevel, handleLevelChange } = useAgeLevelUrl();
+  const { activeLevel, handleLevelChange } = useAgeLevel();
   const content = useSignal<ChapterContent | null>(null);
 
-  const loadContent = $(async (level: string, chapterId: string) => {
+  const loadContent = $(async (level: AgeLevel, chapterId: string) => {
     content.value = null; // Clear content to show loading state
     const result = await fetchChapterContent(chapterId, level);
     content.value = result;
@@ -53,6 +53,10 @@ export default component$(() => {
     nav("/chapters");
   });
 
+  // Reason: useVisibleTask$ is required to load chapter content when component becomes visible
+  // and when activeLevel or chapterId changes. We need the DOM to be ready for proper content loading.
+  // useTask$ would execute too early and could cause content loading issues.
+  // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(async ({ track }) => {
     const level = track(() => activeLevel.value);
     const chapterId = track(() => chapterData.value.chapterId); // Track chapter ID changes
@@ -141,13 +145,12 @@ export default component$(() => {
       <HeroImage
         src={chapterMeta.value?.heroImage}
         alt={`Chapter ${chapterMeta.value?.chapter}: ${chapterMeta.value?.title}`}
-        fallbackIcon={chapterMeta.value?.icon}
         fallbackText={`Chapter ${chapterMeta.value?.chapter} Hero Image`}
       />
 
       {/* Age Level Toggle */}
       <div class="sticky top-20 z-40 py-4 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 mb-2">
-        <div class="bg-white/90 backdrop-blur-md rounded-xl shadow-sm border border-gray-100 p-3">
+        <div class="bg-white/90 backdrop-blur-md rounded-xl shadow-sm border border-gray-100 px-3 py-2">
           <AgeLevelToggle
             activeLevel={activeLevel}
             onLevelChange={handleLevelChange}

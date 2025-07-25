@@ -16,7 +16,7 @@ A mobile-first civic education platform that simplifies the Maltese Constitution
 - **Backend**: Firebase Hosting
 - **Testing**: Playwright (E2E) + Vitest (unit/component, planned)
 - **Internationalization**: English (MVP), Maltese (future)
-- **Tooling**: Claude Code AI-assisted specs via `.context/`, `PRPs/`
+- **Tooling**: Claude Code AI-assisted specs via `context/`, `PRPs/`
 
 ### Key Architectural Decisions
 
@@ -89,43 +89,43 @@ A mobile-first civic education platform that simplifies the Maltese Constitution
 
 ## 🧠 **Content & Data Strategy**
 
-### Markdown Structure Example
+### Content Organization Structure
 
-```md
----
-id: article_1
-title: Article 1 - The Republic of Malta
----
+**Current Implementation:**
+- Content is organized by age level in separate directories under `public/constitution/chapters/`
+- Each age level has its own folder: `5-year-old/`, `10-year-old/`, `15-year-old/`, `citizen/`
+- Original text is stored at the root level (e.g., `public/constitution/chapters/1.md`)
+- Overview content is separated in `public/constitution/overview/`
 
-## original
-
-Legal text here...
-
-## explain_5
-
-Simple version for 5-year-olds...
-
-## explain_10
-
-Simplified for 10-year-olds...
-
-## explain_15
-
-More detailed explanation...
-
-## explain_adult
-
-Plain language adult version...
+**File Structure:**
+```
+public/constitution/
+├── chapters/
+│   ├── 1.md, 2.md, ... 11.md          # Original legal text
+│   ├── 5-year-old/
+│   │   └── 1.md, 2.md, ... 11.md      # Age 5 explanations
+│   ├── 10-year-old/
+│   │   └── 1.md, 2.md, ... 11.md      # Age 10 explanations
+│   ├── 15-year-old/
+│   │   └── 1.md, 2.md, ... 11.md      # Age 15 explanations
+│   └── citizen/
+│       └── 1.md, 2.md, ... 11.md      # Citizen explanations
+└── overview/
+    ├── 5-year-old.md
+    ├── 10-year-old.md
+    ├── 15-year-old.md
+    └── citizen.md
 ```
 
-- Content is stored as static assets under `public/constitution/`
-- Fetched dynamically by `fetchMarkdown.ts` in `src/lib/`
+- Content is fetched dynamically by `fetchMarkdown.ts` in `src/lib/`
+- Images are stored separately in `public/images/chapters/`
 
-### 🔄 **2025-01 Codebase Refactor** 
+### 🔄 **2025-01 Codebase Refactor**
 
 A comprehensive refactor was completed to eliminate code duplication, improve import hygiene, and establish consistent architectural patterns:
 
 **Major Changes:**
+
 - **Code Deduplication**: Extracted duplicated URL parameter handling into `useAgeLevelUrl` hook
 - **Component Flattening**: Moved components to root level (`OfficialLegislationLink`, `ReadingLevelsTip`, `RouterHead`)
 - **Import Standardization**: Added `index.ts` files to all TypeScript directories for clean imports
@@ -133,6 +133,7 @@ A comprehensive refactor was completed to eliminate code duplication, improve im
 - **Utility Consolidation**: Created `getLevelDescription` utility to eliminate switch statement duplication
 
 **New Architecture Standards:**
+
 - Components at root level unless complex composites
 - Index files required for all directories with TypeScript files
 - Clean import paths through index files (e.g., `from "../constants"` not `from "../constants/file"`)
@@ -140,6 +141,7 @@ A comprehensive refactor was completed to eliminate code duplication, improve im
 - Centralized age level constants and types
 
 **Benefits:**
+
 - Reduced code duplication by ~40%
 - Improved import clarity and maintainability
 - Enhanced type safety across age level handling
@@ -169,11 +171,16 @@ A comprehensive refactor was completed to eliminate code duplication, improve im
 
 ### File Organization
 
-- `src/components/` for reusable elements with centralized exports via `index.ts`
-- `src/routes/` for pages (QwikCity)
-- `src/lib/` for markdown/Firebase helpers
-- `.context/` for planning/specs
-- `PRPs/` for structured prompts and feature specs
+- `src/components/` for reusable UI elements with centralized exports via `index.ts`
+- `src/routes/` for pages (QwikCity file-based routing)
+- `src/lib/` for markdown parsing and fetching utilities
+- `src/constants/` for age levels, chapters, and configuration
+- `src/contexts/` for React-style contexts and state management
+- `src/hooks/` for custom Qwik hooks
+- `src/models/` for TypeScript interfaces and types
+- `src/utils/` for utility functions and helpers
+- `context/` for architectural planning and specifications
+- `PRPs/` for structured prompts and feature specifications
 
 ### Component Organization Standards
 

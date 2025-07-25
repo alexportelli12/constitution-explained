@@ -1,7 +1,6 @@
 /**
  * Chapter and content type definitions for the Constitution of Malta Explained app
  */
-
 import type { AgeLevel } from "../constants";
 
 export interface Chapter {
@@ -9,7 +8,6 @@ export interface Chapter {
   title: string;
   description: string;
   tags: string[];
-  icon: string;
   heroImage: string;
   articleCount: number;
 }

@@ -1,8 +1,7 @@
 /**
  * Chapter metadata and data for the Constitution of Malta
  */
-
-import type { Chapter } from "../models/chapter.model";
+import type { Chapter } from "../models";
 
 export const CHAPTERS: Chapter[] = [
   {
@@ -29,7 +28,6 @@ export const CHAPTERS: Chapter[] = [
       "constitutional foundations",
       "republicanism",
     ],
-    icon: "🏛️",
     heroImage: "/images/chapters/1.png",
     articleCount: 6,
   },
@@ -58,7 +56,6 @@ export const CHAPTERS: Chapter[] = [
       "public policy",
       "social cohesion",
     ],
-    icon: "📜",
     heroImage: "/images/chapters/2.png",
     articleCount: 15,
   },
@@ -86,7 +83,6 @@ export const CHAPTERS: Chapter[] = [
       "legal identity",
       "migration",
     ],
-    icon: "🆔",
     heroImage: "/images/chapters/3.png",
     articleCount: 4,
   },
@@ -121,7 +117,6 @@ export const CHAPTERS: Chapter[] = [
       "fair trial",
       "habeas corpus",
     ],
-    icon: "⚖️",
     heroImage: "/images/chapters/4.png",
     articleCount: 16,
   },
@@ -148,7 +143,6 @@ export const CHAPTERS: Chapter[] = [
       "appointments",
       "constitutional guardian",
     ],
-    icon: "🎖️",
     heroImage: "/images/chapters/5.png",
     articleCount: 8,
   },
@@ -180,7 +174,6 @@ export const CHAPTERS: Chapter[] = [
       "Speaker",
       "parliamentary committees",
     ],
-    icon: "🏛️",
     heroImage: "/images/chapters/6.png",
     articleCount: 12,
   },
@@ -209,7 +202,6 @@ export const CHAPTERS: Chapter[] = [
       "policy implementation",
       "executive leadership",
     ],
-    icon: "🏢",
     heroImage: "/images/chapters/7.png",
     articleCount: 10,
   },
@@ -241,7 +233,6 @@ export const CHAPTERS: Chapter[] = [
       "judicial process",
       "legal proceedings",
     ],
-    icon: "⚖️",
     heroImage: "/images/chapters/8.png",
     articleCount: 8,
   },
@@ -271,7 +262,6 @@ export const CHAPTERS: Chapter[] = [
       "public expenditure",
       "consolidated fund",
     ],
-    icon: "💰",
     heroImage: "/images/chapters/9.png",
     articleCount: 6,
   },
@@ -299,7 +289,6 @@ export const CHAPTERS: Chapter[] = [
       "administrative service",
       "government workforce",
     ],
-    icon: "👔",
     heroImage: "/images/chapters/10.png",
     articleCount: 5,
   },
@@ -327,7 +316,6 @@ export const CHAPTERS: Chapter[] = [
       "grassroots democracy",
       "civic participation",
     ],
-    icon: "🏘️",
     heroImage: "/images/chapters/10A.png",
     articleCount: 4,
   },
@@ -351,8 +339,9 @@ export const CHAPTERS: Chapter[] = [
       "framework provisions",
       "constitutional technicalities",
     ],
-    icon: "📋",
     heroImage: "/images/chapters/11.png",
     articleCount: 6,
   },
 ];
+
+export const CHAPTER_ORDER = CHAPTERS.map((chapter) => chapter.chapter);

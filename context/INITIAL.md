@@ -8,7 +8,7 @@ Full Codebase Refactor: Consolidation, Standards, and Import Hygiene
 - `components/` folder – all components should live at the root of the folder, and be exported via a single `index.ts` file.
 - Existing documentation files:
   - [`CLAUDE.md`](../../CLAUDE.md) — Update with standards regarding file structure and reusable component creation.
-  - [`PLANNING.md`](../../.context/PLANNING.md) — Document any abstraction strategies or reusable logic consolidation.
+  - [`PLANNING.md`](../context/PLANNING.md) — Document any abstraction strategies or reusable logic consolidation.
 
 ## OTHER CONSIDERATIONS:
 

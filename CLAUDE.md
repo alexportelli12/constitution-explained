@@ -6,8 +6,8 @@ This file governs how Claude and developers should operate within the Maltese Co
 
 ### ✅ Before You Start
 
-- **Read [`PLANNING.md`](./.context/PLANNING.md)** for architecture, features, and route structure.
-- **Review [`TASK.md`](./.context/TASK.md)**:
+- **Read [`PLANNING.md`](./context/PLANNING.md)** for architecture, features, and route structure.
+- **Review [`TASK.md`](./context/TASK.md)**:
   - If your task isn’t listed, add it with today’s date.
   - Mark tasks complete when done.
   - Log blockers or discoveries under “Discovered During Work.”
@@ -53,7 +53,7 @@ These standards must be followed:
 ### 📁 Directory Index Files
 
 - **Required**: All TypeScript directories must have an `index.ts` file for clean imports
-- **Pattern**: Use `export * from "./filename"` for re-exports  
+- **Pattern**: Use `export * from "./filename"` for re-exports
 - **Coverage**: Apply to `src/constants/`, `src/lib/`, `src/models/`, `src/utils/`, `src/hooks/`, etc.
 - **Import Style**: Always use index imports: `import { CHAPTERS } from "../constants"` not `import { CHAPTERS } from "../constants/chapters.constant"`
 
@@ -99,9 +99,81 @@ const handleAction = $((path: string) => {
 
 **Why:** Inline styles break the design system, are harder to maintain, override CSS specificity, and prevent consistent theming. When Tailwind utilities don't work properly (like opacity modifiers), create semantic custom CSS classes instead of resorting to inline styles.
 
+#### ❌ Never Use the `any` Type
+
+```typescript
+// ❌ BAD: Using 'any' type defeats TypeScript's purpose
+interface BadExample {
+  content: any;
+  handler: any;
+  data: any[];
+}
+
+// ✅ GOOD: Use specific types for type safety
+interface GoodExample {
+  content: Signal<ContentType | null>;
+  handler: QRL<(level: string) => void>;
+  data: ContentType[];
+}
+
+// ❌ BAD: Casting to 'any' to bypass type checks
+const result = response as any;
+
+// ✅ GOOD: Design functions with proper types from the start
+interface ApiResponse {
+  data: ContentType;
+  status: number;
+}
+
+const fetchContent = (): Promise<ApiResponse> => {
+  // Return properly typed data
+};
+
+// ✅ ACCEPTABLE: Use 'unknown' for truly unknown data, then narrow
+const result = response as unknown;
+if (isValidResponse(result)) {
+  // TypeScript now knows the proper type
+}
+```
+
+**Why:** The `any` type eliminates TypeScript's type safety, making code prone to runtime errors, harder to refactor, and prevents IDE intellisense. Always use specific types, unions, generics, or `unknown` when the type is truly unknown. ESLint rule `@typescript-eslint/no-explicit-any` is set to "error" to enforce this practice.
+
+#### ❌ Minimize Type Casting (as/angle brackets)
+
+```typescript
+// ❌ BAD: Unnecessary type casting bypasses type safety
+const getUserLevel = (level: string) => {
+  return descriptions[level as AgeLevel] || descriptions.citizen;
+};
+
+// ✅ GOOD: Use proper parameter types from the start
+const getUserLevel = (level: AgeLevel) => {
+  return descriptions[level] || descriptions.citizen;
+};
+
+// ❌ BAD: Casting DOM events unnecessarily
+const handleClick = (e: Event) => {
+  const target = e.target as HTMLElement;
+  // ...
+};
+
+// ✅ GOOD: Use proper event types
+const handleClick = (e: MouseEvent) => {
+  if (e.target instanceof HTMLElement) {
+    // TypeScript now knows target is HTMLElement
+  }
+};
+
+// ✅ ACCEPTABLE: When type casting is legitimately needed
+const htmlContent = marked.parse(content) as string; // Library returns string | Promise<string>
+const inputValue = (event.target as HTMLInputElement).value; // DOM events need casting
+```
+
+**Why:** Type casting should only be used when absolutely necessary (e.g., DOM events, library type issues). Prefer designing functions with correct parameter types from the start rather than casting inside the function. This maintains type safety and prevents runtime errors.
+
 ### 🧱 Architecture
 
-> See [`PLANNING.md`](./.context/PLANNING.md#architecture-overview) for full rationale.
+> See [`PLANNING.md`](./context/PLANNING.md#architecture-overview) for full rationale.
 
 - **Routing**: File-based via `src/routes/` (QwikCity)
 - **Components**: Use `component$()` for all Qwik components
@@ -122,7 +194,7 @@ Testing is encouraged for all utility functions and logic-heavy components.
 - ⚠️ Edge case
 - ❌ Failure scenario
 
-> Test strategy and patterns will be added to [`PLANNING.md`](./.context/PLANNING.md#testing-strategy)
+> Test strategy and patterns will be added to [`PLANNING.md`](./context/PLANNING.md#testing-strategy)
 
 ---
 
@@ -150,7 +222,7 @@ For Claude, GPT, or other agents:
 
 ## 📌 Final Notes
 
-- All major plans and decisions are documented in [`PLANNING.md`](./.context/PLANNING.md)
+- All major plans and decisions are documented in [`PLANNING.md`](./context/PLANNING.md)
 - Static assets in the public folder house Maltese Constitution chapter Markdown files
 - Content is pulled client-side and rendered with age-level toggle
 - Mobile-first design is a priority

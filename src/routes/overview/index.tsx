@@ -9,19 +9,24 @@ import {
 } from "../../components";
 import { fetchOverviewContent } from "../../lib";
 import type { OverviewContent } from "../../models";
+import type { AgeLevel } from "../../constants";
 import { getLevelDescription } from "../../utils";
-import { useAgeLevelUrl } from "../../hooks";
+import { useAgeLevel } from "../../contexts";
 
 export default component$(() => {
-  const { activeLevel, handleLevelChange } = useAgeLevelUrl();
+  const { activeLevel, handleLevelChange } = useAgeLevel();
   const content = useSignal<OverviewContent | null>(null);
 
-  const loadContent = $(async (level: string) => {
+  const loadContent = $(async (level: AgeLevel) => {
     content.value = null; // Clear content to show loading state
     const result = await fetchOverviewContent(level);
     content.value = result;
   });
 
+  // Reason: useVisibleTask$ is needed here to load content when component becomes visible
+  // and when the activeLevel changes. useTask$ would run too early before DOM is ready.
+  // This ensures content loads only when user can see the component.
+  // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(async ({ track }) => {
     const level = track(() => activeLevel.value);
     await loadContent(level);
@@ -63,7 +68,7 @@ export default component$(() => {
 
       {/* Age Level Toggle */}
       <div class="sticky top-20 z-40 py-4 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 mb-2">
-        <div class="bg-white/90 backdrop-blur-md rounded-xl shadow-sm border border-gray-100 p-3">
+        <div class="bg-white/90 backdrop-blur-md rounded-xl shadow-sm border border-gray-100 px-3 py-2">
           <AgeLevelToggle
             activeLevel={activeLevel}
             onLevelChange={handleLevelChange}

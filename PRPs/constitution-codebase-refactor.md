@@ -59,7 +59,7 @@ Execute a comprehensive codebase refactor to eliminate code repetition, establis
 - file: CLAUDE.md
   why: Contains architectural standards and anti-patterns to follow
 
-- file: .context/INITIAL.md
+- file: context/INITIAL.md
   why: Defines the specific refactor requirements and validation commands
 
 - file: src/constants/age-levels.constant.ts
@@ -240,7 +240,7 @@ Task 8: Update Repository Documentation
   - Add rule that components should be at root level unless complex composites
   - Document index.ts requirement for all TypeScript directories
   - Add import path standardization guidelines
-  UPDATE .context/PLANNING.md
+  UPDATE context/PLANNING.md
   - Document the refactor outcomes and new architectural standards
   - Add component organization best practices
 ```
@@ -394,7 +394,7 @@ npm run build
 
 - [ ] CLAUDE.md updated with new component organization rules
 - [ ] CLAUDE.md includes index.ts requirement documentation
-- [ ] .context/PLANNING.md documents refactor outcomes and standards
+- [ ] context/PLANNING.md documents refactor outcomes and standards
 
 ---
 

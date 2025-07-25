@@ -3,7 +3,7 @@
  */
 
 import type { Chapter } from "../models/chapter.model";
-import { CHAPTERS } from "../constants/chapters.constant";
+import { CHAPTER_ORDER, CHAPTERS } from "../constants";
 
 /**
  * Get a chapter by its ID
@@ -58,25 +58,11 @@ export const searchChapters = (searchTerm: string): Chapter[] => {
  * Get the next chapter in sequence, handling "10A" ordering
  */
 export const getNextChapter = (currentChapter: string): Chapter | null => {
-  const chapterOrder = [
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "10",
-    "10A",
-    "11",
-  ];
-  const currentIndex = chapterOrder.indexOf(currentChapter);
-  if (currentIndex === -1 || currentIndex === chapterOrder.length - 1)
+  const currentIndex = CHAPTER_ORDER.indexOf(currentChapter);
+  if (currentIndex === -1 || currentIndex === CHAPTER_ORDER.length - 1)
     return null;
 
-  const nextChapterId = chapterOrder[currentIndex + 1];
+  const nextChapterId = CHAPTER_ORDER[currentIndex + 1];
   return getChapterById(nextChapterId) || null;
 };
 
@@ -84,23 +70,9 @@ export const getNextChapter = (currentChapter: string): Chapter | null => {
  * Get the previous chapter in sequence, handling "10a" ordering
  */
 export const getPreviousChapter = (currentChapter: string): Chapter | null => {
-  const chapterOrder = [
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "10",
-    "10A",
-    "11",
-  ];
-  const currentIndex = chapterOrder.indexOf(currentChapter);
+  const currentIndex = CHAPTER_ORDER.indexOf(currentChapter);
   if (currentIndex === -1 || currentIndex === 0) return null;
 
-  const prevChapterId = chapterOrder[currentIndex - 1];
+  const prevChapterId = CHAPTER_ORDER[currentIndex - 1];
   return getChapterById(prevChapterId) || null;
 };

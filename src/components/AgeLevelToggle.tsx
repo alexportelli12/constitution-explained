@@ -1,10 +1,10 @@
 import { component$, type Signal, type QRL } from "@builder.io/qwik";
 import { clsx } from "clsx";
-import { AGE_LEVELS, AGE_LEVEL_LABELS } from "../constants";
+import { AgeLevel, AGE_LEVELS, AGE_LEVEL_LABELS } from "../constants";
 
 interface AgeLevelToggleProps {
-  activeLevel: Signal<string>;
-  onLevelChange: QRL<(level: string) => void>;
+  activeLevel: Signal<AgeLevel | undefined>;
+  onLevelChange: QRL<(level: AgeLevel) => void>;
 }
 
 export const AgeLevelToggle = component$<AgeLevelToggleProps>(
@@ -20,7 +20,7 @@ export const AgeLevelToggle = component$<AgeLevelToggleProps>(
           <button
             key={level.key}
             class={clsx(
-              "px-2 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 cursor-pointer min-w-0 text-center",
+              "px-2 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer min-w-0 text-center",
               activeLevel.value === level.key
                 ? "bg-primary-500 text-white shadow-md"
                 : "text-gray-700 hover:bg-gray-100 hover:text-gray-900",

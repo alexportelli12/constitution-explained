@@ -150,7 +150,7 @@ export default component$(() => {
 - file: CLAUDE.md
   why: Development conventions, component patterns, and anti-patterns
 
-- file: .context/INITIAL.md
+- file: context/INITIAL.md
   why: Original feature requirements and design guidelines
 
 - url: https://qwik.dev/docs/routing/

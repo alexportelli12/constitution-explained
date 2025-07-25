@@ -3,15 +3,21 @@
  * Extracts duplicated content loading logic from route components
  */
 
-import { useSignal, $ } from "@builder.io/qwik";
+import { useSignal, $, type Signal, type QRL } from "@builder.io/qwik";
 import type { ChapterContent, OverviewContent } from "../models";
 
 export type ContentType = ChapterContent | OverviewContent;
 
 export interface UseContentLoaderReturn {
-  content: any; // Qwik signal
-  loadContent: any; // Qwik function
-  isLoading: any; // Qwik computed signal
+  content: Signal<ContentType | null>;
+  loadContent: QRL<
+    (
+      level: string,
+      fetcher: (level: string, ...args: unknown[]) => Promise<ContentType>,
+      ...args: unknown[]
+    ) => Promise<void>
+  >;
+  isLoading: Signal<boolean>;
 }
 
 export const useContentLoader = (): UseContentLoaderReturn => {
@@ -20,8 +26,8 @@ export const useContentLoader = (): UseContentLoaderReturn => {
   const loadContent = $(
     async (
       level: string,
-      fetcher: (level: string, ...args: any[]) => Promise<ContentType>,
-      ...args: any[]
+      fetcher: (level: string, ...args: unknown[]) => Promise<ContentType>,
+      ...args: unknown[]
     ) => {
       content.value = null; // Clear content to show loading state
       const result = await fetcher(level, ...args);
