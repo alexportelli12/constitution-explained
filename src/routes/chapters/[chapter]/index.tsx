@@ -1,7 +1,6 @@
 import {
   component$,
   useSignal,
-  useTask$,
   useVisibleTask$,
   useComputed$,
   $,
@@ -11,7 +10,7 @@ import type {
   RequestHandler,
   StaticGenerateHandler,
 } from "@builder.io/qwik-city";
-import { useLocation, useNavigate, routeLoader$ } from "@builder.io/qwik-city";
+import { useNavigate, routeLoader$ } from "@builder.io/qwik-city";
 import {
   AgeLevelToggle,
   MarkdownRenderer,
@@ -20,11 +19,15 @@ import {
   ReadingLevelsTip,
   OfficialLegislationLink,
 } from "../../../components";
-import { fetchChapterContent } from "../../../lib/fetchMarkdown";
-import type { ChapterContent } from "../../../models/chapter.model";
-import { getChapterById, getChapterTitle } from "../../../utils/chapter.utils";
-import { CHAPTERS } from "../../../constants/chapters.constant";
-import { AGE_LEVELS } from "../../../constants/age-levels.constant";
+import { fetchChapterContent } from "../../../lib";
+import type { ChapterContent } from "../../../models";
+import {
+  getChapterById,
+  getChapterTitle,
+  getLevelDescription,
+} from "../../../utils";
+import { AgeLevel, CHAPTERS } from "../../../constants";
+import { useAgeLevel } from "../../../contexts";
 
 export const useChapterLoader = routeLoader$(async (requestEvent) => {
   const chapterId = requestEvent.params.chapter;
@@ -35,65 +38,25 @@ export const useChapterLoader = routeLoader$(async (requestEvent) => {
 });
 
 export default component$(() => {
-  const loc = useLocation();
   const nav = useNavigate();
   const chapterData = useChapterLoader();
-
-  // Get initial level from URL or default to "citizen"
-  const getInitialLevel = $(() => {
-    const levelParam = loc.url.searchParams.get("level");
-    return AGE_LEVELS.includes(levelParam as any) ? levelParam! : "citizen";
-  });
-
-  // Initialize with URL parameter or default to "citizen"
-  const levelParam = loc.url.searchParams.get("level");
-  const initialLevel = AGE_LEVELS.includes(levelParam as any)
-    ? levelParam!
-    : "citizen";
-  const activeLevel = useSignal<string>(initialLevel);
+  const { activeLevel, handleLevelChange } = useAgeLevel();
   const content = useSignal<ChapterContent | null>(null);
 
-  const loadContent = $(async (level: string, chapterId: string) => {
+  const loadContent = $(async (level: AgeLevel, chapterId: string) => {
     content.value = null; // Clear content to show loading state
     const result = await fetchChapterContent(chapterId, level);
     content.value = result;
-  });
-
-  const handleLevelChange = $((level: string) => {
-    activeLevel.value = level;
-    // Update URL with new level parameter
-    const newUrl = new URL(loc.url);
-    newUrl.searchParams.set("level", level);
-    nav(newUrl.pathname + newUrl.search, { scroll: false });
   });
 
   const handleBackToChapters = $(() => {
     nav("/chapters");
   });
 
-  const getLevelDescription = $((level: string) => {
-    switch (level) {
-      case "5-year-old":
-        return "5 years old";
-      case "10-year-old":
-        return "10 years old";
-      case "15-year-old":
-        return "15 years old";
-      default:
-        return "an adult citizen";
-    }
-  });
-
-  // Watch for URL changes (back/forward navigation, direct links)
-  useTask$(async ({ track }) => {
-    track(() => loc.url.searchParams.get("level"));
-    track(() => loc.url.pathname); // Track chapter changes in URL path
-    const newLevel = await getInitialLevel();
-    if (newLevel !== activeLevel.value) {
-      activeLevel.value = newLevel;
-    }
-  });
-
+  // Reason: useVisibleTask$ is required to load chapter content when component becomes visible
+  // and when activeLevel or chapterId changes. We need the DOM to be ready for proper content loading.
+  // useTask$ would execute too early and could cause content loading issues.
+  // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(async ({ track }) => {
     const level = track(() => activeLevel.value);
     const chapterId = track(() => chapterData.value.chapterId); // Track chapter ID changes
@@ -182,13 +145,12 @@ export default component$(() => {
       <HeroImage
         src={chapterMeta.value?.heroImage}
         alt={`Chapter ${chapterMeta.value?.chapter}: ${chapterMeta.value?.title}`}
-        fallbackIcon={chapterMeta.value?.icon}
         fallbackText={`Chapter ${chapterMeta.value?.chapter} Hero Image`}
       />
 
       {/* Age Level Toggle */}
       <div class="sticky top-20 z-40 py-4 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 mb-2">
-        <div class="bg-white/90 backdrop-blur-md rounded-xl shadow-sm border border-gray-100 p-3">
+        <div class="bg-white/90 backdrop-blur-md rounded-xl shadow-sm border border-gray-100 px-3 py-2">
           <AgeLevelToggle
             activeLevel={activeLevel}
             onLevelChange={handleLevelChange}

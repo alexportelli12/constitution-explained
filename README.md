@@ -24,13 +24,15 @@
 
 ### ✨ Key Features
 
-- 📜 Chapter Viewer - Read Maltese constitutional chapters one at a time
-- 👶 Age-Level Toggle - View explanations simplified for age 5, 10, 15, adults, or read the original legal version
-- 🔍 Chapter Directory - Search and filter through all Maltese Constitution chapters
-- 📁 Static Asset Storage - Host Markdown chapters as static assets in the public folder
-- 💬 Open Source Collaboration - Community can contribute to simplify content
-- 📱 Mobile-First Design - Fully responsive across devices
-- 🧠 AI-Aware Planning - Designed with Claude Code-compatible project specs
+- 📜 **Chapter Viewer** - Read Maltese constitutional chapters with detailed explanations
+- 👶 **Age-Level Toggle** - View explanations tailored for 5-year-olds, 10-year-olds, 15-year-olds, citizens, or original text
+- 🗂️ **Chapter Directory** - Browse all constitutional chapters with search and navigation
+- 📖 **Constitution Overview** - Comprehensive introduction to the Constitution by age level
+- 🖼️ **Hero Images** - Visual chapter representations with skeleton loading states
+- 📁 **Static Asset Storage** - Markdown content served as optimized static assets
+- 💬 **Open Source Collaboration** - Community-driven content improvement
+- 📱 **Mobile-First Design** - Fully responsive across all devices
+- 🧠 **AI-Aware Architecture** - Structured for Claude Code compatibility
 
 ---
 
@@ -63,25 +65,35 @@ npm start
 
 ### Tech Stack
 
-- **Frontend**: Qwik + TypeScript
-- **Styling**: Tailwind CSS
-- **Backend**: Firebase Hosting
-- **Content**: Markdown files parsed at runtime
+- **Frontend**: Qwik + QwikCity + TypeScript (strict mode)
+- **Styling**: Tailwind CSS with custom components
+- **State Management**: Qwik Signals + Context API
+- **Hosting**: Firebase Hosting with SPA configuration
+- **Content**: Age-separated Markdown files served as static assets
+- **Development**: ESLint + Prettier + TypeScript strict mode
 - **AI Tooling**: Claude Code context (.context, PRPs folders)
 
 ### Project Structure
 
 ```
 constitution-explained/
-├── .context/               # Claude context files
+├── context/                # Claude context files
 ├── PRPs/                   # Product Requirement Prompts
-├── public/constitution/    # Markdown files as static assets
-├── public/                 # Static assets
+├── public/
+│   ├── constitution/       # Markdown files as static assets
+│   │   ├── chapters/      # Chapter content by age level
+│   │   └── overview/      # Overview content by age level
+│   └── images/            # Static images and assets
 ├── src/
-│   ├── components/         # Reusable UI components
-│   ├── lib/                # Markdown parsing/fetching logic
-│   └── routes/             # Pages (home, chapters list, detail)
-└── CLAUDE.md               # Project overview for Claude
+│   ├── components/        # Reusable UI components
+│   ├── constants/         # Age levels and chapters configuration
+│   ├── contexts/          # React contexts for state management
+│   ├── hooks/             # Custom hooks
+│   ├── lib/               # Markdown parsing/fetching logic
+│   ├── models/            # TypeScript interfaces and types
+│   ├── utils/             # Utility functions
+│   └── routes/            # Pages (home, chapters, overview)
+└── CLAUDE.md              # Project overview for Claude
 ```
 
 ---
@@ -98,11 +110,20 @@ constitution-explained/
 ## 🧪 Testing
 
 ```bash
-# Run dev server and manually test components and routes
+# Run development server for manual testing
 npm start
+
+# Type checking
+npm run build.types
+
+# Linting
+npm run lint
+
+# Format checking
+npm run fmt.check
 ```
 
-Test strategy for MVP will be manual with unit/component testing added in future releases.
+Current testing approach is manual QA with automated unit/component testing planned for future releases.
 
 ---
 
@@ -131,8 +152,8 @@ Supports single-page app routing and Markdown chapter hosting via static files.
 ## 📚 Documentation
 
 - **[CLAUDE.md](CLAUDE.md)**: High-level overview and coding standards
-- **[.context/PLANNING.md](.context/PLANNING.md)**: Feature planning and routes
-- **[.context/INITIAL.md](.context/INITIAL.md)**: MVP setup and first tasks
+- **[context/PLANNING.md](context/PLANNING.md)**: Feature planning and routes
+- **[context/INITIAL.md](context/INITIAL.md)**: MVP setup and first tasks
 
 ---
 

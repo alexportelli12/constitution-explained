@@ -3,7 +3,6 @@ import { component$, useSignal } from "@builder.io/qwik";
 interface HeroImageProps {
   src: string;
   alt: string;
-  fallbackIcon?: string;
   fallbackText?: string;
   objectFit?: "cover" | "contain" | "fill" | "scale-down" | "none";
   objectPosition?: string;
@@ -14,34 +13,48 @@ export const HeroImage = component$<HeroImageProps>(
   ({
     src,
     alt,
-    fallbackIcon = "📜",
     fallbackText = "Hero Image",
     objectFit = "cover",
     objectPosition = "center",
     gradientColors = "from-red-100 to-red-50",
   }) => {
-    const className = `w-full bg-gradient-to-r ${gradientColors} rounded-xl mb-8 flex items-center justify-center shadow-lg`;
     const imageLoadError = useSignal(false);
+    const imageLoaded = useSignal(false);
 
     return (
-      <div class={className}>
+      <div class="w-full rounded-xl mb-8 shadow-lg overflow-hidden" style={{ height: "400px" }}>
         {!imageLoadError.value ? (
-          <img
-            src={src}
-            alt={alt}
-            class="w-full h-full rounded-lg"
-            style={{
-              objectFit,
-              objectPosition,
-            }}
-            onError$={() => {
-              imageLoadError.value = true;
-            }}
-          />
+          <div class="relative w-full h-full">
+            {!imageLoaded.value && (
+              <div class={`absolute inset-0 bg-gradient-to-r ${gradientColors} animate-pulse flex items-center justify-center`}>
+                <div class="w-12 h-12 bg-white/30 rounded-full animate-pulse"></div>
+              </div>
+            )}
+            <img
+              src={src}
+              alt={alt}
+              width="800"
+              height="400"
+              class={`w-full h-full object-${objectFit} transition-opacity duration-300 ${
+                imageLoaded.value ? "opacity-100" : "opacity-0"
+              }`}
+              style={{
+                objectPosition,
+              }}
+              onLoad$={() => {
+                imageLoaded.value = true;
+              }}
+              onError$={() => {
+                imageLoadError.value = true;
+              }}
+            />
+          </div>
         ) : (
-          <div class="text-gray-500 text-center">
-            <div class="text-2xl mb-2">{fallbackIcon}</div>
-            <p>{fallbackText}</p>
+          <div class={`w-full h-full bg-gradient-to-r ${gradientColors} flex items-center justify-center text-gray-500 text-center`}>
+            <div>
+              <div class="text-2xl mb-2">📖</div>
+              <p>{fallbackText}</p>
+            </div>
           </div>
         )}
       </div>

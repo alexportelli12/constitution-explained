@@ -10,9 +10,9 @@ import pkg from "./package.json";
 import tailwindcss from "@tailwindcss/vite";
 
 type PkgDep = Record<string, string>;
-const { dependencies = {}, devDependencies = {} } = pkg as any as {
-  dependencies: PkgDep;
-  devDependencies: PkgDep;
+const { dependencies = {}, devDependencies = {} } = pkg as {
+  dependencies?: PkgDep;
+  devDependencies?: PkgDep;
   [key: string]: unknown;
 };
 errorOnDuplicatesPkgDeps(devDependencies, dependencies);

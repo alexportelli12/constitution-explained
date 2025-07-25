@@ -38,9 +38,9 @@ export const MarkdownRenderer = component$<MarkdownRendererProps>(
     marked.setOptions({
       gfm: true,
       breaks: true,
-      async: false,
     });
 
+    // marked.parse returns a string when async: false (default)
     const htmlContent = marked.parse(content) as string;
 
     return (

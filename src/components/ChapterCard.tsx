@@ -1,7 +1,7 @@
 import { component$, $ } from "@builder.io/qwik";
 import { useNavigate } from "@builder.io/qwik-city";
 import { clsx } from "clsx";
-import type { Chapter } from "../models/chapter.model";
+import type { Chapter } from "../models";
 
 interface ChapterCardProps {
   chapter: Chapter;

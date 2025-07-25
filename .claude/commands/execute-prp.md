@@ -28,7 +28,7 @@ This document outlines the **step-by-step execution strategy** that both human d
 
   - Look at similar components or routes in `src/routes/`
   - Review utility logic in `src/lib/`
-  - Refer to [`PLANNING.md`](../../.context/PLANNING.md) and [`CLAUDE.md`](../../CLAUDE.md)
+  - Refer to [`PLANNING.md`](../../context/PLANNING.md) and [`CLAUDE.md`](../../CLAUDE.md)
 
 ---
 
@@ -88,15 +88,33 @@ npm run fmt.check
 
 ---
 
-### 5. 🧾 **Complete**
+### 5. 📚 **Update Documentation**
+
+**IMPORTANT**: After successfully implementing the PRP, update documentation to reflect changes:
+
+- **README.md**: Update if new features, dependencies, or setup steps were added
+- **CLAUDE.md**: Update development commands table if new scripts were added
+- **context/PLANNING.md**: Update architecture section if new components, routes, or patterns were introduced
+- **Component Documentation**: Ensure any new components are properly exported in `src/components/index.ts`
+
+**When to Update Each File:**
+- **README.md**: New user-facing features, changed tech stack, new installation steps
+- **CLAUDE.md**: New development commands, coding patterns, or architectural decisions  
+- **PLANNING.md**: New routes, significant architectural changes, updated content structure
+- **Component Index**: Always update when adding new components
+
+---
+
+### 6. 🧾 **Complete**
 
 - Re-read the PRP to confirm all checklist items are completed
+- Update relevant documentation files (see step 5)
 - Mark your task in `TASK.md` section
 - Commit and push following standard naming conventions
 
 ---
 
-### 6. 🔁 **Reference the PRP Freely**
+### 7. 🔁 **Reference the PRP Freely**
 
 You may return to the PRP at any point to clarify logic, validate your output, or double-check assumptions.
 

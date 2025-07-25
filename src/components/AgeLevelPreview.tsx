@@ -1,19 +1,21 @@
-import { component$, useSignal, $ } from "@builder.io/qwik";
+import { component$, $ } from "@builder.io/qwik";
 import { AgeLevelToggle } from "./AgeLevelToggle";
+import { AgeLevel } from "../constants";
+import { useAgeLevel } from "../contexts";
 
 export const AgeLevelPreview = component$(() => {
-  const selectedLevel = useSignal("citizen");
+  const { activeLevel, setActiveLevel } = useAgeLevel();
 
-  const sampleContent = {
-    "5-year-old":
+  const sampleContent: Record<AgeLevel, string> = {
+    [AgeLevel.FIVE_YEAR_OLD]:
       "Everyone in Malta has the right to say what they think and believe what they want. It's like having the freedom to choose your favorite color!",
-    "10-year-old":
+    [AgeLevel.TEN_YEAR_OLD]:
       "All Maltese citizens have the right to freedom of expression and belief. This means you can share your opinions and practice your religion safely.",
-    "15-year-old":
+    [AgeLevel.FIFTEEN_YEAR_OLD]:
       "The Constitution guarantees fundamental rights including freedom of expression, conscience, and religion. These rights are protected but come with responsibilities to respect others' rights too.",
-    citizen:
+    [AgeLevel.CITIZEN]:
       "Article 41 establishes the fundamental right to freedom of expression, conscience, and religion, subject to the interests of decency, public order, and the rights and freedoms of others.",
-  } as const;
+  };
 
   return (
     <section class="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
@@ -31,9 +33,9 @@ export const AgeLevelPreview = component$(() => {
         <div class="bg-white rounded-xl shadow-lg p-8">
           <div class="mb-6">
             <AgeLevelToggle
-              activeLevel={selectedLevel}
-              onLevelChange={$((level: string) => {
-                selectedLevel.value = level;
+              activeLevel={activeLevel}
+              onLevelChange={$((level: AgeLevel) => {
+                setActiveLevel(level);
               })}
             />
           </div>
@@ -43,9 +45,9 @@ export const AgeLevelPreview = component$(() => {
               Example: Freedom of Expression (Article 41)
             </h4>
             <div class="text-gray-800 leading-relaxed">
-              {sampleContent[
-                selectedLevel.value as keyof typeof sampleContent
-              ] || sampleContent.citizen}
+              {activeLevel.value
+                ? sampleContent[activeLevel.value]
+                : sampleContent[AgeLevel.CITIZEN]}
             </div>
           </div>
 

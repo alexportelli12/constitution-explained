@@ -49,7 +49,6 @@ export default component$(() => {
               <HeroImage
                 src="/images/valletta-skyline.png"
                 alt="Valletta Skyline - Malta's Historic Capital"
-                fallbackIcon="🏛️"
                 fallbackText="Malta's Constitutional Heritage"
                 gradientColors="from-blue-100 to-blue-50"
               />
