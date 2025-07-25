@@ -28,5 +28,5 @@ export const AnalyticsButton = component$<AnalyticsButtonProps>(
         <Slot />
       </button>
     );
-  }
+  },
 );
