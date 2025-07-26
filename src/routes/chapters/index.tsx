@@ -43,7 +43,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Browse Constitution Chapters - Constitution of Malta Explained",
+  title: "Browse Malta Constitution Chapters",
   meta: [
     {
       name: "description",

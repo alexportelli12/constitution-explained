@@ -121,6 +121,7 @@ export default component$(() => {
 
       {/* Hero Image */}
       <HeroImage
+        key={`hero-${chapterData.value.chapterId}`}
         src={chapterMeta.value?.heroImage}
         alt={`Chapter ${chapterMeta.value?.chapter}: ${chapterMeta.value?.title}`}
         fallbackText={`Chapter ${chapterMeta.value?.chapter} Hero Image`}

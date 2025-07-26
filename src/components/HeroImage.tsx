@@ -21,12 +21,16 @@ export const HeroImage = component$<HeroImageProps>(
     const imageLoadError = useSignal(false);
     const imageLoaded = useSignal(false);
     const imgRef = useSignal<HTMLImageElement>();
+    const lastSrc = useSignal(src);
 
-    // Reset states when src changes
+    // Reset states only when src actually changes
     useTask$(({ track }) => {
-      track(() => src);
-      imageLoadError.value = false;
-      imageLoaded.value = false;
+      const currentSrc = track(() => src);
+      if (currentSrc !== lastSrc.value) {
+        imageLoadError.value = false;
+        imageLoaded.value = false;
+        lastSrc.value = currentSrc;
+      }
     });
 
     // Check if image is already loaded (e.g., from cache) after hydration

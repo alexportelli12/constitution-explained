@@ -27,19 +27,19 @@ export const OpenSourceSection = component$(() => {
             </p>
             <div class="space-y-4">
               <div class="flex items-center space-x-3">
-                <span class="text-green-500 font-semibold">✓</span>
+                <span class="text-green-700 font-semibold">✓</span>
                 <span class="text-gray-700">
                   Add explanations for new age groups
                 </span>
               </div>
               <div class="flex items-center space-x-3">
-                <span class="text-green-500 font-semibold">✓</span>
+                <span class="text-green-700 font-semibold">✓</span>
                 <span class="text-gray-700">
                   Improve translations and clarity
                 </span>
               </div>
               <div class="flex items-center space-x-3">
-                <span class="text-green-500 font-semibold">✓</span>
+                <span class="text-green-700 font-semibold">✓</span>
                 <span class="text-gray-700">
                   Report issues and suggest features
                 </span>
@@ -69,7 +69,7 @@ export const OpenSourceSection = component$(() => {
               </div>
               <div class="flex justify-between">
                 <span class="text-gray-700">Open Source</span>
-                <span class="font-semibold text-green-500">100%</span>
+                <span class="font-semibold text-green-700">100%</span>
               </div>
             </div>
 
