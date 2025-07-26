@@ -43,7 +43,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Browse Constitution Chapters - Constitution of Malta Explained",
+  title: "Browse Malta Constitution Chapters",
   meta: [
     {
       name: "description",
@@ -70,7 +70,7 @@ export const head: DocumentHead = {
     },
     {
       property: "og:image",
-      content: "https://constitutionofmalta.com/images/valletta-skyline.png",
+      content: "https://constitutionofmalta.com/images/valletta-skyline.webp",
     },
   ],
 };

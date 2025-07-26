@@ -1,4 +1,4 @@
-import { component$, useSignal } from "@builder.io/qwik";
+import { component$, useSignal, $, useTask$, useVisibleTask$ } from "@builder.io/qwik";
 
 interface HeroImageProps {
   src: string;
@@ -20,6 +20,50 @@ export const HeroImage = component$<HeroImageProps>(
   }) => {
     const imageLoadError = useSignal(false);
     const imageLoaded = useSignal(false);
+    const imgRef = useSignal<HTMLImageElement>();
+    const lastSrc = useSignal(src);
+
+    // Reset states only when src actually changes
+    useTask$(({ track }) => {
+      const currentSrc = track(() => src);
+      if (currentSrc !== lastSrc.value) {
+        imageLoadError.value = false;
+        imageLoaded.value = false;
+        lastSrc.value = currentSrc;
+      }
+    });
+
+    // Check if image is already loaded (e.g., from cache) after hydration
+    // eslint-disable-next-line qwik/no-use-visible-task
+    useVisibleTask$(() => {
+      if (imgRef.value && imgRef.value.complete && imgRef.value.naturalWidth > 0) {
+        imageLoaded.value = true;
+      }
+    });
+
+    const handleImageLoad = $(() => {
+      imageLoaded.value = true;
+    });
+
+    const handleImageError = $(() => {
+      imageLoadError.value = true;
+    });
+
+    // Show loading state if no src provided
+    if (!src) {
+      return (
+        <div
+          class="w-full rounded-xl mb-8 shadow-lg overflow-hidden"
+          style={{ "min-height": "190px" }}
+        >
+          <div
+            class={`w-full h-full bg-gradient-to-r ${gradientColors} animate-pulse flex items-center justify-center`}
+          >
+            <div class="w-12 h-12 bg-white/30 rounded-full animate-pulse"></div>
+          </div>
+        </div>
+      );
+    }
 
     return (
       <div
@@ -28,30 +72,31 @@ export const HeroImage = component$<HeroImageProps>(
       >
         {!imageLoadError.value ? (
           <div class="relative w-full h-full">
-            {!imageLoaded.value && (
-              <div
-                class={`absolute inset-0 bg-gradient-to-r ${gradientColors} animate-pulse flex items-center justify-center`}
-              >
-                <div class="w-12 h-12 bg-white/30 rounded-full animate-pulse"></div>
-              </div>
-            )}
+            <div
+              class={`absolute inset-0 bg-gradient-to-r ${gradientColors} flex items-center justify-center transition-opacity duration-500 ease-out z-10 ${
+                imageLoaded.value ? "opacity-0 pointer-events-none" : "opacity-100 animate-pulse"
+              }`}
+            >
+              <div class={`w-12 h-12 bg-white/30 rounded-full ${
+                imageLoaded.value ? "" : "animate-pulse"
+              }`}></div>
+            </div>
             <img
+              ref={imgRef}
               src={src}
               alt={alt}
               width="800"
               height="400"
-              class={`w-full h-full object-${objectFit} transition-opacity duration-300 ${
+              class={`w-full h-full object-${objectFit} transition-opacity duration-500 ease-out ${
                 imageLoaded.value ? "opacity-100" : "opacity-0"
               }`}
               style={{
                 objectPosition,
               }}
-              onLoad$={() => {
-                imageLoaded.value = true;
-              }}
-              onError$={() => {
-                imageLoadError.value = true;
-              }}
+              onLoad$={handleImageLoad}
+              onError$={handleImageError}
+              loading="eager"
+              decoding="async"
             />
           </div>
         ) : (

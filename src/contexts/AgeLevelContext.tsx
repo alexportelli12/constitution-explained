@@ -82,6 +82,14 @@ export const AgeLevelProvider = component$(() => {
     const newUrl = new URL(loc.url);
     newUrl.searchParams.set("level", ageLevel);
     nav(newUrl.pathname + newUrl.search, { scroll: false });
+
+    // Scroll to top of content area for better UX
+    if (typeof window !== "undefined") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
   });
 
   // Watch for URL changes (back/forward navigation, direct links)

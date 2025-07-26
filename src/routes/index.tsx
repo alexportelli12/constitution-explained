@@ -49,7 +49,7 @@ export default component$(() => {
             </div>
             <div class="relative">
               <HeroImage
-                src="/images/valletta-skyline.png"
+                src="/images/valletta-skyline.webp"
                 alt="Valletta Skyline - Malta's Historic Capital"
                 fallbackText="Malta's Constitutional Heritage"
                 gradientColors="from-blue-100 to-blue-50"
@@ -76,11 +76,11 @@ export default component$(() => {
           <div class="bg-white rounded-xl shadow-lg p-8 sm:p-12">
             <blockquote class="text-center">
               <p class="text-2xl sm:text-3xl font-medium text-gray-800 mb-6 italic leading-relaxed">
-                "The most important political office is that of the private
-                citizen."
+                "A man that knows what self-respect is will never ask in
+                pleading tones for what he is entitled to."
               </p>
               <cite class="text-lg text-primary-500 font-semibold not-italic">
-                — Louis Brandeis
+                — Manwel Dimech
               </cite>
             </blockquote>
           </div>
@@ -94,8 +94,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title:
-    "Constitution of Malta Explained - Accessible Constitutional Education",
+  title: "Malta Constitution Explained - For All Ages",
   meta: [
     {
       name: "description",
@@ -122,7 +121,7 @@ export const head: DocumentHead = {
     },
     {
       property: "og:image",
-      content: "https://constitutionofmalta.com/images/valletta-skyline.png",
+      content: "https://constitutionofmalta.com/images/valletta-skyline.webp",
     },
     {
       name: "viewport",

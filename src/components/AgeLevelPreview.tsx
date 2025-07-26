@@ -41,9 +41,9 @@ export const AgeLevelPreview = component$(() => {
           </div>
 
           <div class="bg-gray-50 rounded-lg p-6">
-            <h4 class="text-lg font-semibold text-gray-900 mb-3">
+            <h3 class="text-lg font-semibold text-gray-900 mb-3">
               Example: Freedom of Expression (Article 41)
-            </h4>
+            </h3>
             <div class="text-gray-800 leading-relaxed">
               {activeLevel.value
                 ? sampleContent[activeLevel.value]

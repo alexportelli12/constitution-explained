@@ -66,11 +66,11 @@ export default component$(() => {
   });
 
   const chapterMeta = useComputed$(() =>
-    getChapterById(chapterData.value.chapterId),
+    getChapterById(chapterData.value.chapterId)
   );
 
   const chapterDisplayTitle = useComputed$(
-    () => `Chapter ${chapterMeta.value?.chapter}: ${chapterMeta.value?.title}`,
+    () => `Chapter ${chapterMeta.value?.chapter}: ${chapterMeta.value?.title}`
   );
 
   // Show error if chapter not found
@@ -121,6 +121,7 @@ export default component$(() => {
 
       {/* Hero Image */}
       <HeroImage
+        key={`hero-${chapterData.value.chapterId}`}
         src={chapterMeta.value?.heroImage}
         alt={`Chapter ${chapterMeta.value?.chapter}: ${chapterMeta.value?.title}`}
         fallbackText={`Chapter ${chapterMeta.value?.chapter} Hero Image`}
@@ -205,7 +206,7 @@ export const head: DocumentHead = ({ resolveValue, params }) => {
       },
       {
         property: "og:image",
-        content: `https://constitutionofmalta.com${chapterData.chapterMeta?.heroImage || "/images/valletta-skyline.png"}`,
+        content: `https://constitutionofmalta.com${chapterData.chapterMeta?.heroImage || "/images/valletta-skyline.webp"}`,
       },
       {
         name: "article:section",

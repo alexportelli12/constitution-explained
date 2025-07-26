@@ -173,7 +173,7 @@ export const CHAPTERS = [
     description: "Malta as a democratic republic and national values",
     tags: ["democracy", "republic", "sovereignty", "neutrality"],
     icon: "🏛️", // Emoji icon for card display
-    heroImage: "/images/malta-island-constitution.png",
+    heroImage: "/images/malta-island-constitution.webp",
     articleCount: 6, // Number of sections in the chapter
   },
   // ... all 11 chapters with complete metadata
@@ -306,7 +306,7 @@ NAVIGATION:
 
 STATIC CONTENT:
   - Chapter markdown: /constitution/chapters/{level}/{chapter}.md
-  - Hero images: /images/*.png (defined in constants)
+  - Hero images: /images/*.webp (defined in constants)
   - Fallback to citizen level if specific level missing
 
 URL HANDLING:

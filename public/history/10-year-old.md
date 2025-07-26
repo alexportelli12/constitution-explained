@@ -2,7 +2,7 @@
 
 ## When Malta Was Ruled by Others 🏰
 
-![When Malta Was Ruled By Others](../../images/history/when-malta-was-ruled-by-others.png)
+![When Malta Was Ruled By Others](../../images/history/when-malta-was-ruled-by-others.webp)
 
 Malta is a small island country in the Mediterranean Sea 🌊, and throughout history, many different groups of people have controlled it. Because Malta was in such an important location between Europe and Africa, everyone wanted to control it! 🗺️
 
@@ -16,7 +16,7 @@ A very important man named **Mikiel Anton Vassalli** worked hard to prove that M
 
 ## The Fight for Independence 💪
 
-![The Fight for Independence](../../images/history/the-fight-for-independence.png)
+![The Fight for Independence](../../images/history/the-fight-for-independence.webp)
 
 As time went on, the Maltese people began to want more control over their own country. They didn't want to be ruled by people far away in London! 🏙️
 
@@ -33,7 +33,7 @@ The fight for independence involved lots of meetings, votes, and negotiations �
 
 ## A New Constitution 📜
 
-![A New Constitution](../../images/history/a-new-constitution.png)
+![A New Constitution](../../images/history/a-new-constitution.webp)
 
 Finally, on **September 21, 1964**, Malta became an independent country! 🇲🇹 This special day is still celebrated every year as Independence Day 🎉.
 
@@ -50,7 +50,7 @@ The Constitution was like a rulebook 📋 that said how the government should wo
 
 ## How We Became a Republic 🏛️
 
-![How We Became a Republic](../../images/history/how-we-became-a-republic.png)
+![How We Became a Republic](../../images/history/how-we-became-a-republic.webp)
 
 Even though Malta was independent, some people felt it wasn't truly free while it still had the British Queen as head of state. **Dom Mintoff** and the Labour Party won the 1971 election with a promise to make Malta a complete republic 🗳️.
 
@@ -66,7 +66,7 @@ This change happened through Parliament - the elected representatives of the peo
 
 ## How the Constitution Changed Over Time ⏰
 
-![How the Constitution Changed Over Time](../../images/history/how-the-constitution-changed-over-time.png)
+![How the Constitution Changed Over Time](../../images/history/how-the-constitution-changed-over-time.webp)
 
 Since 1974, Malta's Constitution has been updated many times to make it better and more modern. Here are some of the most important changes:
 
