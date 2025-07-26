@@ -76,11 +76,11 @@ export default component$(() => {
           <div class="bg-white rounded-xl shadow-lg p-8 sm:p-12">
             <blockquote class="text-center">
               <p class="text-2xl sm:text-3xl font-medium text-gray-800 mb-6 italic leading-relaxed">
-                "The most important political office is that of the private
-                citizen."
+                "A man that knows what self-respect is will never ask in
+                pleading tones for what he is entitled to."
               </p>
               <cite class="text-lg text-primary-500 font-semibold not-italic">
-                — Louis Brandeis
+                — Manwel Dimech
               </cite>
             </blockquote>
           </div>
