@@ -2,7 +2,7 @@
 
 ## When Malta Was Ruled by Others
 
-![When Malta Was Ruled By Others](../../images/history/when-malta-was-ruled-by-others.png)
+![When Malta Was Ruled By Others](../../images/history/when-malta-was-ruled-by-others.webp)
 
 Malta's constitutional development must be understood within the broader context of its unique geopolitical position and the complex interplay of local identity formation with imperial strategic interests. The archipelago's location at the crossroads of the Mediterranean made it a perpetual target for successive powers, creating a distinctive pattern of external domination that paradoxically fostered rather than suppressed national consciousness.
 
@@ -24,7 +24,7 @@ The persistence of this linguistic struggle through the 19th and early 20th cent
 
 ## The Fight for Independence
 
-![The Fight for Independence](../../images/history/the-fight-for-independence.png)
+![The Fight for Independence](../../images/history/the-fight-for-independence.webp)
 
 Malta's path to independence was characterized by a complex dialectic between imperial strategic requirements, local political development, and international pressures, resulting in a distinctive pattern of constitutional experimentation that ultimately produced sophisticated democratic institutions.
 
@@ -62,7 +62,7 @@ The gradual convergence on independence reflected both international decolonizat
 
 ## A New Constitution
 
-![A New Constitution](../../images/history/a-new-constitution.png)
+![A New Constitution](../../images/history/a-new-constitution.webp)
 
 Malta's achievement of independence on September 21, 1964, represented the culmination of over a century of constitutional experimentation and the emergence of a distinctly Maltese approach to democratic governance that balanced local traditions with contemporary international standards.
 
@@ -95,7 +95,7 @@ The constitutional settlement also reflected lessons learned from other small st
 
 ## How We Became a Republic
 
-![How We Became a Republic](../../images/history/how-we-became-a-republic.png)
+![How We Became a Republic](../../images/history/how-we-became-a-republic.webp)
 
 The transition from constitutional monarchy to republic in 1974 represented not merely ceremonial change but a fundamental assertion of popular sovereignty and the culmination of decolonization that had begun with independence.
 
@@ -136,7 +136,7 @@ Malta's non-aligned foreign policy positioned it as a bridge between different C
 
 ## How the Constitution Changed Over Time
 
-![How the Constitution Changed Over Time](../../images/history/how-the-constitution-changed-over-time.png)
+![How the Constitution Changed Over Time](../../images/history/how-the-constitution-changed-over-time.webp)
 
 Since achieving republican status in 1974, Malta's Constitution has undergone continuous evolution, demonstrating remarkable adaptability while maintaining core democratic principles. This pattern of incremental constitutional development reflects Malta's pragmatic approach to governance and its integration into broader international legal and political frameworks.
 

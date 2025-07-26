@@ -28,7 +28,7 @@ export const CHAPTERS: Chapter[] = [
       "constitutional foundations",
       "republicanism",
     ],
-    heroImage: "/images/chapters/1.png",
+    heroImage: "/images/chapters/1.webp",
     articleCount: 6,
   },
   {
@@ -56,7 +56,7 @@ export const CHAPTERS: Chapter[] = [
       "public policy",
       "social cohesion",
     ],
-    heroImage: "/images/chapters/2.png",
+    heroImage: "/images/chapters/2.webp",
     articleCount: 15,
   },
   {
@@ -83,7 +83,7 @@ export const CHAPTERS: Chapter[] = [
       "legal identity",
       "migration",
     ],
-    heroImage: "/images/chapters/3.png",
+    heroImage: "/images/chapters/3.webp",
     articleCount: 4,
   },
   {
@@ -117,7 +117,7 @@ export const CHAPTERS: Chapter[] = [
       "fair trial",
       "habeas corpus",
     ],
-    heroImage: "/images/chapters/4.png",
+    heroImage: "/images/chapters/4.webp",
     articleCount: 16,
   },
   {
@@ -143,7 +143,7 @@ export const CHAPTERS: Chapter[] = [
       "appointments",
       "constitutional guardian",
     ],
-    heroImage: "/images/chapters/5.png",
+    heroImage: "/images/chapters/5.webp",
     articleCount: 8,
   },
   {
@@ -174,7 +174,7 @@ export const CHAPTERS: Chapter[] = [
       "Speaker",
       "parliamentary committees",
     ],
-    heroImage: "/images/chapters/6.png",
+    heroImage: "/images/chapters/6.webp",
     articleCount: 12,
   },
   {
@@ -202,7 +202,7 @@ export const CHAPTERS: Chapter[] = [
       "policy implementation",
       "executive leadership",
     ],
-    heroImage: "/images/chapters/7.png",
+    heroImage: "/images/chapters/7.webp",
     articleCount: 10,
   },
   {
@@ -233,7 +233,7 @@ export const CHAPTERS: Chapter[] = [
       "judicial process",
       "legal proceedings",
     ],
-    heroImage: "/images/chapters/8.png",
+    heroImage: "/images/chapters/8.webp",
     articleCount: 8,
   },
   {
@@ -262,7 +262,7 @@ export const CHAPTERS: Chapter[] = [
       "public expenditure",
       "consolidated fund",
     ],
-    heroImage: "/images/chapters/9.png",
+    heroImage: "/images/chapters/9.webp",
     articleCount: 6,
   },
   {
@@ -289,7 +289,7 @@ export const CHAPTERS: Chapter[] = [
       "administrative service",
       "government workforce",
     ],
-    heroImage: "/images/chapters/10.png",
+    heroImage: "/images/chapters/10.webp",
     articleCount: 5,
   },
   {
@@ -316,7 +316,7 @@ export const CHAPTERS: Chapter[] = [
       "grassroots democracy",
       "civic participation",
     ],
-    heroImage: "/images/chapters/10A.png",
+    heroImage: "/images/chapters/10A.webp",
     articleCount: 4,
   },
   {
@@ -339,7 +339,7 @@ export const CHAPTERS: Chapter[] = [
       "framework provisions",
       "constitutional technicalities",
     ],
-    heroImage: "/images/chapters/11.png",
+    heroImage: "/images/chapters/11.webp",
     articleCount: 6,
   },
 ];

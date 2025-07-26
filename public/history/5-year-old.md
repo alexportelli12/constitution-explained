@@ -2,7 +2,7 @@
 
 ## When Malta Was Ruled by Others 🏰
 
-![When Malta Was Ruled By Others](../../images/history/when-malta-was-ruled-by-others.png)
+![When Malta Was Ruled By Others](../../images/history/when-malta-was-ruled-by-others.webp)
 
 Long, long ago, Malta was a small island in the big blue sea 🌊. Many different people came to live here and be the boss of Malta.
 
@@ -14,7 +14,7 @@ The people who were born in Malta - the Maltese people - started to feel like th
 
 ## The Fight for Independence 🏁
 
-![The Fight for Independence](../../images/history/the-fight-for-independence.png)
+![The Fight for Independence](../../images/history/the-fight-for-independence.webp)
 
 As the Maltese people grew up, they said "We want to make our own rules! We want to choose our own leaders!" 💪 This made some people very excited, but it took a long time to happen.
 
@@ -26,7 +26,7 @@ A very important man named **George Borg Olivier** worked very hard to help Malt
 
 ## A New Constitution 📋
 
-![A New Constitution](../../images/history/a-new-constitution.png)
+![A New Constitution](../../images/history/a-new-constitution.webp)
 
 On September 21, 1964, something very special happened. Malta became its own country! 🇲🇹 This day is called Independence Day, and we still celebrate it every year with fireworks 🎆 and parades 🎪.
 
@@ -38,7 +38,7 @@ Our first Prime Minister was George Borg Olivier - he was like the most importan
 
 ## How We Became a Republic 🏛️
 
-![How We Became a Republic](../../images/history/how-we-became-a-republic.png)
+![How We Became a Republic](../../images/history/how-we-became-a-republic.webp)
 
 After Malta was independent for 10 years, another important man named **Dom Mintoff** became the leader. He said "We don't want to have a Queen anymore. We want Malta to choose its own President!" 🗳️
 
@@ -50,7 +50,7 @@ We still stayed friends with other countries 🌍, but now we were completely fr
 
 ## How the Constitution Changed Over Time ⏰
 
-![How the Constitution Changed Over Time](../../images/history/how-the-constitution-changed-over-time.png)
+![How the Constitution Changed Over Time](../../images/history/how-the-constitution-changed-over-time.webp)
 
 Just like how you grow up and need different rules as you get bigger 📏, Malta's Constitution has changed many times to make it better!
 

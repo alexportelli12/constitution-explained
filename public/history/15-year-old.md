@@ -2,7 +2,7 @@
 
 ## When Malta Was Ruled by Others
 
-![When Malta Was Ruled By Others](../../images/history/when-malta-was-ruled-by-others.png)
+![When Malta Was Ruled By Others](../../images/history/when-malta-was-ruled-by-others.webp)
 
 Malta's strategic position in the central Mediterranean has made it a coveted prize throughout history, leading to a complex pattern of foreign domination that profoundly shaped its constitutional development. The modern Maltese identity emerged from this crucible of external influences, creating a unique national character that would later drive demands for self-governance.
 
@@ -20,7 +20,7 @@ The 19th century "Language Question" was more than linguistic policy - it was a 
 
 ## The Fight for Independence
 
-![The Fight for Independence](../../images/history/the-fight-for-independence.png)
+![The Fight for Independence](../../images/history/the-fight-for-independence.webp)
 
 The path to independence was marked by cycles of constitutional progress and regression, shaped by imperial strategic interests, local political development, and international crises.
 
@@ -46,7 +46,7 @@ The failed integration referendum of 1956 (77% support but low turnout due to Na
 
 ## A New Constitution
 
-![A New Constitution](../../images/history/a-new-constitution.png)
+![A New Constitution](../../images/history/a-new-constitution.webp)
 
 Malta's independence in 1964 represented the culmination of over a century of constitutional evolution and the emergence of a distinctly Maltese approach to governance.
 
@@ -70,7 +70,7 @@ The 1964 Constitution was groundbreaking in several ways. Unlike many independen
 
 ## How We Became a Republic
 
-![How We Became a Republic](../../images/history/how-we-became-a-republic.png)
+![How We Became a Republic](../../images/history/how-we-became-a-republic.webp)
 
 The transition to republican status reflected changing geopolitical realities and the evolution of Maltese national consciousness.
 
@@ -99,7 +99,7 @@ However, when the Nationalists returned to power in 1987, they chose to "consoli
 
 ## How the Constitution Changed Over Time
 
-![How the Constitution Changed Over Time](../../images/history/how-the-constitution-changed-over-time.png)
+![How the Constitution Changed Over Time](../../images/history/how-the-constitution-changed-over-time.webp)
 
 Malta's Constitution has undergone continuous evolution since 1974, reflecting the country's adaptation to changing domestic needs and international obligations.
 

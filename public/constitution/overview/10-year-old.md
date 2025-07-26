@@ -4,7 +4,7 @@ The Constitution is Malta’s super important instruction manual 🧭. It tells 
 
 ## What’s inside?
 
-![Filing Cabinet Illustration](../../images/filing-cabinet.png)
+![Filing Cabinet Illustration](../../images/filing-cabinet.webp)
 
 - A list of **fundamental rights** ✅ (like being treated equally, freedom of religion 🙏, and the right to a fair trial ⚖️)
 - Rules for **how leaders are chosen** 🗳️
@@ -19,7 +19,7 @@ The Constitution is Malta’s super important instruction manual 🧭. It tells 
 
 ## Why it matters:
 
-![Maltese Citizens Illustration](../../images/maltese-citizens.png)
+![Maltese Citizens Illustration](../../images/maltese-citizens.webp)
 
 - It helps protect everyone’s rights ✋
 - It makes sure leaders don’t break the rules 🚫

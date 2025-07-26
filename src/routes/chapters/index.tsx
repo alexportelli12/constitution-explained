@@ -70,7 +70,7 @@ export const head: DocumentHead = {
     },
     {
       property: "og:image",
-      content: "https://constitutionofmalta.com/images/valletta-skyline.png",
+      content: "https://constitutionofmalta.com/images/valletta-skyline.webp",
     },
   ],
 };

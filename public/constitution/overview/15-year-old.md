@@ -8,7 +8,7 @@ The Constitution is the **supreme law** of Malta 📜 — it’s like the founda
 - **124 Articles** ✒️ covering rights, laws, and institutions
 - **4 Schedules** 📄 with official oaths and lists
 
-![Scroll Articles Illustration](../../images/scroll-articles.png)
+![Scroll Articles Illustration](../../images/scroll-articles.webp)
 
 ## What does it cover?
 
@@ -33,7 +33,7 @@ The Constitution is the **supreme law** of Malta 📜 — it’s like the founda
 4. **Voting & Representation** 🗳️  
    Uses the **Single Transferable Vote (STV)** so everyone’s vote counts fairly.
 
-![Single Transferable Vote Illustration](../../images/single-transferable-vote.png)
+![Single Transferable Vote Illustration](../../images/single-transferable-vote.webp)
 
 5. **Independent Judiciary** ⚖️  
    Judges can’t be removed easily. Courts make sure laws are fair and followed.

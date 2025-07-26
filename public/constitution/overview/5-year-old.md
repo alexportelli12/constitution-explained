@@ -4,7 +4,7 @@ The Constitution is like the biggest rulebook 📖 Malta has! It tells everyone 
 
 ## Fun Facts:
 
-![Constitution Scroll Illustration](../../images/constitution-scroll.png)
+![Constitution Scroll Illustration](../../images/constitution-scroll.webp)
 
 - It has different chapters 📚, just like storybooks.
 - It says what our flag 🚩 and national song 🎵 are.
@@ -16,7 +16,7 @@ The Constitution is like the biggest rulebook 📖 Malta has! It tells everyone 
 - Your right to talk and play freely 🎈
 - Your right to be treated kindly and fairly 💕
 
-![Children Rights Illustration](../../images/children-rights.png)
+![Children Rights Illustration](../../images/children-rights.webp)
 
 ## Why it matters:
 

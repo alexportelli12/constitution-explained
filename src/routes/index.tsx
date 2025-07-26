@@ -49,7 +49,7 @@ export default component$(() => {
             </div>
             <div class="relative">
               <HeroImage
-                src="/images/valletta-skyline.png"
+                src="/images/valletta-skyline.webp"
                 alt="Valletta Skyline - Malta's Historic Capital"
                 fallbackText="Malta's Constitutional Heritage"
                 gradientColors="from-blue-100 to-blue-50"
@@ -122,7 +122,7 @@ export const head: DocumentHead = {
     },
     {
       property: "og:image",
-      content: "https://constitutionofmalta.com/images/valletta-skyline.png",
+      content: "https://constitutionofmalta.com/images/valletta-skyline.webp",
     },
     {
       name: "viewport",
