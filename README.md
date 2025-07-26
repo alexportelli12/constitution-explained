@@ -129,11 +129,21 @@ Current testing approach is manual QA with automated unit/component testing plan
 
 ## 🚀 Deployment
 
+### Firebase Hosting
+
 ```bash
 # Deploy to Firebase
 firebase login
 firebase deploy
 ```
+
+### Static Site Generator (Node.js)
+
+```bash
+npm run build.server
+```
+
+**Cache Configuration**: Configure your server to serve very long cache headers for the `build/**/*.js` files. Typically you'd set the `Cache-Control` header for those files to `public, max-age=31536000, immutable`.
 
 Supports single-page app routing and Markdown chapter hosting via static files.
 
@@ -167,12 +177,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
   <strong>Built with ⚡️ Qwik • Powered by 🔥 Firebase • Designed for 🇲🇹 citizens</strong>
 </p>
 
-## Static Site Generator (Node.js)
-
-Be sure to configure your server to serve very long cache headers for the `build/**/*.js` files.
-
-Typically you'd set the `Cache-Control` header for those files to `public, max-age=31536000, immutable`.
-
-```shell
-npm run build.server
-```
