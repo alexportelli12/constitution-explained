@@ -74,7 +74,7 @@ export const head: DocumentHead = {
     {
       name: "keywords",
       content:
-        "Malta constitutional history, Malta independence 1964, Malta republic 1974, British colonial rule, Malta Constitution timeline, constitutional evolution, Malta historical development, George Borg Olivier, Dom Mintoff, constitutional amendments, Malta democracy",
+        "Malta constitutional history, Malta independence 1964, Malta republic 1974, British colonial rule, Constitution of Malta timeline, constitutional evolution, Malta historical development, George Borg Olivier, Dom Mintoff, constitutional amendments, Malta democracy",
     },
     {
       property: "og:title",

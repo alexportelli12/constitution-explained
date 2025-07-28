@@ -43,7 +43,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Browse Malta Constitution Chapters",
+  title: "Browse Constitution of Malta Chapters",
   meta: [
     {
       name: "description",
@@ -53,7 +53,7 @@ export const head: DocumentHead = {
     {
       name: "keywords",
       content:
-        "Malta Constitution chapters, constitutional law, civic education, democracy, government structure, fundamental rights, freedoms, judiciary, parliament, president, executive power, public service, local councils, citizenship, Malta law, constitutional democracy, rule of law, civil liberties, human rights, legal framework, Malta government",
+        "Constitution of Malta chapters, constitutional law, civic education, democracy, government structure, fundamental rights, freedoms, judiciary, parliament, president, executive power, public service, local councils, citizenship, Malta law, constitutional democracy, rule of law, civil liberties, human rights, legal framework, Malta government",
     },
     {
       property: "og:title",

@@ -180,7 +180,7 @@ export const head: DocumentHead = ({ resolveValue, params }) => {
     : `Learn about Chapter ${params.chapter} of Malta's Constitution with age-appropriate explanations for all ages.`;
 
   return {
-    title: `Chapter ${params.chapter}: ${chapterTitle} | Malta Constitution Explained`,
+    title: `Chapter ${params.chapter}: ${chapterTitle} | Constitution of Malta`,
     meta: [
       {
         name: "description",
@@ -188,11 +188,11 @@ export const head: DocumentHead = ({ resolveValue, params }) => {
       },
       {
         name: "keywords",
-        content: `Malta Constitution, Chapter ${params.chapter}, ${chapterTitle}, ${chapterData.chapterMeta?.tags.join(", ") || "constitutional law, civic education"}, Malta law, constitutional democracy, civic education, age-appropriate learning, constitutional literacy`,
+        content: `Constitution of Malta, Chapter ${params.chapter}, ${chapterTitle}, ${chapterData.chapterMeta?.tags.join(", ") || "constitutional law, civic education"}, Malta law, constitutional democracy, civic education, age-appropriate learning, constitutional literacy`,
       },
       {
         property: "og:title",
-        content: `Chapter ${params.chapter}: ${chapterTitle} | Malta Constitution`,
+        content: `Chapter ${params.chapter}: ${chapterTitle} | Constitution of Malta`,
       },
       {
         property: "og:description",
@@ -216,7 +216,7 @@ export const head: DocumentHead = ({ resolveValue, params }) => {
         name: "article:tag",
         content:
           chapterData.chapterMeta?.tags.slice(0, 5).join(", ") ||
-          "Malta Constitution",
+          "Constitution of Malta",
       },
     ],
   };

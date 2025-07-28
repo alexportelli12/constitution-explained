@@ -74,7 +74,7 @@ export const head: DocumentHead = {
     {
       name: "keywords",
       content:
-        "Malta Constitution overview, constitutional law, civic education, democracy, Malta government, constitutional principles, fundamental law, democratic governance, constitutional literacy, Malta legal framework, rule of law, constitutional democracy, civic learning",
+        "Constitution of Malta overview, constitutional law, civic education, democracy, Malta government, constitutional principles, fundamental law, democratic governance, constitutional literacy, Malta legal framework, rule of law, constitutional democracy, civic learning",
     },
     {
       property: "og:title",

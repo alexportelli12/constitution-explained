@@ -94,7 +94,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Malta Constitution Explained - For All Ages",
+  title: "Constitution of Malta Explained - For All Ages",
   meta: [
     {
       name: "description",
@@ -104,7 +104,7 @@ export const head: DocumentHead = {
     {
       name: "keywords",
       content:
-        "Malta Constitution, constitutional education, civic education, democracy, constitutional rights, open source",
+        "Constitution of Malta, constitutional education, civic education, democracy, constitutional rights, open source",
     },
     {
       property: "og:title",

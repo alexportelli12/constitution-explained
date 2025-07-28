@@ -8,17 +8,16 @@ export default component$(() => {
       <div class="max-w-md w-full text-center">
         {/* Icon */}
         <BookOpenIcon class="w-24 h-24 mx-auto text-primary-500 mb-8" />
-        
+
         {/* Heading */}
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">
-          Page Not Found
-        </h1>
-        
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">Page Not Found</h1>
+
         {/* Description */}
         <p class="text-lg text-gray-600 mb-8">
-          The page you're looking for doesn't exist. Let's get you back to learning about Malta's Constitution.
+          The page you're looking for doesn't exist. Let's get you back to
+          learning about Malta's Constitution.
         </p>
-        
+
         {/* CTAs */}
         <div class="space-y-4">
           <a
@@ -28,7 +27,7 @@ export default component$(() => {
             <HomeIcon class="w-5 h-5 mr-2" />
             Go Home
           </a>
-          
+
           <a
             href="/chapters"
             class="w-full flex items-center justify-center px-6 py-3 border-2 border-primary-500 text-primary-500 rounded-lg font-semibold hover:bg-primary-50 transition-colors"
@@ -36,7 +35,7 @@ export default component$(() => {
             <SearchIcon class="w-5 h-5 mr-2" />
             Browse Chapters
           </a>
-          
+
           <a
             href="/overview"
             class="w-full flex items-center justify-center px-6 py-3 text-gray-600 hover:text-gray-800 transition-colors"
@@ -44,7 +43,7 @@ export default component$(() => {
             Learn About the Constitution
           </a>
         </div>
-        
+
         {/* Help text */}
         <p class="text-sm text-gray-500 mt-8">
           Looking for something specific? Try starting from our{" "}
@@ -63,11 +62,11 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Page Not Found - Malta Constitution",
+  title: "Page Not Found - Constitution of Malta",
   meta: [
     {
       name: "description",
-      content: "Page not found. Return to Malta Constitution learning.",
+      content: "Page not found. Return to Constitution of Malta learning.",
     },
     {
       name: "robots",
